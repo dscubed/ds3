@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --theme: #000;
+    --background: #FFF;
+    --background-secondary: #F8F8F8;
+    --foreground: #000;
+    --btn-background: #FFF;
+    --btn-background-hover: #FAFAFA;
+    --border: #DFDFDf;
+    --outline-border: #999;
+    --text-primary: #000;
+    --text-secondary: #999;
+    --shimmer-highlight: #FFFFFF80;
+    --avatar-background: #EEE;
+    --menu-background: #FFF;
+    --menu-background-hover: #EEE;
+    --menu-background-hover: #EEE;
+    --error-text: #ff0d2d;
+    --error-background: #ff0d2d0A;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --theme: #FFF;
+      --background: #222;
+      --background-secondary: #181818;
+      --foreground: #FFF;
+      --btn-background: #222;
+      --btn-background-hover: #282828;
+      --border: #333;
+      --outline-border: #666;
+      --text-primary: #FFF;
+      --text-secondary: #666;
+      --shimmer-highlight: #FFFFFF1E;
+      --avatar-background: #333;
+      --menu-background: #222;
+      --menu-background-hover: #333;
+      --error-text: #df0925;
+      --error-background: #df092511;
+    }
+  }
+
+  html {
+    font-size: 14px;
+  }
+}
+
+@layer components {
+  /* Loading animation */
+  /* Parent element with the effect must also have the following properties: */
+  /* relative overflow-hidden */
+  .shimmer {
+    @apply before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-shimmer-highlight before:to-transparent;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .shimmer {
+      @apply before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-shimmer-highlight before:to-transparent;
+    }
+  }
+}
