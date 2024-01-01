@@ -15,10 +15,28 @@ class Pixel {
     this.state = 1 // On or off
     this.domNode = document.createElement('div')
     this.domNode.classList.add('pixel')
+    this.domNode.dataset.x = x
+    this.domNode.dataset.y = y
 
     if (showCoordinate) {
       this.domNode.textContent = x + ',' + y
     }
+
+    // Fade pixels in and out periodically
+    this.fadeId = setInterval(() => {
+      this.domNode.style.transition = 'opacity 0.2s'
+      this.domNode.style.opacity = 0
+    }, Math.round((5 + Math.random() * 20) * 1000))
+
+    this.showId = setInterval(() => {
+      this.domNode.style.transition = 'opacity 0.2s'
+      this.domNode.style.opacity = 1
+    }, Math.round((5 +Math.random() * 20) * 1000))
+  }
+
+  removeInterval () {
+    clearInterval(this.fadeId)
+    clearInterval(this.showId)
   }
 
   setState (state) {
@@ -32,12 +50,15 @@ class Pixel {
 }
 
 export default class Matrix {
-  constructor (selector, action = null, showCoordinate = false) {
+  constructor (selector, showCoordinate = false) {
     this.gridSizeX = -1
     this.gridSizeY = -1
     this.pixels = []
     this.resizeCallbacks = []
     this.showCoordinate = showCoordinate
+    this.mouseX = 0
+    this.mouseY = 0
+    this.mouseMove = false
 
     this.rootDomNode = document.querySelector(selector)
     this.rootDomNode.classList.add('matrix')
@@ -47,13 +68,7 @@ export default class Matrix {
     this.gridDomNode.classList.add('matrix-grid')
     this.rootDomNode.appendChild(this.gridDomNode)
 
-    this.initGrid()
-
-    // Run action on load and on window resize
-    if (action) {
-      action(this)
-      this.onResize(action)
-    }
+    this.createGrid()
 
     // Check if the grid needs to be updated on window resize:
     // Only update the grid if the new grid is of a different size
@@ -61,11 +76,42 @@ export default class Matrix {
       const [newSizeX, newSizeY] = this.calcGridSize()
       if (!(newSizeX === this.gridSizeX && newSizeY === this.gridSizeY)) {
         this.resetGrid()
-        this.initGrid()
+        this.createGrid()
         this.resizeCallbacks.forEach(callback => {
           callback(this)
         })
       }
+    })
+
+    // Get mouse position on grid
+    window.addEventListener('mouseover', event => {
+      const domNode = event.target
+      if (domNode.classList.contains('pixel')) {
+        this.mouseX = Number(domNode.dataset.x)
+        this.mouseY = Number(domNode.dataset.y)
+        this.mouseMove = true
+      }
+    })
+  }
+
+  setup (callback) {
+    callback(this)
+  }
+
+  update (callback) {
+    // Event loop
+    setInterval(() => callback(this), 10)
+
+    // Call update on window resize to avoid flickering
+    this.onResize(() => callback(this))
+
+    this.mouseMove = false
+  }
+
+  // Reset pixels to off state
+  clear () {
+    this.pixels.forEach(pixel => {
+      pixel.setState(0)
     })
   }
 
@@ -80,7 +126,7 @@ export default class Matrix {
     }
   }
 
-  initGrid () {
+  createGrid () {
     [this.gridSizeX, this.gridSizeY] = this.calcGridSize()
     this.gridDomNode.style.gridTemplateColumns = `repeat(${this.gridSizeX}, ${PIXEL_SIZE[0]}px)`
     this.gridDomNode.style.gridTemplateRows = `repeat(${this.gridSizeY}, ${PIXEL_SIZE[1]}px)`
@@ -98,6 +144,7 @@ export default class Matrix {
     // Remove any previous pixels
     this.pixels.forEach(item => {
       item.domNode.remove()
+      item.removeInterval()
     })
     this.pixels = []
   }
@@ -114,10 +161,19 @@ export default class Matrix {
     return [x, y]
   }
 
-  setPixelState (x, y, state) {
+  setPixel (x, y, state, invert = false) {
     this.pixels.some(item => {
       if (x === item.x && y === item.y) {
-        item.setState(state)
+        if (invert) {
+          // With invert = True, turning on a pixel that is already on will turn it off
+          // This allows two overlapping image to be visible when rendered
+          item.setState(item.state ? 0 : 1)
+        } else {
+          item.setState(state)
+        }
+        // Show pixel immediately when its state changes
+        item.domNode.style.transition = 'none'
+        item.domNode.style.opacity = 1
         return true
       }
     })
@@ -153,7 +209,7 @@ export default class Matrix {
       char.font.forEach((line, pixelY) => {
         line.forEach((pixel, pixelX) => {
           if (pixel === 1) {
-            this.setPixelState(pixelX + x, pixelY + y, 1)
+            this.setPixel(pixelX + x, pixelY + y, 1, true)
           }
         })
       })
@@ -165,7 +221,7 @@ export default class Matrix {
     })
   }
 
-  // Display text in the center
+  // Display text in the middle of the grid
   display (str) {
     const data = this.translate(str)
     const x = Math.round((this.gridSizeX - data.lineWidth) / 2)
@@ -180,7 +236,7 @@ export default class Matrix {
     for (let y = -radius; y <= radius; y++) {
       for (let x = -radius; x <= radius; x++) {
         if(x * x + y * y <= radius * radius - 1) {
-          this.setPixelState(ox + x, oy + y, 1)
+          this.setPixel(ox + x, oy + y, 1)
         }
       }
     }

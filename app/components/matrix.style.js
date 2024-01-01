@@ -26,10 +26,6 @@ export default function setMatrixStyle ({ gap }) {
       cursor: pointer;
     }
 
-    .pixel:hover {
-      background: var(--text-primary);
-    }
-
     .pixel.on {
       background: var(--text-primary);
     }
