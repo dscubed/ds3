@@ -22,7 +22,7 @@ export default function setMatrixStyle ({ gap }) {
       height: 100%;
       background: var(--background);
       border-radius: 5px;
-      transition: background 0.1s;
+      transition: background 0.1s, opacity 0.1s;
       cursor: pointer;
     }
 

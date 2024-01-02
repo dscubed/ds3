@@ -17,35 +17,44 @@ class Pixel {
     this.domNode.classList.add('pixel')
     this.domNode.dataset.x = x
     this.domNode.dataset.y = y
+    this.onStateChangeCallbacks = []
+    this.onDeleteCallbacks = []
 
     if (showCoordinate) {
       this.domNode.textContent = x + ',' + y
     }
-
-    // Fade pixels in and out periodically
-    this.fadeId = setInterval(() => {
-      this.domNode.style.transition = 'opacity 0.2s'
-      this.domNode.style.opacity = 0
-    }, Math.round((5 + Math.random() * 20) * 1000))
-
-    this.showId = setInterval(() => {
-      this.domNode.style.transition = 'opacity 0.2s'
-      this.domNode.style.opacity = 1
-    }, Math.round((5 +Math.random() * 20) * 1000))
   }
 
-  removeInterval () {
-    clearInterval(this.fadeId)
-    clearInterval(this.showId)
+  onStateChange (callback) {
+    this.onStateChangeCallbacks.push(callback)
   }
 
-  setState (state) {
+  removeOnStateChange (callback) {
+    const index = this.onStateChangeCallbacks.indexOf(callback)
+    this.onStateChangeCallbacks.splice(index, 1)
+  }
+
+  removeOnStateChange (callback) {
+    const index = this.onStateChangeCallbacks.indexOf(callback)
+    this.onStateChangeCallbacks.splice(index, 1)
+  }
+
+  set (state, color = '') {
     this.state = state
     if (state === 1) {
       this.domNode.classList.add('on')
     } else {
       this.domNode.classList.remove('on')
     }
+    this.domNode.style.background = color
+
+    this.onStateChangeCallbacks.forEach(callback => {
+      callback(this)
+    })
+  }
+
+  delete () {
+    this.domNode.remove()
   }
 }
 
@@ -111,7 +120,7 @@ export default class Matrix {
   // Reset pixels to off state
   clear () {
     this.pixels.forEach(pixel => {
-      pixel.setState(0)
+      pixel.set(0)
     })
   }
 
@@ -142,10 +151,7 @@ export default class Matrix {
 
   resetGrid () {
     // Remove any previous pixels
-    this.pixels.forEach(item => {
-      item.domNode.remove()
-      item.removeInterval()
-    })
+    this.pixels.forEach(item => item.delete())
     this.pixels = []
   }
 
@@ -172,19 +178,16 @@ export default class Matrix {
     return [gridX, gridY]
   }
 
-  setPixel (x, y, state, invert = false) {
-    this.pixels.some(item => {
-      if (x === item.x && y === item.y) {
+  setPixel (x, y, state, color = '', invert = false) {
+    this.pixels.some(pixel => {
+      if (x === pixel.x && y === pixel.y) {
         if (invert) {
           // With invert = True, turning on a pixel that is already on will turn it off
           // This allows two overlapping image to be visible when rendered
-          item.setState(item.state ? 0 : 1)
+          pixel.set(pixel.state ? 0 : 1, color)
         } else {
-          item.setState(state)
+          pixel.set(state, color)
         }
-        // Show pixel immediately when its state changes
-        item.domNode.style.transition = 'none'
-        item.domNode.style.opacity = 1
         return true
       }
     })
@@ -220,7 +223,7 @@ export default class Matrix {
       char.font.forEach((line, pixelY) => {
         line.forEach((pixel, pixelX) => {
           if (pixel === 1) {
-            this.setPixel(pixelX + x, pixelY + y, 1, true)
+            this.setPixel(pixelX + x, pixelY + y, 1, '', true)
           }
         })
       })
@@ -243,11 +246,11 @@ export default class Matrix {
   // Draw filled circles
   // https://stackoverflow.com/questions/1201200/fast-algorithm-for-drawing-filled-circles
   // Answer by palm3D
-  circle (ox, oy, radius) {
+  circle (ox, oy, radius, color = '') {
     for (let y = -radius; y <= radius; y++) {
       for (let x = -radius; x <= radius; x++) {
         if(x * x + y * y <= radius * radius - 1) {
-          this.setPixel(ox + x, oy + y, 1)
+          this.setPixel(ox + x, oy + y, 1, color)
         }
       }
     }

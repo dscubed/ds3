@@ -14,6 +14,7 @@ class Trail {
         this.radius--
       }
     }, 100)
+    this.color = '#' + Math.floor(Math.random()*16777215).toString(16) 
   }
 
   removeInterval () {
@@ -28,20 +29,40 @@ export default function Index() {
     matrix.setup(mtx => {
       mtx.trails = []
 
+      mtx.pixels.forEach(pixel => {
+        pixel.onStateChange(() => {
+          // Show pixel if it is set to 'on' state
+          // unless it is hidden by on-scroll animation
+          if (pixel.state === 1 && pixel.isFaded && !pixel.isHidden) {
+            pixel.domNode.style.opacity = '1'
+          }
+        })
+
+        const fadeOutId = setInterval(() => {
+          if (pixel.state === 0 && !pixel.isFaded && !pixel.isHidden) {
+            pixel.isFaded = true
+            pixel.domNode.style.opacity = '0.5'
+          }
+        }, 1 + Math.random() * 1000 * 10)
+
+        const fadeInId = setInterval(() => {
+          if (pixel.state === 0 && pixel.isFaded && !pixel.isHidden) {
+            pixel.isFaded = false
+            pixel.domNode.style.opacity = '1'
+          }
+        }, 5 + Math.random() * 1000 * 10)
+
+        const _delete = pixel.delete.bind(pixel)
+        pixel.delete = () => {
+          _delete()
+          clearInterval(fadeInId)
+          clearInterval(fadeOutId)
+        }
+      })
+
       window.addEventListener('mousemove', event => {
         const distance = Math.sqrt(event.movementX**2 + event.movementY**2)
         mtx.trails.push(new Trail(mtx.mouseX, mtx.mouseY, distance))
-      })
-
-      window.addEventListener('click', event => {
-        mtx.pixels.forEach(pixel => {
-          setTimeout(() => {
-            pixel.domNode.style.background = 'blue'
-            setTimeout(() => {
-              pixel.domNode.style.background = ''
-            }, Math.random() * 500)
-          }, Math.random() * 500) // Random delay between 100ms and 1100ms
-        })
       })
       
       /* 
@@ -75,7 +96,7 @@ export default function Index() {
           const [, gridY] = mtx.screenToGridPos(0, window.scrollY)
 
           // We want to fade pixels when scrolling down and show pixels when up
-          const targetTransparency = prevScollY < window.scrollY ? '' : 'transparent'
+          const isHiddenFilter = prevScollY < window.scrollY ? false : true
 
           mtx.pixels.forEach(pixel => {
             const margin = Math.round(Math.random() * 3)
@@ -85,7 +106,11 @@ export default function Index() {
                 ? pixel.y < gridY + margin 
                 : pixel.y > gridY + margin
 
-            if (pixel.domNode.style.background === targetTransparency && isNearWindowTop) {
+            if (pixel.isHidden === undefined) {
+              pixel.isHidden = false
+            }
+
+            if (pixel.isHidden === isHiddenFilter && isNearWindowTop) {
               // Skip if pixel already has a ongoing time delay
               // UNLESS the user has scrolled to the top because there is no next event callback
               if (pixel.pendingTimeout && !isScrollTop) {
@@ -106,9 +131,13 @@ export default function Index() {
                 }
     
                 if (Math.random() < likelihood) {
-                  pixel.domNode.style.background = scrollDelta > 0 
-                    ? 'transparent' 
+                  pixel.domNode.style.opacity = scrollDelta > 0 
+                    ? '0' 
                     : ''
+
+                  pixel.isHidden = scrollDelta > 0 
+                    ? true
+                    : false
                 }
                 
                 pixel.pendingTimeout = false
@@ -137,7 +166,7 @@ export default function Index() {
         }
 
         // Render trails
-        mtx.circle(trail.x, trail.y, trail.radius)
+        mtx.circle(trail.x, trail.y, trail.radius, trail.color)
       }
 
       mtx.display('ds3')
