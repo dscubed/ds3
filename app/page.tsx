@@ -18,7 +18,7 @@ class Trail {
     this.color = '#' + Math.floor(Math.random()*16777215).toString(16) 
   }
 
-  removeInterval () {
+  delete () {
     clearInterval(this.id)
   }
 }
@@ -179,7 +179,7 @@ export default function Index() {
 
         // Remove old trails
         if (trail.radius === 0) {
-          trail.removeInterval()
+          trail.delete()
           mtx.trails.splice(i, 1)
           continue
         }
