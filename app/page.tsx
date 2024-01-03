@@ -57,11 +57,11 @@ function setupShimmer (mtx) {
   })
 }
 
+watchInterval()
+watchTimeout()
+
 export default function Index() {
   useEffect(() => {
-    watchInterval()
-    watchTimeout()
-
     const matrix = new Matrix('#matrix')
 
     function mouseMoveCallback (event) {
