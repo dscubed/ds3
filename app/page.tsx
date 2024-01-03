@@ -2,7 +2,7 @@
 import Navbar from "@/app/components/Navbar"
 import Matrix from "@/app/components/matrix"
 import { useEffect } from "react"
-import { mapToRange } from '@/app/lib/utils'
+import { mapToRange, useEffectOnce } from '@/app/lib/utils'
 import { watchTimeout, watchInterval } from '@/app/lib/performance'
 
 class Trail {
@@ -61,7 +61,7 @@ watchInterval()
 watchTimeout()
 
 export default function Index() {
-  useEffect(() => {
+  useEffectOnce(() => {
     const matrix = new Matrix('#matrix')
 
     function mouseMoveCallback (event) {

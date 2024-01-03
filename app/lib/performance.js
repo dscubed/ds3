@@ -1,3 +1,6 @@
+// Warning: interval or timeout counters may not be 100% accurate if they were added
+// before watchInterval() or watchTimeout() is called.
+
 // Return number of active intervals
 
 export function watchInterval () {
@@ -16,7 +19,7 @@ export function watchInterval () {
   }
 
   setInterval(() => {
-    console.log('Interval count: ' + window.intervalCount)
+    console.log('Interval count ≈ ' + window.intervalCount)
   }, 500)
 }
 
@@ -42,7 +45,7 @@ export function watchTimeout() {
   }
 
   setInterval(() => {
-    console.log('Timeout count: ' + window.timeoutCount)
+    console.log('Timeout count ≈ ' + window.timeoutCount)
   }, 500)
 }
 
