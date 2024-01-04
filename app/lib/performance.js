@@ -4,7 +4,13 @@
 // Return number of active intervals
 
 export function watchInterval () {
+  if (window.intervalCount !== undefined) {
+    console.warn('Cannot call watchInterval() more than once.')
+    return
+  }
+
   window.intervalCount = 0
+
   const _setInterval = window.setInterval
   const _clearInterval = window.clearInterval
 
@@ -26,7 +32,13 @@ export function watchInterval () {
 // Return number of active timeouts
 
 export function watchTimeout() {
+  if (window.timeoutCount !== undefined) {
+    console.warn('Cannot call watchInterval() more than once.')
+    return
+  }
+
   window.timeoutCount = 0
+
   const _setTimeout = window.setTimeout
   const _clearTimeout = window.clearTimeout
 
