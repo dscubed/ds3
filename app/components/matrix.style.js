@@ -23,7 +23,6 @@ export default function setMatrixStyle ({ gap }) {
       background: var(--background);
       border-radius: 5px;
       transition: background 0.1s, opacity 0.1s;
-      cursor: pointer;
     }
 
     .pixel.on {
