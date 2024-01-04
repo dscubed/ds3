@@ -26,7 +26,7 @@ export default function setMatrixStyle ({ gap }) {
     }
 
     .pixel.on {
-      background: var(--text-primary);
+      background: var(--foreground);
     }
   `
 }
