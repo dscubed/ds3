@@ -63,3 +63,7 @@
     }
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
