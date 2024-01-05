@@ -3,12 +3,12 @@ import * as Icon from 'react-bootstrap-icons';
 
 export default function Footer () {
   return (
-    <footer>
+    <footer className="px-4 py-8">
       <div className="flex flex-col gap-4 max-w-screen-xl mx-auto">
-        <div className="flex gap-4 justify-between py-8 text-text-secondary">
+        <div className="flex gap-4 justify-between text-text-secondary">
           <p className="">© {(new Date).getFullYear()} DS Cubed</p>
           <div className="flex gap-8">
-            <Link href="mailto:hello@dscubed.au" target="_blank">
+            <Link href="mailto:hello@dscubed.org.au" target="_blank">
               <Icon.EnvelopeFill className="w-5 h-5"/>
             </Link>
             <Link href="https://instagram.com/dscubed.unimelb" target="_blank">
