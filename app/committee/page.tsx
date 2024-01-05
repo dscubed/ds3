@@ -10,10 +10,10 @@ export default function CommitteePage () {
       <Navbar />
 
       <main className="p-4">
-        <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-32">
+        <div className="flex flex-col gap-4 max-w-screen-lg mx-auto my-32">
           <div className="grid grid-cols-[auto,1fr] gap-10">
             <div className="flex flex-col gap-10 max-w-lg my-auto">
-              <h4 className="text-2xl">We Are Hiring</h4>
+              <h4 className="text-2xl">We Are Recruiting</h4>
               <p className="text-text-secondary text-xl leading-relaxed">We are currently seeking motivated and passionate individuals to join our committee and help us grow and improve our club. This is your opportunity to be part of a vibrant community, develop new skills, and connect with like-minded students and industry professionals.</p>
               <Link
                 href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" 
@@ -25,7 +25,7 @@ export default function CommitteePage () {
               </Link>
             </div>
             <Image
-              className="w-full max-h-[550px] object-cover rounded-md"
+              className="w-full max-h-[450px] object-cover rounded-md"
               src="/dalle-basketball.webp"
               width={300}
               height={300}
@@ -35,7 +35,7 @@ export default function CommitteePage () {
         </div>
 
         <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-32">
-          <h3 className="mt-32 mb-10 text-4xl">2024 Committee</h3>
+          <h3 className="mb-10 text-4xl">2024 Committee</h3>
           <Image
             className="w-full max-h-[700px] object-cover rounded-md contrast-[1.1] brightness-[0.9] saturate-[1.2]"
             src="/committee.jpg"
@@ -46,7 +46,7 @@ export default function CommitteePage () {
         </div>
 
         <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-32">
-          <h4 className="mt-16 mb-5 text-2xl">Executive Team</h4>
+          <h4 className="mb-5 text-2xl">Executive Team</h4>
           <div className="grid grid-cols-4 gap-4">
             <div className="flex flex-col gap-3 py-10 px-5 bg-background rounded-md">
               <Image
@@ -96,7 +96,7 @@ export default function CommitteePage () {
         </div>
 
         <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-32">
-          <h4 className="mt-16 mb-5 text-2xl">Directors</h4>
+          <h4 className="mb-5 text-2xl">Directors</h4>
           <div className="grid grid-cols-4 gap-4">
             <div className="flex flex-col gap-3 py-10 px-5 bg-background rounded-md">
               <Image
@@ -145,11 +145,11 @@ export default function CommitteePage () {
           </div>
         </div>
 
-        <div className="flex flex-col gap-20 max-w-screen-xl mx-auto my-32">
-          <h4 className="mt-16 mb-5 text-2xl">Subcommittees</h4>
+        <div className="flex flex-col max-w-screen-xl mx-auto my-32">
+          <h4 className="mb-5 text-2xl">Subcommittees</h4>
           <div className="grid grid-cols-2 gap-x-2 gap-y-20">
             <div className="flex flex-col gap-5">
-              <h5 className="text-2xl">Education</h5>
+              <h5 className="text-xl text-text-secondary">Education</h5>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-4 bg-background rounded-md p-3">
                   <Image
@@ -184,7 +184,7 @@ export default function CommitteePage () {
               </div>
             </div>
             <div className="flex flex-col gap-5">
-              <h5 className="text-2xl">Events</h5>
+              <h5 className="text-xl text-text-secondary">Events</h5>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-4 bg-background rounded-md p-3">
                   <Image
@@ -229,7 +229,7 @@ export default function CommitteePage () {
               </div>
             </div>
             <div className="flex flex-col gap-5">
-              <h5 className="text-2xl">Industry</h5>
+              <h5 className="text-xl text-text-secondary">Industry</h5>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-4 bg-background rounded-md p-3">
                   <Image
@@ -264,7 +264,7 @@ export default function CommitteePage () {
               </div>
             </div>
             <div className="flex flex-col gap-5">
-              <h5 className="text-2xl">Marketing</h5>
+              <h5 className="text-xl text-text-secondary">Marketing</h5>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-4 bg-background rounded-md p-3">
                   <Image
