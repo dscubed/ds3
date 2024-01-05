@@ -31,6 +31,15 @@ module.exports = {
           transform: 'translateX(100%)',
         },
       },
+      // For scrolling banner
+      scroll: {
+        '0%': {
+          transform: 'translate(0)',
+        },
+        '100%': {
+          transform: 'translateX(-100%)',
+        },
+      },
     },
   },
   plugins: [],
