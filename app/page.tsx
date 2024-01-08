@@ -14,6 +14,7 @@ import EventCard from "./components/EventCard"
 import * as Icon from 'react-bootstrap-icons';
 import fadeScaleTransition from '@/app/components/transition'
 import FollowBox from "./components/FollowBox"
+import { Intersection } from '@splidejs/splide-extension-intersection';
 
 // watchInterval()
 // watchTimeout()
@@ -26,10 +27,18 @@ export default function Index() {
       padding: '5rem',
       gap: '20px',
       padding: '15%',
-      autoplay: true,
       interval: 4000,
+      autoplay: 'pause',
+      intersection: {
+        inView: {
+          autoplay: true,
+        },
+        outView: {
+          autoplay: false,
+        },
+      },
     });
-    splide.mount({}, fadeScaleTransition)
+    splide.mount({ Intersection }, fadeScaleTransition)
   }, [])
 
   return (
