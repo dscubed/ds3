@@ -4,7 +4,9 @@
 
 @layer base {
   :root {
-    --theme: #000;
+    --theme: rgb(21, 146, 255);
+    --text-selection: rgb(21, 146, 255);
+    --text-selection-background: rgba(21, 146, 255, 0.15);
     --background: #FFF;
     --background-secondary: #F8F8F8;
     --foreground: #000;
@@ -25,7 +27,7 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --theme: #FFF;
+      --theme: rgb(21, 146, 255);
       --background: #222;
       --background-secondary: #181818;
       --foreground: #FFF;
@@ -66,4 +68,14 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+::-moz-selection {
+  color: var(--text-selection);
+  background: var(--text-selection-background);
+}
+
+::selection {
+  color: var(--text-selection);
+  background: var(--text-selection-background);
 }

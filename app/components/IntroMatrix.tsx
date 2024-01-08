@@ -1,7 +1,6 @@
 'use client'
 import Matrix from "@/app/components/matrix"
 import { mapToRange, useEffectOnce } from '@/app/lib/utils'
-import { watchTimeout, watchInterval } from '@/app/lib/performance'
 
 class Trail {
   constructor (x, y, distance) {
@@ -55,16 +54,17 @@ function setupShimmer (mtx) {
   })
 }
 
-watchInterval()
-watchTimeout()
-
 export default function IntroMatrix() {
   useEffectOnce(() => {
-    const matrix = new Matrix('#matrix')
+    const matrix = new Matrix('intro-matrix')
 
+    var lastHoverPixel = null
     function mouseMoveCallback (event) {
-      const distance = Math.sqrt(event.movementX**2 + event.movementY**2)
-      this.trails.push(new Trail(this.mouseX, this.mouseY, distance))
+      if (event.target !== lastHoverPixel) {
+        const distance = Math.sqrt(event.movementX**2 + event.movementY**2)
+        this.trails.push(new Trail(this.mouseX, this.mouseY, distance))
+        lastHoverPixel = event.target
+      }
     }
 
     var scrollDelta = 0
@@ -191,6 +191,6 @@ export default function IntroMatrix() {
   }, [])
   
   return (
-    <div id="matrix"></div>
+    <div id="intro-matrix"></div>
   )
 }

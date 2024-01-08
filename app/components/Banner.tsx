@@ -1,40 +1,36 @@
-import { v4 as uuidv4 } from 'uuid'
-import Image from "next/image"
+'use client'
+import { ArrowRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import clsx from "clsx";
+import Link from "next/link";
+import { useState } from "react";
 
-// Infinite scrolling banner
-// Based on https://codesandbox.io/p/sandbox/infinite-horizontal-auto-scroll-y82f8
-
-export default function Banner ({ 
-  images,
-  gap = 20,
-  speed = 5000 
+export default function Banner ({
+  text,
+  link,
 }: {
-  images: Array<string>,
-  gap: number,
-  speed: number
+  text: string,
+  link: string,
 }) {
+  const [show, toggleShow] = useState(true)
+
+  if (!show) {
+    return
+  }
+
   return (
-    <div className="relative h-max w-max overflow-hidden pointer-events-none select-none">
-      <div className="flex">
-        {[0, 0, 0].map(() => (
-          <section 
-            className="flex animate-[scroll_var(--speed)_linear_infinite]"
-            style={{"--speed": `${speed}ms`}} 
-            key={uuidv4()}
-          >
-            {images.map((src, index) => (
-              <Image 
-                className="w-64 h-8 my-auto saturate-0 contrast-125 brightness-[1000] object-contain"
-                style={{paddingLeft: gap}}
-                src={src} 
-                width={100} 
-                height={50}
-                alt="logo"
-                key={index}
-              />
-            ))}
-          </section>
-        ))}
+    <div className="sticky top-0 py-3 px-4 bg-theme text-white">
+      <div className='grid grid-cols-[auto,1fr,auto] gap-10 w-full'>
+        <div></div>
+        <Link
+          href={link}
+          target="_blank"
+          className="flex gap-2 w-max mx-auto"
+        >
+          <span className="my-auto w-max">{text}</span>
+          <ArrowRightIcon className="my-auto w-5 h-5"/>
+        </Link>
+
+        <XMarkIcon className="my-auto w-5 h-5 cursor-pointer" onClick={e => toggleShow(false)}/>
       </div>
     </div>
   )

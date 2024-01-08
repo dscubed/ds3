@@ -21,7 +21,7 @@ export default function SponsorCard ({
     <div className='relative min-h-[400px] rounded-md overflow-hidden' style={{backgroundColor: color}}>
       <div className="absolute w-full grid grid-cols-[1fr,auto] p-4">
         <div className="flex flex-col gap-2">
-          <h5 className="text-xl leading-none">{name}</h5>
+          <h5 className="text-xl leading-none text-white">{name}</h5>
           <p className="text-white text-opacity-40 leading-none text-lg">{category}</p>
         </div>
         <Link

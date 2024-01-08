@@ -1,13 +1,6 @@
 import fontMap from '@/app/components/matrix.font.js'
 import setMatrixStyle from '@/app/components/matrix.style.js'
 
-const PIXEL_SIZE = [32, 32]
-const GRID_GAP = 4
-const GRID_PADDING = [0, 0]
-const MAX_GRID_SIZE = [64, 36]
-
-setMatrixStyle({ gap: GRID_GAP })
-
 class Pixel {
   constructor (x, y, showCoordinate = false) {
     this.x = x
@@ -59,23 +52,46 @@ class Pixel {
 }
 
 export default class Matrix {
-  constructor (selector, showCoordinate = false) {
+  static _config = {
+    pixelSize: [32, 32],
+    gap: 4,
+    radius: 5,
+    padding: [0, 0],
+    maxGridSize: [64, 36],
+    showCoordinate: false,
+    offColor: 'var(--background)',
+    onColor: 'var(--foreground)',
+    delta: 10
+  }
+
+  constructor (rootId, config = {}) {
+    this.config = {...this.constructor._config, ...config}
     this.gridSizeX = -1
     this.gridSizeY = -1
     this.pixels = []
     this.resizeCallbacks = []
-    this.showCoordinate = showCoordinate
     this.mouseX = 0
     this.mouseY = 0
     this.mouseMove = false
 
-    this.rootDomNode = document.querySelector(selector)
+    // Base element
+    this.rootDomNode = document.getElementById(rootId)
     this.rootDomNode.classList.add('matrix')
     this.rootDomNode.innerHTML = '' // clear existing content
 
+    // Grid element
     this.gridDomNode = document.createElement('div')
     this.gridDomNode.classList.add('matrix-grid')
     this.rootDomNode.appendChild(this.gridDomNode)
+
+    // Must set styles before creating grid
+    setMatrixStyle({ 
+      id: rootId,
+      gap: this.config.gap,
+      radius: this.config.radius,
+      offColor: this.config.offColor,
+      onColor: this.config.onColor,
+     })
 
     this.createGrid()
 
@@ -109,7 +125,7 @@ export default class Matrix {
 
   update (callback) {
     // Event loop
-    setInterval(() => callback(this), 10)
+    setInterval(() => callback(this), this.config.delta)
 
     // Call update on window resize to avoid flickering
     this.onResize(() => callback(this))
@@ -137,12 +153,12 @@ export default class Matrix {
 
   createGrid () {
     [this.gridSizeX, this.gridSizeY] = this.calcGridSize()
-    this.gridDomNode.style.gridTemplateColumns = `repeat(${this.gridSizeX}, ${PIXEL_SIZE[0]}px)`
-    this.gridDomNode.style.gridTemplateRows = `repeat(${this.gridSizeY}, ${PIXEL_SIZE[1]}px)`
+    this.gridDomNode.style.gridTemplateColumns = `repeat(${this.gridSizeX}, ${this.config.pixelSize[0]}px)`
+    this.gridDomNode.style.gridTemplateRows = `repeat(${this.gridSizeY}, ${this.config.pixelSize[1]}px)`
   
     for (let y = 0; y < this.gridSizeY; y++) {
       for (let x = 0; x < this.gridSizeX; x++) {
-        const pixel = new Pixel(x, y, this.showCoordinate)
+        const pixel = new Pixel(x, y, this.config.showCoordinate)
         this.gridDomNode.appendChild(pixel.domNode)
         this.pixels.push(pixel)
       }
@@ -156,13 +172,14 @@ export default class Matrix {
   }
 
   calcGridSize () {
+    const rect = this.rootDomNode.getBoundingClientRect()
     const x = Math.min(
-      Math.floor((window.innerWidth - GRID_PADDING[0] * 2) / (PIXEL_SIZE[0] + GRID_GAP)),
-      MAX_GRID_SIZE[0]
+      Math.floor((rect.width - this.config.padding[0] * 2) / (this.config.pixelSize[0] + this.config.gap)),
+      this.config.maxGridSize[0]
     )
     const y = Math.min(
-      Math.floor((window.innerHeight - GRID_PADDING[1] * 2) / (PIXEL_SIZE[1] + GRID_GAP)),
-      MAX_GRID_SIZE[1]
+      Math.floor((rect.height - this.config.padding[1] * 2) / (this.config.pixelSize[1] + this.config.gap)),
+      this.config.maxGridSize[1]
     )
     return [x, y]
   }
@@ -173,8 +190,8 @@ export default class Matrix {
     const gridHeight = rect.height
     const matrixWindowGapX = (window.innerWidth - gridWidth) / 2 // size of horizontal margin
     const matrixWindowGapY = (window.innerHeight - gridHeight) / 2 // size of vertical margin
-    const gridX = Math.ceil((x - matrixWindowGapX) / (PIXEL_SIZE[0] + GRID_GAP))
-    const gridY = Math.ceil((y - matrixWindowGapY) / (PIXEL_SIZE[1] + GRID_GAP))
+    const gridX = Math.ceil((x - matrixWindowGapX) / (this.config.pixelSize[0] + this.config.gap))
+    const gridY = Math.ceil((y - matrixWindowGapY) / (this.config.pixelSize[1] + this.config.gap))
     return [gridX, gridY]
   }
 

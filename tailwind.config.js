@@ -8,6 +8,8 @@ module.exports = {
     extend: {
       colors: {
         'theme': 'var(--theme)',
+        'text-selection': 'var(--text-selection)',
+        'text-selection-background': 'var(--text-selection-background)',
         'background': 'var(--background)',
         'background-secondary': 'var(--background-secondary)',
         'foreground': 'var(--foreground)',

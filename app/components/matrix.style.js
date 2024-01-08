@@ -1,14 +1,14 @@
-export default function setMatrixStyle ({ gap }) {
+export default function setMatrixStyle ({ id, gap, radius, offColor, onColor }) {
   const style = document.createElement('style')
   document.body.appendChild(style)
   style.textContent = `
-    .matrix {
-      width: 100vw;
-      height: 100vh;
+    #${id} {
+      width: 100%;
+      height: 100%;
       display: flex;
     }
 
-    .matrix-grid {
+    #${id} .matrix-grid {
       display: grid;
       gap: ${gap}px;
       width: max-content;
@@ -16,17 +16,17 @@ export default function setMatrixStyle ({ gap }) {
       margin: auto;
     }
 
-    .pixel {
+    #${id} .pixel {
       display: block;
       width: 100%;
       height: 100%;
-      background: var(--background);
-      border-radius: 5px;
+      background: ${offColor};
+      border-radius: ${radius}px;
       transition: background 0.1s, opacity 0.1s;
     }
 
-    .pixel.on {
-      background: var(--foreground);
+    #${id} .pixel.on {
+      background: ${onColor};
     }
   `
 }
