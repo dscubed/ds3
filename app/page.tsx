@@ -15,6 +15,7 @@ import * as Icon from 'react-bootstrap-icons';
 import fadeScaleTransition from '@/app/components/transition'
 import FollowBox from "./components/FollowBox"
 import { Intersection } from '@splidejs/splide-extension-intersection';
+import FAQItem from "./components/FaqItem"
 
 // watchInterval()
 // watchTimeout()
@@ -339,22 +340,22 @@ export default function Index() {
             <div className="grid grid-cols-[auto,1fr] gap-10">
               <h3 className="text-4xl max-w-sm leading-relaxed h-max">Frequently Asked Questions</h3>
               <div className="flex flex-col">
-                <div className="flex gap-4 border-b border-border py-8">
-                  <PlusIcon className="w-8 h-8 text-text-secondary" />
-                  <h4 className="text-xl my-auto">What is the difference between computer and data science?</h4>
-                </div>
-                <div className="flex gap-4 border-b border-border py-8">
-                  <PlusIcon className="w-8 h-8 text-text-secondary" />
-                  <h4 className="text-xl my-auto">How much does the membership cost?</h4>
-                </div>
-                <div className="flex gap-4 border-b border-border py-8">
-                  <PlusIcon className="w-8 h-8 text-text-secondary" />
-                  <h4 className="text-xl my-auto">When does the membership application open?</h4>
-                </div>
-                <div className="flex gap-4 border-b border-border py-8">
-                  <PlusIcon className="w-8 h-8 text-text-secondary" />
-                  <h4 className="text-xl my-auto">I'm not a University of Melbourne student, can I still join?</h4>
-                </div>
+                <FAQItem 
+                  question="What is the difference between computer and data science?"
+                  answer="Example Answer"
+                />
+                <FAQItem 
+                  question="How much does the membership cost?"
+                  answer="Example Answer"
+                />
+                <FAQItem 
+                  question="When does the membership application open?"
+                  answer="Example Answer"
+                />
+                <FAQItem 
+                  question="I'm not a University of Melbourne student, can I still join?"
+                  answer="Example Answer"
+                />
                 <div className="flex gap-4 py-8">
                   <Link className="flex gap-2 text-xl text-theme my-auto" href="mailto:hello@dscubed.org.au">
                     <span className="my-auto">Get In Touch</span>
