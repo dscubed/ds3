@@ -1,12 +1,21 @@
 'use client'
-import { useEffect } from "react";
-import { getUser, signIn } from "@/app/lib/auth.client";
+import { getUser } from "@/app/lib/auth.client";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import GoogleAuthButton from "@/app/components/admin/login/GoogleAuthButton";
+import { redirect, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function LoginPage() {
+  const router = useRouter()
+
   useEffect(() => {
-    getUser()
+    (async () => {
+      const user = await getUser()
+      if (user) {
+        router.push('/admin')
+      }
+    })()
   }, [])
 
   return (
@@ -20,8 +29,8 @@ export default function LoginPage() {
         </div>
 
         <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
-          <div className="flex gap-4">
-            <button onClick={signIn}>Login with Google</button>
+          <div className="flex gap-4 justify-center">
+            <GoogleAuthButton />
           </div>
         </div>
       </main>

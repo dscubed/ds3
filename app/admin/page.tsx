@@ -7,14 +7,20 @@ import { fetchEventCount, fetchEvents, fetchThumbnail } from "../lib/data";
 import SignOutButton from "../components/admin/SignOutButton";
 import { pageToRange } from "../lib/utils.server";
 import Paginator from "../components/Paginator";
+import { redirect } from "next/navigation";
 
 export default async function AdminPage({ searchParams }: { searchParams: { page: number } }) {
+  const user = await getUser()
+
+  if (!user) {
+    return redirect('/admin/login')
+  }
+
   const page = Number(searchParams.page || 1)
   const limit = 3
   const count = await fetchEventCount()
   const range = pageToRange(page, limit)
   const events = await fetchEvents(range)
-  const user = await getUser()
 
   return (
     <>

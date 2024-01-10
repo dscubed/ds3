@@ -8,11 +8,15 @@ export async function getUser () {
 
 export async function signIn () {
   const supabase = createClient()
-  const { data, error } = await supabase.auth.signInWithOAuth({ provider: 'google' })
+  const { data, error } = await supabase.auth.signInWithOAuth({ 
+    provider: 'google',
+    options: {
+      redirectTo: 'https://localhost:3000/admin/login'
+    },
+  })
 }
 
 export async function signOut () {
   const supabase = createClient()
   await supabase.auth.signOut()
-  return redirect('/admin/login')
 }
