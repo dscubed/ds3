@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import EventCard from "../components/EventCard";
+import EventGallery from "../components/events/EventGallery";
 
 export default function SponsersPage() {
   return (
@@ -14,28 +14,7 @@ export default function SponsersPage() {
         </div>
 
         <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
-          <div className="flex gap-4">
-            <EventCard 
-              name="Elements of Data Processing"
-              description="Calling all data disciples! Prepare to ace your upcoming 'Elements of Data Processing' exam at our revision workshop!"
-              image="/dalle-crowd.png"
-            />
-              <EventCard 
-              name="Statistics"
-              description="Calling all data disciples! Prepare to ace your upcoming 'Elements of Data Processing' exam at our revision workshop!"
-              image="/dalle-robot-chess.webp"
-            />
-              <EventCard 
-              name="Machine Learning Basics"
-              description="Calling all data disciples! Prepare to ace your upcoming 'Elements of Data Processing' exam at our revision workshop!"
-              image="/dalle-city.png"
-            />
-            <EventCard 
-              name="Movie Night"
-              description="Calling all data disciples! Prepare to ace your upcoming 'Elements of Data Processing' exam at our revision workshop!"
-              image="/dalle-crowd.png"
-            />
-          </div>
+          <EventGallery />
         </div>
       </main>
 

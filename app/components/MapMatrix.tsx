@@ -9,10 +9,8 @@ export default function MapMatrix() {
       pixelSize: [16, 16],
       gap: 2,
       radius: 100,
-      // offColor: 'var(--background)',
-      // onColor: '#333',
-      offColor: 'var(--background-secondary)',
-      onColor: 'var(--background)',
+      offColor: 'rgb(var(--background-secondary))',
+      onColor: 'rgb(var(--background))',
       maxGridSize: [80, 45],
       delta: 100
     })

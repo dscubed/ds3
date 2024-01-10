@@ -4,45 +4,39 @@
 
 @layer base {
   :root {
-    --theme: rgb(21, 146, 255);
-    --text-selection: rgb(21, 146, 255);
-    --text-selection-background: rgba(21, 146, 255, 0.15);
-    --background: #FFF;
-    --background-secondary: #F8F8F8;
-    --foreground: #000;
-    --btn-background: #FFF;
-    --btn-background-hover: #FAFAFA;
-    --border: #DFDFDf;
-    --outline-border: #999;
-    --text-primary: #000;
-    --text-secondary: #999;
-    --shimmer-highlight: #FFFFFF80;
-    --avatar-background: #EEE;
-    --menu-background: #FFF;
-    --menu-background-hover: #EEE;
-    --menu-background-hover: #EEE;
-    --error-text: #ff0d2d;
-    --error-background: #ff0d2d0A;
+    --theme: 21 146 255;
+    --background: 255 255 255;
+    --background-secondary: 244 244 244;
+    --foreground: 0 0 0;
+    --btn-background: 255 255 255;
+    --btn-background-hover: 250 250 250;
+    --border: 223 223 223;
+    --outline-border: 153 153 153;
+    --text-primary: 0 0 0;
+    --text-secondary: 153 153 153;
+    --selection: 21 146 255;
+    --error: 255 13 45;
   }
 
   @media (prefers-color-scheme: dark) {
+    /* Set calendar icon color */
+    input {
+      color-scheme: dark;
+    }
+    
     :root {
-      --theme: rgb(21, 146, 255);
-      --background: #222;
-      --background-secondary: #181818;
-      --foreground: #FFF;
-      --btn-background: #222;
-      --btn-background-hover: #282828;
-      --border: #333;
-      --outline-border: #666;
-      --text-primary: #FFF;
-      --text-secondary: #666;
-      --shimmer-highlight: #FFFFFF1E;
-      --avatar-background: #333;
-      --menu-background: #222;
-      --menu-background-hover: #333;
-      --error-text: #df0925;
-      --error-background: #df092511;
+      --theme: 21 146 255;
+      --background: 34 34 34;
+      --background-secondary: 24 24 24;
+      --foreground: 255 255 255;
+      --btn-background: 34 34 34;
+      --btn-background-hover: 40 40 40;
+      --border: 51 51 51;
+      --outline-border: 102 102 102;
+      --text-primary: 255 255 255;
+      --text-secondary: 102 102 102;
+      --selection: 21 146 255;
+      --error: 223 9 37;
     }
   }
 
@@ -55,7 +49,7 @@
   /* Loading animation */
   /* Parent element with the effect must also have the following properties: */
   /* relative overflow-hidden */
-  .shimmer {
+  /* .shimmer {
     @apply before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-shimmer-highlight before:to-transparent;
   }
   
@@ -63,7 +57,7 @@
     .shimmer {
       @apply before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-shimmer-highlight before:to-transparent;
     }
-  }
+  } */
 }
 
 html {
@@ -71,11 +65,9 @@ html {
 }
 
 ::-moz-selection {
-  color: var(--text-selection);
-  background: var(--text-selection-background);
+  @apply text-selection bg-selection/10;
 }
 
 ::selection {
-  color: var(--text-selection);
-  background: var(--text-selection-background);
+  @apply text-selection bg-selection/10;
 }

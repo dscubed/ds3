@@ -1,47 +1,22 @@
-'use client'
+// 'use client'
 import Navbar from "@/app/components/Navbar"
-import { watchTimeout, watchInterval } from '@/app/lib/performance'
+// import { watchTimeout, watchInterval } from '@/app/lib/performance'
 import IntroMatrix from "./components/IntroMatrix"
 import Image from "next/image"
 import MapMatrix from "./components/MapMatrix"
-import Splide from "@splidejs/splide"
-import { useEffectOnce } from "./lib/utils"
 import '@splidejs/splide/css/core';
-import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, PlusIcon } from '@heroicons/react/24/solid'
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import Link from "next/link"
 import Footer from "./components/Footer"
-import EventCard from "./components/EventCard"
-import * as Icon from 'react-bootstrap-icons';
-import fadeScaleTransition from '@/app/components/transition'
 import FollowBox from "./components/FollowBox"
-import { Intersection } from '@splidejs/splide-extension-intersection';
 import FAQItem from "./components/FaqItem"
+import EventGallery from "./components/events/EventGallery"
+import Gallery from "./components/Gallery"
 
 // watchInterval()
 // watchTimeout()
 
 export default function Index() {
-  useEffectOnce(() => {
-    var splide = new Splide('.splide', {
-      rewind: true,
-      height: '500px',
-      padding: '5rem',
-      gap: '20px',
-      padding: '15%',
-      interval: 4000,
-      autoplay: 'pause',
-      intersection: {
-        inView: {
-          autoplay: true,
-        },
-        outView: {
-          autoplay: false,
-        },
-      },
-    });
-    splide.mount({ Intersection }, fadeScaleTransition)
-  }, [])
-
   return (
     <>
       <div className="w-screen h-screen">
@@ -52,7 +27,7 @@ export default function Index() {
       <div
         className="absolute block w-screen h-screen top-0 left-0 pointer-events-none"
         style={{
-          boxShadow: 'inset 0 0 100px 100px var(--background-secondary)'
+          boxShadow: 'inset 0 0 100px 100px rgb(var(--background-secondary))'
         }}
       ></div>
 
@@ -249,84 +224,13 @@ export default function Index() {
           <div className="flex flex-col gap-4 max-w-screen-xl mx-auto">
             <h3 className="mb-10 text-4xl text-center">Activities For Everyone</h3>
 
-            <div className="splide" role="group" aria-label="Gallery carousel">
-              <div className="splide__arrows">
-                <button className="splide__arrow splide__arrow--prev flex w-10 h-10 bg-background-secondary rounded-full text-text-secondary hover:text-text-primary transition border border-border absolute left-[-18px] top-1/2 translate-y-[-50%] z-10">
-                  <ChevronLeftIcon className="m-auto w-7 pr-0.5"></ChevronLeftIcon>
-                </button>
-                <button className="splide__arrow splide__arrow--next flex w-10 h-10 bg-background-secondary rounded-full text-text-secondary hover:text-text-primary transition border border-border absolute right-[-18px] top-1/2 translate-y-[-50%] z-10">
-                  <ChevronRightIcon className="m-auto w-7 pl-0.5"></ChevronRightIcon>
-                </button>
-              </div>
-            
-              <div className="splide__track rounded-md">
-                <ul className="splide__list">
-                  <li className="splide__slide">
-                    <Image
-                      className="rounded-md object-cover w-full h-full"
-                      src="/hero1.jpg"
-                      width={300}
-                      height={200}
-                      alt="Data science career help cover image"
-                    ></Image>
-                  </li>
-                  <li className="splide__slide">
-                    <Image
-                      className="rounded-md object-cover w-full h-full"
-                      src="/hero1.jpg"
-                      width={300}
-                      height={200}
-                      alt="Data science career help cover image"
-                    ></Image>
-                  </li>
-                  <li className="splide__slide">
-                    <Image
-                      className="rounded-md object-cover w-full h-full"
-                      src="/hero2.jpg"
-                      width={300}
-                      height={200}
-                      alt="Data science career help cover image"
-                    ></Image>  
-                  </li>
-                  <li className="splide__slide">
-                    <Image
-                      className="rounded-md object-cover w-full h-full"
-                      src="/hero2.jpg"
-                      width={300}
-                      height={200}
-                      alt="Data science career help cover image"
-                    ></Image>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <Gallery />
           </div>
         </div>
 
         <div className="p-4 my-40">
           <div className="flex flex-col gap-10 max-w-screen-xl mx-auto">
-            <div className="flex gap-4">
-              <EventCard 
-                name="Elements of Data Processing"
-                description="Calling all data disciples! Prepare to ace your upcoming 'Elements of Data Processing' exam at our revision workshop!"
-                image="/dalle-crowd.png"
-              />
-              <EventCard 
-                name="Statistics"
-                description="Calling all data disciples! Prepare to ace your upcoming 'Elements of Data Processing' exam at our revision workshop!"
-                image="/dalle-robot-chess.webp"
-              />
-              <EventCard 
-                name="Machine Learning Basics"
-                description="Calling all data disciples! Prepare to ace your upcoming 'Elements of Data Processing' exam at our revision workshop!"
-                image="/dalle-city.png"
-              />
-              <EventCard 
-                name="Movie Night"
-                description="Calling all data disciples! Prepare to ace your upcoming 'Elements of Data Processing' exam at our revision workshop!"
-                image="/dalle-crowd.png"
-              />
-            </div>
+            <EventGallery />
             
             <Link className="flex gap-2 text-xl text-theme mx-auto" href="/events">
               <span className="my-auto">Browse All Events</span>

@@ -59,8 +59,8 @@ export default class Matrix {
     padding: [0, 0],
     maxGridSize: [64, 36],
     showCoordinate: false,
-    offColor: 'var(--background)',
-    onColor: 'var(--foreground)',
+    offColor: 'rgb(var(--background))',
+    onColor: 'rgb(var(--foreground))',
     delta: 10
   }
 
