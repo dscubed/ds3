@@ -1,6 +1,6 @@
-import { PencilSquareIcon } from "@heroicons/react/24/solid";
-import EventCard from "./EventCard";
-import Link from "next/link";
+import { PencilSquareIcon } from "@heroicons/react/24/solid"
+import Link from "next/link"
+import EventCard from "../events/EventCard"
 
 export default function EventCardAdmin ({ ...props }) {
   return (

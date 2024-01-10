@@ -1,7 +1,7 @@
 import { getUser } from "@/app/lib/auth.server";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import EventCardAdmin from "../components/EventCardAdmin";
+import EventCardAdmin from "../components/admin/EventCardAdmin";
 import Link from "next/link";
 import { fetchEvents, fetchThumbnail } from "../lib/data";
 import SignOutButton from "../components/admin/SignOutButton";

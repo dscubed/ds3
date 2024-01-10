@@ -1,6 +1,6 @@
 'use server'
 import { fetchEvents } from "@/app/lib/data"
-import EventCard from "../EventCard"
+import EventCard from "./EventCard"
 
 export default async function EventGallery () {
   const events = await fetchEvents()
