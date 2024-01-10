@@ -1,20 +1,14 @@
-// 'use client'
 import Navbar from "@/app/components/Navbar"
-// import { watchTimeout, watchInterval } from '@/app/lib/performance'
 import IntroMatrix from "./components/IntroMatrix"
 import Image from "next/image"
 import MapMatrix from "./components/MapMatrix"
-import '@splidejs/splide/css/core';
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import Link from "next/link"
 import Footer from "./components/Footer"
-import FollowBox from "./components/FollowBox"
-import FAQItem from "./components/FaqItem"
+import FollowSection from "./components/FollowSection"
+import FAQItem from "./components/FAQItem"
 import EventGallery from "./components/events/EventGallery"
 import Gallery from "./components/Gallery"
-
-// watchInterval()
-// watchTimeout()
 
 export default function Index() {
   return (
@@ -218,7 +212,7 @@ export default function Index() {
           </div>
         </div>
 
-        <FollowBox />
+        <FollowSection />
         
         <div className="p-4 my-40">
           <div className="flex flex-col gap-4 max-w-screen-xl mx-auto">

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import * as Icon from 'react-bootstrap-icons';
 
-export default function FollowBox () {
+export default function FollowSection () {
   return (
     <div className="bg-background border border-border mx-2 py-16 my-40 rounded-lg">
       <div className="grid grid-cols-[1fr,auto] gap-4 max-w-screen-lg mx-auto p-4">

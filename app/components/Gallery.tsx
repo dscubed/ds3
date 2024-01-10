@@ -6,6 +6,7 @@ import { useEffectOnce } from "../lib/utils";
 import fadeScaleTransition from "./transition";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import '@splidejs/splide/css/core';
 
 export default function Gallery () {
   useEffectOnce(() => {
