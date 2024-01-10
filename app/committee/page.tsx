@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar"
 import { ArrowRightIcon } from "@heroicons/react/24/solid"
 import Footer from "../components/Footer"
 import Link from "next/link"
-import MemberCard from "../components/MemberCard"
+import MemberCard from "../components/committee/MemberCard"
 import { executives, directors, representatives, teams } from './members'
-import MemberList from "../components/MemberList"
+import MemberList from "../components/committee/MemberList"
 
 export default function CommitteePage () {
   return (
