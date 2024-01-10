@@ -13,6 +13,7 @@
     "@splidejs/splide-extension-intersection": "^0.2.0",
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@types/uuid": "^9.0.7",
     "autoprefixer": "10.4.15",
     "clsx": "^2.0.0",

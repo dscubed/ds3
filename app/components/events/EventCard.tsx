@@ -17,7 +17,7 @@ export default async function EventCard ({
   const image = await fetchThumbnail(thumbnail)
 
   return (
-    <div className="flex flex-col max-w-[350px] rounded-md bg-background">
+    <div className="flex flex-col max-w-[350px] h-full rounded-md bg-background">
       <Image
         className="w-full max-h-[150px] object-cover rounded-md"
         src={image.publicUrl}
@@ -25,11 +25,11 @@ export default async function EventCard ({
         height={300}
         alt={`${title} cover image`}
       ></Image>
-      <div className="flex flex-col gap-4 p-4">
-        <h4 className="text-lg">{title}</h4>
-        <p className="text-lg text-text-secondary">{description}</p>
+      <div className="flex flex-col gap-4 p-4 h-full">
+        <h4 className="text-lg truncate">{title}</h4>
+        <p className="text-lg text-text-secondary line-clamp-4">{description}</p>
         <Link 
-          className="flex gap-2 text-text-secondary hover:text-text-primary transition my-auto"
+          className="flex gap-2 text-text-secondary hover:text-text-primary transition mt-auto"
           href={link}
         >
           <span className="my-auto">View Event</span>

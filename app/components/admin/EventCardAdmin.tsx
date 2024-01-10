@@ -4,7 +4,7 @@ import EventCard from "../events/EventCard"
 
 export default function EventCardAdmin ({ ...props }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 h-full">
       <EventCard {...props} />
       
       <div className="flex gap-2 justify-between rounded-md text-text-secondary">
