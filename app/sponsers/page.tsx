@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import SponsorCard from "../components/SponserCard";
-import InfiniteBanner from "../components/InfiniteBanner";
+import InfiniteBanner from "../components/sponsors/InfiniteBanner";
 
 const images = [
   '/sponsors/citadel.svg',
