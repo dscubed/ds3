@@ -7,7 +7,7 @@ import { pageToRange } from "../lib/utils.server";
 
 export default async function SponsersPage({ searchParams }: { searchParams: { page: number } }) {
   const page = Number(searchParams.page || 1)
-  const limit = 3
+  const limit = 4
   const count = await fetchEventCount()
   const range = pageToRange(page, limit)
 

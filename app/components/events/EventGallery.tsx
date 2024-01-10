@@ -12,6 +12,7 @@ export default async function EventGallery ({ range = [0, 3] }) {
           title={item.title}
           description={item.description}
           thumbnail={item.thumbnail}
+          date={item.date}
           link={item.link}
           key={item.id}
         />

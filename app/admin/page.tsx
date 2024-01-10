@@ -17,7 +17,7 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
   }
 
   const page = Number(searchParams.page || 1)
-  const limit = 3
+  const limit = 4
   const count = await fetchEventCount()
   const range = pageToRange(page, limit)
   const events = await fetchEvents(range)
@@ -48,6 +48,7 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
                 title={item.title}
                 description={item.description}
                 thumbnail={item.thumbnail}
+                date={item.date}
                 link={item.link}
               />
             ))}

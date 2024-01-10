@@ -30,6 +30,8 @@ export async function fetchEvents (range = [0, 4]) {
     const { data, error } = await supabase
       .from('events')
       .select('*')
+      .order('date', { ascending: false })
+      .order('created_at', { ascending: false })
       .range(...range)
     
     if (error) {
