@@ -9,6 +9,7 @@ import FollowSection from "./components/FollowSection"
 import FAQItem from "./components/FAQItem"
 import EventGallery from "./components/events/EventGallery"
 import Gallery from "./components/Gallery"
+import FAQSection from "./components/FAQSection"
 
 export default function Index() {
   return (
@@ -237,23 +238,8 @@ export default function Index() {
           <div className="flex flex-col gap-4 max-w-screen-xl mx-auto">
             <div className="grid grid-cols-[auto,1fr] gap-10">
               <h3 className="text-4xl max-w-sm leading-relaxed h-max">Frequently Asked Questions</h3>
-              <div className="flex flex-col">
-                <FAQItem 
-                  question="What is the difference between computer and data science?"
-                  answer="Computer science involves the study of algorithms, software development, and computer systems, while data science is a specialized field focused on extracting insights and knowledge from large datasets using statistical and machine learning techniques. Computer science forms the backbone of computing technologies, while data science is specifically geared toward analyzing and interpreting data to support decision-making in various domains."
-                />
-                <FAQItem 
-                  question="How much does the membership cost?"
-                  answer="Computer science involves the study of algorithms, software development, and computer systems, while data science is a specialized field focused on extracting insights and knowledge from large datasets using statistical and machine learning techniques. Computer science forms the backbone of computing technologies, while data science is specifically geared toward analyzing and interpreting data to support decision-making in various domains."
-                />
-                <FAQItem 
-                  question="When does the membership application open?"
-                  answer="Computer science involves the study of algorithms, software development, and computer systems, while data science is a specialized field focused on extracting insights and knowledge from large datasets using statistical and machine learning techniques. Computer science forms the backbone of computing technologies, while data science is specifically geared toward analyzing and interpreting data to support decision-making in various domains."
-                />
-                <FAQItem 
-                  question="I'm not a University of Melbourne student, can I still join?"
-                  answer="Computer science involves the study of algorithms, software development, and computer systems, while data science is a specialized field focused on extracting insights and knowledge from large datasets using statistical and machine learning techniques. Computer science forms the backbone of computing technologies, while data science is specifically geared toward analyzing and interpreting data to support decision-making in various domains."
-                />
+              <div>
+                <FAQSection />
                 <div className="flex gap-4 py-8">
                   <Link className="flex gap-2 text-xl text-theme my-auto" href="mailto:hello@dscubed.org.au">
                     <span className="my-auto">Get In Touch</span>
