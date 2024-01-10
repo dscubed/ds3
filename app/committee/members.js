@@ -37,7 +37,7 @@ export const directors = [
   {
     name: 'Kevin Tang',
     role: 'Industry Director',
-    image: '/dalle-monster.webp',
+    image: '/people/2024/hanshi-tang.jpg',
   },
   {
     name: 'Michael Ren',
@@ -117,7 +117,7 @@ export const teams = [
       },
       {
         name: 'Davyn Sumardi',
-        image: '/dalle-monster.webp',
+        image: '/people/2024/davyn-sumardi.jpg',
       },
       {
         name: 'Rayan Arain',
