@@ -31,6 +31,7 @@ export default async function EventCard ({
         <Link 
           className="flex gap-2 text-text-secondary hover:text-text-primary transition mt-auto"
           href={link}
+          target="_blank"
         >
           <span className="my-auto">View Event</span>
           <ArrowRightIcon className="w-5 h-5 my-auto" />
