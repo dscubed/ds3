@@ -13,7 +13,7 @@ export default function Navbar ({
 }) {
   return (
     <div className="sticky top-0 z-20">
-      <Banner text="We Are Recruiting For 2024" link="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" />
+      {/* <Banner text="We Are Recruiting For 2024" link="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" /> */}
       <nav
         {...rest}
         className={clsx(
