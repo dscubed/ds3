@@ -3,12 +3,18 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import EventCardAdmin from "../components/admin/EventCardAdmin";
 import Link from "next/link";
-import { fetchEvents, fetchThumbnail } from "../lib/data";
+import { fetchEventCount, fetchEvents, fetchThumbnail } from "../lib/data";
 import SignOutButton from "../components/admin/SignOutButton";
+import { pageToRange } from "../lib/utils.server";
+import Paginator from "../components/Paginator";
 
-export default async function LoginPage() {
+export default async function AdminPage({ searchParams }: { searchParams: { page: number } }) {
+  const page = Number(searchParams.page || 1)
+  const limit = 3
+  const count = await fetchEventCount()
+  const range = pageToRange(page, limit)
+  const events = await fetchEvents(range)
   const user = await getUser()
-  const events = await fetchEvents()
 
   return (
     <>
@@ -40,6 +46,10 @@ export default async function LoginPage() {
               />
             ))}
           </div>
+        </div>
+
+        <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
+          <Paginator page={page} limit={limit} count={count} />
         </div>
       </main>
 

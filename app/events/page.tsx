@@ -1,8 +1,16 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Paginator from "../components/Paginator";
 import EventGallery from "../components/events/EventGallery";
+import { fetchEventCount } from "../lib/data";
+import { pageToRange } from "../lib/utils.server";
 
-export default function SponsersPage() {
+export default async function SponsersPage({ searchParams }: { searchParams: { page: number } }) {
+  const page = Number(searchParams.page || 1)
+  const limit = 3
+  const count = await fetchEventCount()
+  const range = pageToRange(page, limit)
+
   return (
     <>
       <Navbar />
@@ -14,7 +22,11 @@ export default function SponsersPage() {
         </div>
 
         <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
-          <EventGallery />
+          <EventGallery range={range} />
+        </div>
+
+        <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
+          <Paginator page={page} limit={limit} count={count} />
         </div>
       </main>
 

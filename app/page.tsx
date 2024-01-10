@@ -225,7 +225,7 @@ export default function Index() {
 
         <div className="p-4 my-40">
           <div className="flex flex-col gap-10 max-w-screen-xl mx-auto">
-            <EventGallery />
+            <EventGallery range={[0, 3]} />
             
             <Link className="flex gap-2 text-xl text-theme mx-auto" href="/events">
               <span className="my-auto">Browse All Events</span>

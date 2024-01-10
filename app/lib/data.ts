@@ -2,7 +2,27 @@
 import { createClient } from '@/utils/supabase/server'
 import { cookies } from 'next/headers'
 
-export async function fetchEvents () {
+export async function fetchEventCount () {
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
+  
+  try {
+    const { count, error } = await supabase
+      .from('events')
+      .select('*', { count: 'exact', head: true })
+    
+    if (error) {
+      throw error
+    }
+
+    return count
+  } catch (error) {
+    console.log(error)
+    throw new Error('Failed to fetch event count.')
+  }
+}
+
+export async function fetchEvents (range = [0, 4]) {
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
   
@@ -10,7 +30,7 @@ export async function fetchEvents () {
     const { data, error } = await supabase
       .from('events')
       .select('*')
-      // .range(0, 1)
+      .range(...range)
     
     if (error) {
       throw error

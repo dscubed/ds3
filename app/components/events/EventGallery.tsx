@@ -2,8 +2,8 @@
 import { fetchEvents } from "@/app/lib/data"
 import EventCard from "./EventCard"
 
-export default async function EventGallery () {
-  const events = await fetchEvents()
+export default async function EventGallery ({ range = [0, 3] }) {
+  const events = await fetchEvents(range)
 
   return (
     <div className="grid grid-cols-4 gap-4">
