@@ -4,8 +4,8 @@ import * as Icon from 'react-bootstrap-icons';
 
 export default function FollowSection () {
   return (
-    <div className="bg-background border border-border mx-2 py-16 my-40 rounded-lg">
-      <div className="grid grid-cols-[1fr,auto] gap-4 max-w-screen-lg mx-auto p-4">
+    <div className="bg-background mx-2 py-16 my-40 rounded-lg">
+      <div className="grid grid-cols-[1fr,auto] lg:grid-cols-1 gap-10 max-w-screen-lg lg:max-w-screen-sm mx-auto p-4">
         <div className="flex flex-col gap-10 my-auto">
           <div className="flex flex-col gap-8 max-w-xl">
             <h4 className="text-4xl">Follow DS3 On Social</h4>
@@ -30,7 +30,7 @@ export default function FollowSection () {
           </div>
         </div>
         <Image
-          className="w-[300px] h-[300px] object-cover rounded-full"
+          className="lg:row-start-1 w-[300px] h-[300px] lg:w-[100px] lg:h-[100px] object-cover rounded-full"
           src="/dalle-monster.webp"
           width={1024}
           height={1024}

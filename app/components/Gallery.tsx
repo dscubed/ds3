@@ -12,9 +12,7 @@ export default function Gallery () {
   useEffectOnce(() => {
     var splide = new Splide('.splide', {
       rewind: true,
-      height: '500px',
       padding: '5rem',
-      gap: '20px',
       padding: '15%',
       interval: 4000,
       autoplay: 'pause',
@@ -32,7 +30,7 @@ export default function Gallery () {
 
   return (
     <div className="splide" role="group" aria-label="Gallery carousel">
-      <div className="splide__arrows">
+      <div className="splide__arrows sm:hidden">
         <button className="splide__arrow splide__arrow--prev flex w-10 h-10 bg-background-secondary rounded-full text-text-secondary hover:text-text-primary transition border border-border absolute left-[-18px] top-1/2 translate-y-[-50%] z-10">
           <ChevronLeftIcon className="m-auto w-7 pr-0.5"></ChevronLeftIcon>
         </button>
@@ -45,7 +43,7 @@ export default function Gallery () {
         <ul className="splide__list">
           <li className="splide__slide">
             <Image
-              className="rounded-md object-cover w-full h-full"
+              className="rounded-md object-cover w-full h-full max-h-[500px]"
               src="/hero1.jpg"
               width={300}
               height={200}
@@ -54,7 +52,7 @@ export default function Gallery () {
           </li>
           <li className="splide__slide">
             <Image
-              className="rounded-md object-cover w-full h-full"
+              className="rounded-md object-cover w-full h-full max-h-[500px]"
               src="/hero1.jpg"
               width={300}
               height={200}
@@ -63,7 +61,7 @@ export default function Gallery () {
           </li>
           <li className="splide__slide">
             <Image
-              className="rounded-md object-cover w-full h-full"
+              className="rounded-md object-cover w-full h-full max-h-[500px]"
               src="/hero2.jpg"
               width={300}
               height={200}
@@ -72,7 +70,7 @@ export default function Gallery () {
           </li>
           <li className="splide__slide">
             <Image
-              className="rounded-md object-cover w-full h-full"
+              className="rounded-md object-cover w-full h-full max-h-[500px]"
               src="/hero2.jpg"
               width={300}
               height={200}
