@@ -1,10 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
+  mode: 'jit',
+  purge: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  // content: [
+  //   './app/**/*.{js,ts,jsx,tsx,mdx}',
+  //   './components/**/*.{js,ts,jsx,tsx,mdx}',
+  // ],
   theme: {
+    // Force Tailwind to be desktop-first
+    // Need to manually set max-w-screen- properties
+    screens: {
+			'2xl': {'max': '1535px'},
+      'xl': {'max': '1279px'},
+      'lg': {'max': '1023px'},
+      'md': {'max': '767px'},
+      'sm': {'max': '639px'},
+		},
     extend: {
       colors: {
         'theme': 'rgb(var(--theme) / <alpha-value>)',

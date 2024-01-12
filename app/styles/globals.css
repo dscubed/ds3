@@ -46,6 +46,25 @@
 }
 
 @layer components {
+  /* Force Tailwind to be desktop-first */
+  /* max-w-screen properties are not generated for non-string values in tailwind.config.js */
+  /* therefore we must manually set it to the defaults */
+  .max-w-screen-2xl {
+    max-width: 1536px;
+  }
+  .max-w-screen-xl {
+    max-width: 1280px;
+  }
+  .max-w-screen-lg {
+    max-width: 1024px;
+  }
+  .max-w-screen-md {
+    max-width: 768px;
+  }
+  .max-w-screen-sm {
+    max-width: 640px;
+  }
+
   /* Loading animation */
   /* Parent element with the effect must also have the following properties: */
   /* relative overflow-hidden */
