@@ -24,7 +24,7 @@ export default function InfiniteBanner ({
           >
             {images.map((src, index) => (
               <Image 
-                className="w-64 h-8 my-auto saturate-0 contrast-125 brightness-[1000] object-contain"
+                className="w-64 h-8 my-auto saturate-0 contrast-125 brightness-0 object-contain dark:invert"
                 style={{paddingLeft: gap}}
                 src={src} 
                 width={100} 
