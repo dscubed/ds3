@@ -21,27 +21,29 @@ export default function Navbar ({
     <div className="sticky top-0 z-20">
       {/* <Banner text="We Are Recruiting For 2024" link="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" /> */}
 
-      <nav {...rest} className={clsx('relative w-full py-3 bg-background-secondary', className)}>
-        <div className="relative max-w-screen-xl flex justify-between gap-3 mx-auto">
-          {/* Logo */}
-          <div className="flex flex-1 px-4">
-            <Link href="/">
-              <Logo className="w-max h-12" />
-            </Link>
-          </div>
+      <nav {...rest} className={clsx('relative w-full bg-background-secondary', className)}>
+        <div className="px-4 py-3">
+          <div className="relative max-w-screen-xl flex justify-between gap-3 mx-auto">
+            {/* Logo */}
+            <div className="flex flex-1">
+              <Link href="/">
+                <Logo className="w-max h-12" />
+              </Link>
+            </div>
 
-          {/* Desktop links */}
-          <div className="flex gap-6 md:hidden px-4">
-            <Link className="my-auto" href="committee">Committee</Link>
-            <Link className="my-auto" href="sponsers">Sponsors</Link>
-            <Link className="my-auto" href="events">Events</Link>
-            <Link className="my-auto px-4 py-2 bg-foreground text-background rounded-full" href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" target="_blank">Membership</Link>
-          </div>
+            {/* Desktop links */}
+            <div className="flex gap-6 md:hidden">
+              <Link className="my-auto" href="committee">Committee</Link>
+              <Link className="my-auto" href="sponsers">Sponsors</Link>
+              <Link className="my-auto" href="events">Events</Link>
+              <Link className="my-auto px-4 py-2 bg-foreground text-background rounded-full" href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" target="_blank">Membership</Link>
+            </div>
 
-          {/* Mobile menu toggle */}
-          <button className="hidden md:block px-4" onClick={() => setShowMenu(showMenu ? false : true)}>
-            <Bars3Icon className="w-6 h-6" />
-          </button>
+            {/* Mobile menu toggle */}
+            <button className="hidden md:block" onClick={() => setShowMenu(showMenu ? false : true)}>
+              <Bars3Icon className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
 
