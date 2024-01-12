@@ -4,11 +4,11 @@ import MemberListItem from "./MemberListItem";
 
 export default function MemberList ({ teams }) {
   return (
-    <div className="grid grid-cols-2 gap-x-10 gap-y-20">
+    <div className="grid grid-cols-2 lg:grid-cols-1 gap-x-10 gap-y-20 sm:gap-y-10">
       {teams.map(team => (
         <div className="flex flex-col gap-5">
           <h5 className="text-xl text-text-secondary">{team.name}</h5>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-1 gap-2">
             {team.members.map(profile => <MemberListItem role={`${team.name} Officer`} {...profile} />)}
           </div>
         </div>

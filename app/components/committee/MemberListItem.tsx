@@ -26,9 +26,9 @@ export default function MemberListItem ({ teamName,
         height={50}
         alt={`${name}'s profile picture`}
       ></Image>
-      <div className="flex flex-col gap-1 my-auto">
-      <h6 className="leading-tight text-lg">{name}</h6>
-      <p className="text-text-secondary leading-tight text-lg">{role}</p>
+      <div className="flex flex-col gap-1 my-auto truncate">
+      <h6 className="leading-tight text-lg text-ellipsis overflow-hidden">{name}</h6>
+      <p className="text-text-secondary leading-tight text-lg text-ellipsis overflow-hidden">{role}</p>
       </div>
     </div>
   )

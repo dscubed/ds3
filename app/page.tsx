@@ -19,12 +19,12 @@ export default function Index() {
       </div>
 
       {/* Add shadow to hide matrix edges */}
-      <div
+      {/* <div
         className="absolute block w-screen h-screen top-0 left-0 pointer-events-none"
         style={{
-          boxShadow: 'inset 0 0 100px 100px rgb(var(--background-secondary))'
+          boxShadow: 'inset 0 0 50px 50px rgb(var(--background-secondary))'
         }}
-      ></div>
+      ></div> */}
 
       <Navbar />
 
