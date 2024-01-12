@@ -18,7 +18,7 @@ export default function SponsorCard ({
   invert: Boolean
 }) {
   return (
-    <div className='relative min-h-[400px] rounded-md overflow-hidden' style={{backgroundColor: color}}>
+    <div className='relative h-[400px] sm:h-[300px] rounded-md overflow-hidden' style={{backgroundColor: color}}>
       <div className="absolute w-full grid grid-cols-[1fr,auto] p-4">
         <div className="flex flex-col gap-2">
           <h5 className="text-xl leading-none text-white">{name}</h5>
@@ -34,7 +34,7 @@ export default function SponsorCard ({
         </Link>
       </div>
       <Image
-        className="absolute w-80 h-max max-h-16 left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] saturate-0 contrast-125 brightness-[10]"
+        className="absolute w-80 sm:w-60 h-max max-h-16 left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] saturate-0 contrast-125 brightness-[10]"
         style={{filter: invert ? 'invert(1)' : ''}}
         src={image}
         width={80*4}
