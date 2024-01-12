@@ -65,6 +65,11 @@
     max-width: 640px;
   }
 
+  /* Custom */
+  .max-w-screen-xs {
+    max-width: 480px;
+  }
+
   /* Loading animation */
   /* Parent element with the effect must also have the following properties: */
   /* relative overflow-hidden */

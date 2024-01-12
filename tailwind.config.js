@@ -13,11 +13,12 @@ module.exports = {
     // Force Tailwind to be desktop-first
     // Need to manually set max-w-screen- properties
     screens: {
-			'2xl': {'max': '1535px'},
-      'xl': {'max': '1279px'},
-      'lg': {'max': '1023px'},
-      'md': {'max': '767px'},
-      'sm': {'max': '639px'},
+			'2xl': {'max': '1535px'}, // < 1536px
+      'xl': {'max': '1279px'}, // < 1280px
+      'lg': {'max': '1023px'}, // < 1024px
+      'md': {'max': '767px'}, // < 768px
+      'sm': {'max': '639px'}, // < 640px
+      'xs': {'max': '479px'}, // < 480px (custom)
 		},
     extend: {
       colors: {
