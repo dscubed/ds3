@@ -9,7 +9,7 @@ export const executives = [
   {
     name: 'Hanshi Tang',
     role: 'Vice President',
-    image: '/dalle-monster.webp',
+    image: '/people/2024/hanshi-tang.jpg',
   },
   {
     name: 'Justin',
@@ -37,7 +37,7 @@ export const directors = [
   {
     name: 'Kevin Tang',
     role: 'Industry Director',
-    image: '/people/2024/hanshi-tang.jpg',
+    image: '/dalle-monster.webp',
   },
   {
     name: 'Michael Ren',
