@@ -14,18 +14,15 @@ export default function CommitteePage () {
       <Navbar />
 
       <main>
-        <div className="p-4 my-40">
-          <div className="flex flex-col gap-4 max-w-screen-xl mx-auto">
-            <h3 className="text-4xl">2024 Committee</h3>
-              {(new Date()).getFullYear() > 2024 && (
-                <Link className="flex gap-2 text-xl text-theme" href="#">
-                  <span className="my-auto">Past Committee</span>
-                  <ArrowRightIcon className="w-6 h-6 my-auto" />
-                </Link>
-              )}
-            <p className="text-text-secondary text-xl"></p>
-          </div>
-        </div>
+        <Section>
+          <h3 className="text-4xl">2024 Committee</h3>
+          {(new Date()).getFullYear() > 2024 && (
+            <Link className="flex gap-2 text-xl text-theme" href="#">
+              <span className="my-auto">Past Committee</span>
+              <ArrowRightIcon className="w-6 h-6 my-auto" />
+            </Link>
+          )}
+        </Section>
 
 
         <div className="px-2 mx-auto">
