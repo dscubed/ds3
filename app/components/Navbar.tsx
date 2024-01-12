@@ -5,6 +5,7 @@ import Link from "next/link"
 import Banner from "./Banner"
 import { useState } from "react"
 import { Bars3Icon } from "@heroicons/react/24/solid"
+import Logo from "./Logo"
 
 export default function Navbar ({
   children, 
@@ -25,13 +26,7 @@ export default function Navbar ({
           {/* Logo */}
           <div className="flex flex-1 px-4">
             <Link href="/">
-              <Image
-                className="filter-invert"
-                src='/logo.png' 
-                width={1363/14} 
-                height={552/14} 
-                alt="DS Cubed logo"
-              ></Image>
+              <Logo className="w-max h-12" />
             </Link>
           </div>
 
