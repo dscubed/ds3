@@ -37,7 +37,7 @@ export const directors = [
   {
     name: 'Kevin Tang',
     role: 'Industry Director',
-    image: '/dalle-monster.webp',
+    image: '/people/2024/kevin-tang.jpg',
   },
   {
     name: 'Michael Ren',
