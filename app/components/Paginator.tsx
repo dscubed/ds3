@@ -58,8 +58,9 @@ export default function Paginator ({
   }
 
   return (
-    <div className="flex justify-between gap-10">
-      <p className="text-text-secondary my-auto">Showing <b>{rangeStart + 1}</b> to <b>{Math.min(rangeEnd + 1, count)}</b> of <b>{count}</b> results</p>
+    <div className="flex justify-between w-full sm:max-w-[350px] sm:mx-auto gap-10">
+    {/* <div className="flex sm:flex-col justify-between gap-10"> */}
+      {/* <p className="text-text-secondary my-auto sm:text-center">Showing <b>{rangeStart + 1}</b> to <b>{Math.min(rangeEnd + 1, count)}</b> of <b>{count}</b> results</p> */}
       <div className="flex gap-2 my-auto">
         <PageLink pageNum={page - 1} disabled={page <= 1}>
           <ChevronLeftIcon className="w-5 h-5"/>
