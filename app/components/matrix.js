@@ -57,6 +57,7 @@ export default class Matrix {
     gap: 4,
     radius: 5,
     padding: [0, 0],
+    gridSize: [],
     maxGridSize: [64, 36],
     showCoordinate: false,
     offColor: 'rgb(var(--background))',
@@ -99,7 +100,7 @@ export default class Matrix {
     // Only update the grid if the new grid is of a different size
     window.addEventListener('resize', () => {
       const [newSizeX, newSizeY] = this.calcGridSize()
-      if (!(newSizeX === this.gridSizeX && newSizeY === this.gridSizeY)) {
+      if ((newSizeX !== this.gridSizeX || newSizeY !== this.gridSizeY) || (this.config.gridSize && this.config.gridSize.length === 2)) {
         this.resetGrid()
         this.createGrid()
         this.resizeCallbacks.forEach(callback => {
@@ -153,8 +154,10 @@ export default class Matrix {
 
   createGrid () {
     [this.gridSizeX, this.gridSizeY] = this.calcGridSize()
-    this.gridDomNode.style.gridTemplateColumns = `repeat(${this.gridSizeX}, ${this.config.pixelSize[0]}px)`
-    this.gridDomNode.style.gridTemplateRows = `repeat(${this.gridSizeY}, ${this.config.pixelSize[1]}px)`
+    const [pixelWidth, pixelHeight] = this.getPixelSize()
+
+    this.gridDomNode.style.gridTemplateColumns = `repeat(${this.gridSizeX}, ${pixelWidth}px)`
+    this.gridDomNode.style.gridTemplateRows = `repeat(${this.gridSizeY}, ${pixelHeight}px)`
   
     for (let y = 0; y < this.gridSizeY; y++) {
       for (let x = 0; x < this.gridSizeX; x++) {
@@ -171,7 +174,21 @@ export default class Matrix {
     this.pixels = []
   }
 
+   getPixelSize () {
+    if (this.config.gridSize && this.config.gridSize.length === 2) {
+      const rect = this.rootDomNode.getBoundingClientRect()
+      const width =  Math.floor((rect.width - this.config.gap * (this.config.gridSize[0] - 1)) / this.config.gridSize[0])
+      return [width, width]
+    }
+
+    return this.config.pixelSize
+  }
+
   calcGridSize () {
+    if (this.config.gridSize && this.config.gridSize.length === 2) {
+      return this.config.gridSize
+    }
+
     const rect = this.rootDomNode.getBoundingClientRect()
     const x = Math.min(
       Math.floor((rect.width - this.config.padding[0] * 2) / (this.config.pixelSize[0] + this.config.gap)),

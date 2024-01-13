@@ -6,6 +6,7 @@ export default function setMatrixStyle ({ id, gap, radius, offColor, onColor }) 
       width: 100%;
       height: 100%;
       display: flex;
+      overflow: hidden;
     }
 
     #${id} .matrix-grid {
