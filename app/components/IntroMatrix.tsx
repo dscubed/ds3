@@ -33,7 +33,7 @@ function setupShimmer (mtx) {
     const fadeOutId = setInterval(() => {
       if (pixel.state === 0 && !pixel.isFaded && !pixel.isHidden) {
         pixel.isFaded = true
-        pixel.domNode.style.opacity = '0.5'
+        pixel.domNode.style.opacity = '0.8'
       }
     }, 1 + Math.random() * 1000 * 10)
 
@@ -56,7 +56,10 @@ function setupShimmer (mtx) {
 
 export default function IntroMatrix() {
   useEffectOnce(() => {
-    const matrix = new Matrix('intro-matrix')
+    const matrix = new Matrix('intro-matrix', {
+      padding: [4, 4],
+      radius: 100
+    })
 
     var lastHoverPixel = null
     function mouseMoveCallback (event) {
