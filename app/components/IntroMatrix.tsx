@@ -167,6 +167,6 @@ export default function IntroMatrix() {
   }, [])
   
   return (
-    <div id="intro-matrix" className="fixed top-0"></div>
+    <div id="intro-matrix"></div>
   )
 }
