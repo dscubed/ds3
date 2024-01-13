@@ -56,10 +56,22 @@ function setupShimmer (mtx) {
 
 export default function IntroMatrix() {
   useEffectOnce(() => {
-    const matrix = new Matrix('intro-matrix', {
-      padding: [4, 4],
-      radius: 100
-    })
+    const config = {
+      padding: [2, 2],
+      gap: 2,
+    }
+    
+    if (window.innerWidth < 640) {
+      config.pixelSize = [24, 24]
+      config.maxGridSize = [27, 48]
+    }
+
+    if (window.innerWidth < 480) {
+      config.pixelSize = [18, 18]
+      config.radius = 3
+    } 
+
+    const matrix = new Matrix('intro-matrix', config)
 
     var lastHoverPixel = null
     function mouseMoveCallback (event) {
