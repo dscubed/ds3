@@ -186,12 +186,8 @@ export default class Matrix {
 
   screenToGridPos (x, y) {
     const rect = this.gridDomNode.getBoundingClientRect()
-    const gridWidth = rect.width
-    const gridHeight = rect.height
-    const matrixWindowGapX = (window.innerWidth - gridWidth) / 2 // size of horizontal margin
-    const matrixWindowGapY = (window.innerHeight - gridHeight) / 2 // size of vertical margin
-    const gridX = Math.ceil((x - matrixWindowGapX) / (this.config.pixelSize[0] + this.config.gap))
-    const gridY = Math.ceil((y - matrixWindowGapY) / (this.config.pixelSize[1] + this.config.gap))
+    const gridX = Math.ceil((x - rect.x) / (this.config.pixelSize[0] + this.config.gap))
+    const gridY = Math.ceil((y - rect.y) / (this.config.pixelSize[1] + this.config.gap))
     return [gridX, gridY]
   }
 
