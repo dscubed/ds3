@@ -18,6 +18,7 @@ export default function Index() {
       <div className="w-screen h-screen">
         <IntroMatrix />
       </div>
+      <div className="h-dvh pointer-events-none"></div>
 
       {/* Add shadow to hide matrix edges */}
       {/* <div
@@ -29,7 +30,7 @@ export default function Index() {
 
       <Navbar />
 
-      <main>
+      <main className="relative bg-background-secondary">
         <Section>
           <div className="grid grid-cols-[1fr,1fr] lg:grid-cols-1 gap-20 sm:gap-10">
             <div className="flex flex-col gap-10 my-auto max-w-xl lg:max-w-xl">

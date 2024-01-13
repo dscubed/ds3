@@ -67,90 +67,63 @@ export default function IntroMatrix() {
       }
     }
 
-    var scrollDelta = 0
-    var prevScollY = 0
-    var lastScrollAt = 0
+    var prevScroll = 0
+    var prevRow = 0
 
     function scrollCallback (event) {
-      /* 
-        How the on scroll animation works:
-        1. A pixel is eligible to undergo animation transition if it's near the top of the screen/window
-        2. If eligible, a time delay is set using setTimeout. (The time delay is neccessary to achieve a gradual dithering effect)
-        3. After the delay, we calculate the likelihood of the pixel transitioning in the current event cycle
-        4. A random number is generated, and if the probability condition is met, the pixel will transition
-        5. If the probability condition failed, step 1 to 4 will be repeated in the next event cycle
-      */
-    
-      scrollDelta = window.scrollY - prevScollY
-
-      // ScrollDelta never be 0 inside the event listener callback, return to be safe
-      if (scrollDelta === 0) {
+      const [_, row] = matrix.screenToGridPos(0, window.scrollY)
+      const invRow = matrix.gridSizeY - row // Number of rows from the bottom instead of top
+      if (prevRow === row) {
         return
       }
 
-      const isScrollTop = scrollDelta < 0 && window.scrollY === 0 // only true of scroll direction is up
+      // Must use the absolute values because both window.scrollY can be -ve on Safari due to the rubberbanding effect
+      const isDownScroll = Math.abs(window.scrollY) - Math.abs(prevScroll) >= 0
+      const maxOffset = 6
+      const maxDelay = 2000
 
-      // To save resources, only run the animation cycle every 25ms, or 40 times per second
-      // However, we need to override debounce when the user has just scrolled to the top
-      // to transition the rest of the pixels near the top of the screen.
-      if(Date.now() - lastScrollAt > 25 || isScrollTop) { // Debounce -> run action every 25ms
-        // Find where the window top intersect the grid
-        const [, gridY] = this.screenToGridPos(0, window.scrollY)
+      matrix.pixels.forEach(pixel => {
+        // Check if pixel is close enough to the fade line
+        const isInRange = isDownScroll 
+          ? pixel.y >= invRow - maxOffset
+          : pixel.y < invRow
 
-        // We want to fade pixels when scrolling down and show pixels when up
-        const isHiddenFilter = prevScollY < window.scrollY ? false : true
+        // Distance (offset) of the pixel from the fade line
+        const offset = isDownScroll 
+          ? pixel.y - (invRow - maxOffset)
+          : invRow - pixel.y
 
-        this.pixels.forEach(pixel => {
-          const margin = Math.round(Math.random() * 3)
-          const isNearWindowTop = isScrollTop 
+
+        // Check if pixel is ready to transition
+        let isReady = Math.random() < (offset / maxOffset)
+        
+        // Force to show all pixels when scrolled to the top
+        if (!isDownScroll && invRow === matrix.gridSizeY) {
+          isReady = true
+        }
+
+        if (!isReady) return
+
+        // Pixels closer to the fade line will have a shorter delay
+        const delay = Math.random() * maxDelay * (maxOffset - offset) / maxOffset
+
+        // Prevent previously pending transitions from executing after the current transition.
+        if (pixel.transitionId) {
+          clearTimeout(pixel.transitionId)
+        }
+
+        pixel.transitionId = setTimeout(() => {
+          pixel.domNode.style.opacity = isDownScroll 
+            ? 0 
+            : 1
+          pixel.isHidden = isDownScroll 
             ? true 
-            : scrollDelta > 0 
-              ? pixel.y < gridY + margin 
-              : pixel.y > gridY + margin
+            : false
+        }, delay)
+      })
 
-          if (pixel.isHidden === undefined) {
-            pixel.isHidden = false
-          }
-
-          if (pixel.isHidden === isHiddenFilter && isNearWindowTop) {
-            // Skip if pixel already has a ongoing time delay
-            // UNLESS the user has scrolled to the top because there is no next event callback
-            if (pixel.pendingTimeout && !isScrollTop) {
-              return
-            }
-
-            pixel.pendingTimeout = true
-
-            setTimeout(() => {
-              // Pixels closer to the top of the screen will be more likely to undergo transition
-              // mapToRange(<pixel's distance to top>, 0, <max margin>, <minimum chance>, <maximum chance>)
-              let likelihood = mapToRange(pixel.y - gridY, 0, 3, 0.25, 1)
-  
-              // Must transition if pixel is off screen; or the user has scrolled to the top
-              // and we need to show all pixel now (because there is no next event callback)
-              if (pixel.y - gridY < 0 || (isScrollTop)) {
-                likelihood = 1
-              }
-  
-              if (Math.random() < likelihood) {
-                pixel.domNode.style.opacity = scrollDelta > 0 
-                  ? '0' 
-                  : ''
-
-                pixel.isHidden = scrollDelta > 0 
-                  ? true
-                  : false
-              }
-              
-              pixel.pendingTimeout = false
-            }, Math.random() * 250)
-          }
-        })
-
-        lastScrollAt = Date.now()
-      }
-
-      prevScollY = window.scrollY
+       prevRow = row
+       prevScroll = window.scrollY
     }
 
     matrix.setup(mtx => {
@@ -191,6 +164,6 @@ export default function IntroMatrix() {
   }, [])
   
   return (
-    <div id="intro-matrix"></div>
+    <div id="intro-matrix" className="fixed top-0"></div>
   )
 }
