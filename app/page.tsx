@@ -15,22 +15,14 @@ import Section from "./components/Section"
 export default function Index() {
   return (
     <>
-      <div className="w-screen h-screen">
+      <div className="w-screen h-screen fixed top-0">
         <IntroMatrix />
       </div>
-      <div className="h-dvh pointer-events-none"></div>
-
-      {/* Add shadow to hide matrix edges */}
-      {/* <div
-        className="absolute block w-screen h-screen top-0 left-0 pointer-events-none"
-        style={{
-          boxShadow: 'inset 0 0 50px 50px rgb(var(--background-secondary))'
-        }}
-      ></div> */}
+      <div className="w-screen h-screen pointer-events-none"></div>
 
       <Navbar />
 
-      <main className="relative bg-background-secondary">
+      <main className="relative bg-background-secondary z-10">
         <Section>
           <div className="grid grid-cols-[1fr,1fr] lg:grid-cols-1 gap-20 sm:gap-10">
             <div className="flex flex-col gap-10 my-auto max-w-xl lg:max-w-xl">
