@@ -16,6 +16,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "@types/uuid": "^9.0.7",
     "autoprefixer": "10.4.15",
+    "cities.json": "^1.1.32",
     "clsx": "^2.0.0",
     "compressorjs": "^1.2.1",
     "eslint": "^8.56.0",
