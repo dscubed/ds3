@@ -16,22 +16,6 @@ export default function setMatrixStyle ({ id, radius, offColor, onColor }) {
       margin: auto;
     }
 
-    #${id} .locator {
-      position: relative;
-    }
-
-    #${id} .locator::after {
-      content: '';
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #FFF;
-      border-radius: 100%;
-    }
-
     #${id} .pixel {
       display: block;
       width: 100%;
