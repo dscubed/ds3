@@ -7,7 +7,7 @@ import SponsorCard from "../components/sponsors/SponserCard";
 import InfiniteBanner from "../components/sponsors/InfiniteBanner";
 import Section from "../components/Section";
 
-const images = [
+const speakers = [
   '/sponsors/citadel.svg',
   '/sponsors/csiro.svg',
   '/sponsors/deloitte.svg',
@@ -20,6 +20,66 @@ const images = [
   '/sponsors/seek.svg',
 ]
 
+const sponsors = {
+  gold: [
+    {
+      name: 'Melbourne Centre for Data Science',
+      category: 'Education',
+      image: '/sponsors/mcds.png',
+      link: 'https://science.unimelb.edu.au/mcds',
+    },
+    {
+      name: 'Citadel',
+      category: 'Financial services',
+      image: '/sponsors/citadel.svg',
+      link: 'https://www.citadel.com/'
+    },
+    {
+      name: 'Macquarie',
+      category: 'Financial services',
+      image: '/sponsors/macquarie.svg',
+      link: 'https://www.macquarie.com/'
+    },
+    {
+      name: 'Ernst & Young',
+      category: 'Professional services',
+      image: '/sponsors/ey.svg',
+      link: 'https://www.ey.com/'
+    },
+    {
+      name: 'IBM',
+      category: 'Information technology',
+      image: '/sponsors/ibm.svg',
+      link: 'https://www.ibm.com/'
+    },
+    {
+      name: 'Nasdaq',
+      category: 'Financial services',
+      image: '/sponsors/nasdaq.svg',
+      link: 'https://www.nasdaq.com/'
+    },
+    {
+      name: 'Jane Street',
+      category: 'Financial services',
+      image: '/sponsors/jane-street.svg',
+      link: 'https://www.janestreet.com/'
+    },
+    {
+      name: 'Nomura',
+      category: 'Financial services',
+      image: '/sponsors/nomura.svg',
+      link: 'https://www.nomura.com/'
+    },
+    {
+      name: 'WhyHive',
+      category: 'Software',
+      image: '/sponsors/whyhive.png',
+      link: 'https://www.whyhive.com/'
+    },
+  ]
+}
+
+
 export default function SponsersPage() {
   return (
     <>
@@ -29,67 +89,24 @@ export default function SponsersPage() {
         <Section>
           <div className="">
             <h3 className="text-5xl sm:text-4xl text-center mx-auto mb-5 !leading-tight">Sponsorships</h3>
-            <p className="text-xl text-text-secondary text-center mx-auto !leading-relaxed">Introducing our latest sponsors for 2024.</p>
+            <p className="text-xl text-text-secondary text-center mx-auto !leading-relaxed">Organisations that have sponsored us in the past</p>
           </div>
         </Section>
 
         <Section>
-          <h4 className="text-2xl text-center">Gold Sponsors</h4>
+          {/* Gold color #644d00 */}
+          {/* <h4 className="text-2xl text-center">Gold Sponsors</h4> */}
           <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
-            <SponsorCard
-              name="Citadel"
-              category="Investment Management"
-              color="#644d00"
-              image="/sponsors/citadel.svg"
-              link="#"
-            />
-            <SponsorCard
-              name="Citadel"
-              category="Investment Management"
-              color="#644d00"
-              image="/sponsors/citadel.svg"
-              link="#"
-            />
-          </div>
-        </Section>
-
-        <Section>
-          <h4 className="text-2xl text-center">Silver Sponsors</h4>
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
-            <SponsorCard
-              name="Citadel"
-              category="Investment Management"
-              color="#333333"
-              image="/sponsors/citadel.svg"
-              link="#"
-            />
-            <SponsorCard
-              name="Citadel"
-              category="Investment Management"
-              color="#333333"
-              image="/sponsors/citadel.svg"
-              link="#"
-            />
-          </div>
-        </Section>
-
-        <Section>
-          <h4 className="text-2xl text-center">Bronze Sponsors</h4>
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
-            <SponsorCard
-              name="Citadel"
-              category="Investment Management"
-              color="#4b2800"
-              image="/sponsors/citadel.svg"
-              link="#"
-            />
-            <SponsorCard
-              name="Citadel"
-              category="Investment Management"
-              color="#4b2800"
-              image="/sponsors/citadel.svg"
-              link="#"
-            />
+            {sponsors.gold.map(item => (
+              <SponsorCard
+                color="rgb(var(--background))"
+                name={item.name}
+                category={item.category}
+                image={item.image}
+                link={item.link}
+                filter={item.filter || ''}
+              />
+            ))}
           </div>
         </Section>
 
@@ -97,10 +114,10 @@ export default function SponsersPage() {
           <div className="flex flex-col gap-10 max-w-screen-xl mx-auto mb-10 p-4">
             <h4 className="text-2xl text-center">Past Speakers From</h4>
           </div>
-          <InfiniteBanner images={images} gap={80} speed={50000} />
+          <InfiniteBanner images={speakers} gap={80} speed={50000} />
         </div>
 
-        {/* <Section>
+        <Section>
           <div className="grid grid-cols-[auto,1fr] gap-10">
             <div className="flex flex-col gap-10 max-w-lg my-auto">
               <h4 className="text-2xl">Become a Sponsor Today</h4>
@@ -122,7 +139,7 @@ export default function SponsersPage() {
               alt="DALL-E generated image of money and currency"
             ></Image>
           </div>
-        </Section> */}
+        </Section>
       </main>
 
       <Footer />
