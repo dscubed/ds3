@@ -9,7 +9,7 @@ import DeleteButton from "@/app/components/admin/edit/DeleteButton";
 
 export default async function EditPage({ params }: { params: { id: string } }) {
   const user = await getUser()
-  const event = await fetchEvent(params.id)
+  const event = await fetchEvent(Number(params.id))
 
   if (!user) {
     return redirect('/admin/login')

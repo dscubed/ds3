@@ -1,9 +1,10 @@
 'use client'
 import { deleteEvent } from '@/app/lib/action'
+//@ts-expect-error
 import { useFormStatus, useFormState } from 'react-dom'
 import Spinner from '../../Spinner'
 
-function FormChild ({ id }) {
+function FormChild ({ id }: {id: number }) {
   const status = useFormStatus()
 
   return (
@@ -22,7 +23,7 @@ function FormChild ({ id }) {
   )
 }
 
-export default function DeleteButton ({ id }) {
+export default function DeleteButton ({ id }: { id: number }) {
   const [status, action] = useFormState(deleteEvent, {})
 
   return (

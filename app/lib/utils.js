@@ -8,7 +8,7 @@ export function mapToRange (number, inMin, inMax, outMin, outMax) {
 }
 
 // Prevent running effect twice in React strict mode
-export function useEffectOnce (callback, watchers) {
+export function useEffectOnce (callback, deps) {
   const count = useRef(0)
 
   useEffect(() => {
@@ -18,7 +18,8 @@ export function useEffectOnce (callback, watchers) {
     } else {
       console.warn(`[Strict Mode] prevent calling function '${callback.name}' a second time`)
     }
-  }, watchers)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps)
 }
 
 // Wrap compressor js in promise for async/await

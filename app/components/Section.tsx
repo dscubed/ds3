@@ -5,8 +5,8 @@ export default function Section ({
   children, 
   ...props 
 }: {
-  className: string,
-  children: React.ReactNode
+  className?: string,
+  children?: React.ReactNode
 }) {
   return (
     <section {...props} className={clsx('p-4 my-40 sm:my-20', className)}>

@@ -97,7 +97,7 @@ export default function SponsersPage() {
           {/* Gold color #644d00 */}
           {/* <h4 className="text-2xl text-center">Gold Sponsors</h4> */}
           <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
-            {sponsors.gold.map(item => (
+            {sponsors.gold.map((item:any, index) => (
               <SponsorCard
                 color="rgb(var(--background))"
                 name={item.name}
@@ -105,6 +105,7 @@ export default function SponsersPage() {
                 image={item.image}
                 link={item.link}
                 filter={item.filter || ''}
+                key={index}
               />
             ))}
           </div>

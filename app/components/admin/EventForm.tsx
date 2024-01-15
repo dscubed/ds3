@@ -2,17 +2,18 @@
 import { createEvent } from '@/app/lib/action'
 import { getToday, getOneYearFromToday, convertBase64 } from '@/app/lib/utils'
 import { useRef, useState } from 'react'
+//@ts-expect-error
 import { useFormStatus, useFormState } from 'react-dom'
 import { createThumbnail } from '@/app/lib/image'
 import Spinner from '../Spinner'
 
 function EventFormChild () {
-  const fileRef = useRef()
+  const fileRef = useRef<HTMLInputElement>(null)
   const [imageData, setImageData] = useState()
   const status = useFormStatus()
 
-  async function onChangeHandler (e) {
-    const file = e.target.files[0]
+  async function onChangeHandler (e: React.ChangeEvent<HTMLInputElement>) {
+    const file = ((e.target as HTMLInputElement).files as FileList)[0]
     const image = await createThumbnail(file)
 
     if (!image) {
@@ -31,7 +32,7 @@ function EventFormChild () {
 
         {/* Image preview */}
         <div
-          onClick={e => fileRef.current.click()}
+          onClick={e => fileRef.current!.click()}
           className="flex w-full h-64 p-2 bg-background bg-no-repeat bg-center bg-contain rounded-md cursor-pointer" 
           style={{ backgroundImage: `url(${imageData})` }}
         >

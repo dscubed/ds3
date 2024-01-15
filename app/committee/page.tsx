@@ -40,21 +40,27 @@ export default function CommitteePage () {
         <Section>
           <h4 className="text-2xl">Executive Team</h4>
           <div className="grid grid-cols-4 gap-4 lg:grid-cols-2 xs:grid-cols-1">
-            {executives.map(profile => <MemberCard {...profile} />)}
+            {executives.map((profile, index) => (
+              <MemberCard {...profile} key={index} />)
+            )}
           </div>
         </Section>
 
         <Section>
           <h4 className="text-2xl">Directors</h4>
           <div className="grid grid-cols-4 gap-4 lg:grid-cols-2 xs:grid-cols-1">
-            {directors.map(profile => <MemberCard {...profile} />)}
+            {directors.map((profile, index) => (
+              <MemberCard {...profile} key={index} />)
+            )}
           </div>
         </Section>
 
         <Section>
           <h4 className="text-2xl">Representatives</h4>
           <div className="grid grid-cols-4 gap-4 lg:grid-cols-2 xs:grid-cols-1">
-            {representatives.map(profile => <MemberCard {...profile} />)}
+            {representatives.map((profile, index) => (
+              <MemberCard {...profile} key={index} />)
+            )}
           </div>
         </Section>
 

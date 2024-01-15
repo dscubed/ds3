@@ -7,14 +7,7 @@ import { useState } from "react"
 import { Bars3Icon } from "@heroicons/react/24/solid"
 import Logo from "./Logo"
 
-export default function Navbar ({
-  children, 
-  className,
-  ...rest
-}: {
-  children: React.ReactNode
-  className: string
-}) {
+export default function Navbar ({ className = '', ...rest }: { className?: string }) {
   const [showMenu, setShowMenu] = useState(false)
 
   return (

@@ -8,15 +8,15 @@ import { pageToRange } from "../lib/utils.server"
 function PageLink ({ 
   pageNum, 
   children,
-  disabled,
+  disabled = false,
 }: {
   pageNum: number,
   children: React.ReactNode,
-  disabled: boolean,
+  disabled?: boolean,
 }) {
   const currentPage = Number(useSearchParams().get('page') || 1)
   const pathname = usePathname()
-  const queryParamString = new URLSearchParams({ page: pageNum }).toString()
+  const queryParamString = new URLSearchParams({ page: pageNum.toString() }).toString()
 
   const url = disabled 
     ? '#' 

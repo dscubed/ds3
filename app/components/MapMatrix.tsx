@@ -3,7 +3,9 @@ import Matrix from "@/app/components/matrix"
 import { mapToRange, useEffectOnce } from '@/app/lib/utils'
 import { getPixelCoordinateByName, getScaledCoordinate } from '@/app/lib/map-utils'
 
-const data = [
+type LocationData = { name: string, country?: string, count: number }[]
+
+const data: LocationData = [
   { name: 'Pretoria', count: 1 },
   { name: 'Washington', count: 1 },
   { name: 'Austin', count: 2 },
@@ -19,9 +21,9 @@ const data = [
   { name: 'Drouin', count: 1 },
 ]
 
-const points = []
+const points: { x: number, y: number, radius: number }[] = []
 
-function getMinCity (data) {
+function getMinCity (data: LocationData) {
   let min = { count: 0 }
   data.forEach(item => {
     if (item.count < min.count) {
@@ -31,7 +33,7 @@ function getMinCity (data) {
   return min
 }
 
-function getMaxCity (data) {
+function getMaxCity (data: LocationData) {
   let max = { count: 0 }
   data.forEach(item => {
     if (item.count > max.count) {
@@ -64,8 +66,8 @@ export default function MapMatrix() {
     const max = getMaxCity(data)
 
     var setStyle = (function (style) {
-      var sheet = document.head.appendChild(style).sheet;
-      return function (selector, css) {
+      var sheet = document.head.appendChild(style).sheet!;
+      return function (selector: string, css: any) {
           var propText = typeof css === "string" ? css : Object.keys(css).map(function (p) {
               return p + ":" + (p === "content" ? "'" + css[p] + "'" : css[p]);
           }).join(";");
@@ -73,7 +75,7 @@ export default function MapMatrix() {
       };
     })(document.createElement("style"))
 
-    matrix.plotCity = function (radius, opacity, name, country = '') {
+    function plotCity (radius: number, opacity: number, name: string, country: string = '') {
       const coord = getPixelCoordinateByName(name, country)
       const { x, y } = getScaledCoordinate(coord)
       const prevPoint = points.find(item => item.x === x && item.y === y)
@@ -84,7 +86,7 @@ export default function MapMatrix() {
       if (prevPoint) prevPoint.radius = radius
       else points.push({ x, y, radius })
 
-      const pixel = this.pixels.find(pixel => pixel.x === x && pixel.y === y)
+      const pixel = matrix.pixels.find(pixel => pixel.x === x && pixel.y === y)
       pixel.domNode.id = name
       pixel.domNode.style.position = 'relative'
       
@@ -118,17 +120,17 @@ export default function MapMatrix() {
         // 'animation-delay': Math.random() - 0.9 + 's',
       })
 
-      this.setPixel(x, y, 1, `rgb(var(--foreground))`)
+      matrix.setPixel(x, y, 1, `rgb(var(--foreground))`)
     }
 
-    matrix.update(mtx => {
+    matrix.update((mtx: any) => {
       mtx.clear()
       mtx.display('*')
 
       data.forEach(item => {
         const opacity = mapToRange(item.count, min.count, max.count, 0.3, 0.9)
         const radius = mapToRange(item.count, min.count, max.count, 10, 40)
-        mtx.plotCity(radius, opacity, item.name, item.country || '')
+        plotCity(radius, opacity, item.name, item.country || '')
       })
     })
   }, [])

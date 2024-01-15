@@ -1,6 +1,6 @@
 import clsx from "clsx"
 
-export default function Spinner ({ className }) {
+export default function Spinner ({ className = '' }: { className?: string }) {
   return (
     <div role="status">
       <svg

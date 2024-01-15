@@ -5,7 +5,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "fix": "next lint -- --fix"
+    "fix": "next lint -- --fix",
+    "ts": "tsc --noEmit --incremental",
+    "ts:watch": "yarn ts --watch"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
@@ -33,6 +35,7 @@
   },
   "devDependencies": {
     "@types/node": "20.3.1",
+    "@types/p5": "^1.7.6",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.5",
     "encoding": "^0.1.13",

@@ -20,7 +20,7 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
   const limit = 4
   const count = await fetchEventCount()
   const range = pageToRange(page, limit)
-  const events = await fetchEvents(range)
+  const events = await fetchEvents(range as [number, number])
 
   return (
     <>
@@ -42,7 +42,7 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
             <Link href="/admin/create" className="py-3 px-6 rounded-full bg-foreground text-lg text-background w-max my-auto">Create New</Link>
           </div>
           <div className="grid grid-cols-4 gap-4">
-            {events.map(item => (
+            {events.map((item, index) => (
               <EventCardAdmin
                 id={item.id}
                 title={item.title}
@@ -50,13 +50,14 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
                 thumbnail={item.thumbnail}
                 date={item.date}
                 link={item.link}
+                key={index}
               />
             ))}
           </div>
         </div>
 
         <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
-          <Paginator page={page} limit={limit} count={count} />
+          <Paginator page={page} limit={limit} count={count!} />
         </div>
       </main>
 

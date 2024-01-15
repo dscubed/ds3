@@ -22,7 +22,7 @@ export async function fetchEventCount () {
   }
 }
 
-export async function fetchEvents (range = [0, 4]) {
+export async function fetchEvents (range: [number, number] = [0, 4]) {
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
   
@@ -67,7 +67,7 @@ export async function fetchEvent (id: number) {
   }
 }
 
-export async function fetchThumbnail (path) {
+export async function fetchThumbnail (path: string) {
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
   const { data } = await supabase

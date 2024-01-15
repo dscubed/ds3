@@ -6,10 +6,10 @@ import { config, getPixelCoordinateByName, getScaledCoordinate } from '@/app/lib
 
 export default function Pixelate () {
   useEffectOnce(() => {
-    const mapData = []
+    const mapData: number[][] = []
 
-    new p5(p5 => {
-      var image
+    new p5((p5: p5) => {
+      var image: p5.Image
 
       p5.preload = () => {
         const mapId = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID

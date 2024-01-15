@@ -12,7 +12,7 @@ export default function MemberCard ({
   name: string,
   role: string,
   image: string,
-  filter: string
+  filter?: string
 }) {
   return (
     <div className="flex flex-col gap-3 py-10 px-5 bg-background rounded-md">

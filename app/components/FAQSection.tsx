@@ -22,10 +22,11 @@ const data = [
 export default function FAQSection () {
   return (
     <div className="flex flex-col">
-      {data.map(item => (
+      {data.map((item, index) => (
         <FAQItem
           question={item.question}
           answer={item.answer}
+          key={index}
         />
       ))}
     </div>

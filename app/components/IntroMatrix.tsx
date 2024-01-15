@@ -3,7 +3,12 @@ import Matrix from "@/app/components/matrix"
 import { mapToRange, useEffectOnce } from '@/app/lib/utils'
 
 class Trail {
-  constructor (x, y, distance) {
+  x: number
+  y: number
+  radius: number
+  id: NodeJS.Timer
+  color: string
+  constructor (x: number, y: number, distance: number) {
     this.x = x
     this.y = y
     this.radius = Math.min(1 + Math.round(distance * 0.1), 7) // variable speed
@@ -20,8 +25,8 @@ class Trail {
   }
 }
 
-function setupShimmer (mtx) {
-  mtx.pixels.forEach(pixel => {
+function setupShimmer (mtx: any) {
+  mtx.pixels.forEach((pixel: any) => {
     pixel.onStateChange(() => {
       // Show pixel if it is set to 'on' state
       // unless it is hidden by on-scroll animation
@@ -59,7 +64,7 @@ export default function IntroMatrix() {
     const config = {
       padding: [2, 2],
       gap: 2,
-    }
+    } as any
     
     if (window.innerWidth < 640) {
       config.pixelSize = [24, 24]
@@ -73,8 +78,8 @@ export default function IntroMatrix() {
 
     const matrix = new Matrix('intro-matrix', config)
 
-    var lastHoverPixel = null
-    function mouseMoveCallback (event) {
+    var lastHoverPixel: EventTarget | null = null
+    function mouseMoveCallback (this: any, event: MouseEvent) {
       if (event.target !== lastHoverPixel) {
         const distance = Math.sqrt(event.movementX**2 + event.movementY**2)
         this.trails.push(new Trail(this.mouseX, this.mouseY, distance))
@@ -85,7 +90,7 @@ export default function IntroMatrix() {
     var prevScroll = 0
     var prevRow = 0
 
-    function scrollCallback (event) {
+    function scrollCallback () {
       const [_, row] = matrix.screenToGridPos(0, window.scrollY)
       const invRow = matrix.gridSizeY - row // Number of rows from the bottom instead of top
       if (prevRow === row) {
@@ -141,7 +146,7 @@ export default function IntroMatrix() {
        prevScroll = window.scrollY
     }
 
-    matrix.setup(mtx => {
+    matrix.setup((mtx: any) => {
       mtx.trails = []
       mtx.mouseMoveCallback = mouseMoveCallback.bind(mtx)
       mtx.scrollCallback = scrollCallback.bind(mtx)
@@ -150,14 +155,14 @@ export default function IntroMatrix() {
       setupShimmer(mtx)
     })
 
-    matrix.onResize(mtx => {
+    matrix.onResize((mtx: any) => {
       mtx.trails = []
       window.addEventListener('mousemove', mtx.mouseMoveCallback)
       window.addEventListener('scroll', mtx.scrollCallback)
       setupShimmer(mtx)
     })
 
-    matrix.update(mtx => {
+    matrix.update((mtx: any) => {
       mtx.clear()
       
       for (let i = mtx.trails.length - 1; i >= 0; i--) {

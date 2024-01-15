@@ -58,7 +58,7 @@ export default function Index() {
                 height={1024}
                 alt="Data science career help cover image"
               ></Image>
-              <p className="text-text-secondary text-lg leading-relaxed">We're the one-stop hub to provide data science career help. We are hosting recruitment talk throughout the academic calendars and data science related jobs through our newsletters.</p>
+              <p className="text-text-secondary text-lg leading-relaxed">We&apos;re the one-stop hub to provide data science career help. We are hosting recruitment talk throughout the academic calendars and data science related jobs through our newsletters.</p>
             </div>
 
             <div className="grid gap-4 h-max">
