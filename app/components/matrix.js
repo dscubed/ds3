@@ -128,6 +128,9 @@ export default class Matrix {
   }
 
   update (callback) {
+    // Run callback immediately before interval is executed to prevent visual delay for lower refresh rates
+    callback(this)
+
     // Event loop
     setInterval(() => callback(this), this.config.delta)
 
