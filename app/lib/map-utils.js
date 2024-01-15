@@ -49,7 +49,7 @@ export function getPixelCoordinateByName (name, country = '') {
 
 export function getScaledCoordinate ({ x, y }) {
   return {
-    x: Math.floor((x + (config.origin.x - config.crop.left)) / config.pixelSize) * config.pixelSize,
-    y: Math.floor((y + (config.origin.y - config.crop.top)) / config.pixelSize) * config.pixelSize
+    x: Math.floor((x + (config.origin.x - config.crop.left)) / config.pixelSize),
+    y: Math.floor((y + (config.origin.y - config.crop.top)) / config.pixelSize)
   }
 }

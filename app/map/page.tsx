@@ -36,7 +36,7 @@ export default function Pixelate () {
             const b = image.pixels[i + 2]
             const brightness = (r + g + b) / 3
 
-            if (brightness > 10) {
+            if (brightness > 20) {
               p5.fill(255)
               mapData[mapData.length - 1].push(0)
             } else {
@@ -52,7 +52,7 @@ export default function Pixelate () {
         p5.fill(255, 0, 0)
         const coord = getPixelCoordinateByName('Melbourne')
         const { x, y } = getScaledCoordinate(coord)
-        p5.circle(x, y, config.pixelSize)
+        p5.circle(x * config.pixelSize, y * config.pixelSize, config.pixelSize)
 
         // Print map data as array
         console.log('[\n' + mapData.map(row => ' [' + row.join(', ') + ']').join(',\n') + '\n]')
