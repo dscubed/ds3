@@ -36,11 +36,6 @@ module.exports = {
         'error': 'rgb(var(--error) / <alpha-value>)',
       },
       keyframes: {
-        // shimmer: {
-        //   '100%': {
-        //     transform: 'translateX(100%)',
-        //   },
-        // },
         // For scrolling banner
         scroll: {
           '0%': {

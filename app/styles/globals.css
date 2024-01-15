@@ -69,19 +69,6 @@
   .max-w-screen-xs {
     max-width: 480px;
   }
-
-  /* Loading animation */
-  /* Parent element with the effect must also have the following properties: */
-  /* relative overflow-hidden */
-  /* .shimmer {
-    @apply before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-shimmer-highlight before:to-transparent;
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    .shimmer {
-      @apply before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-shimmer-highlight before:to-transparent;
-    }
-  } */
 }
 
 html {
