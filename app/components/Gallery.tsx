@@ -12,8 +12,7 @@ export default function Gallery () {
   useEffectOnce(() => {
     var splide = new Splide('.splide', {
       rewind: true,
-      padding: '5rem',
-      padding: '15%',
+      padding: '10%',
       interval: 4000,
       autoplay: 'pause',
       intersection: {
