@@ -1,4 +1,4 @@
-export default function setMatrixStyle ({ id, gap, radius, offColor, onColor }) {
+export default function setMatrixStyle ({ id, radius, offColor, onColor }) {
   const style = document.createElement('style')
   document.body.appendChild(style)
   style.textContent = `
@@ -11,10 +11,25 @@ export default function setMatrixStyle ({ id, gap, radius, offColor, onColor }) 
 
     #${id} .matrix-grid {
       display: grid;
-      gap: ${gap}px;
       width: max-content;
       height: max-content;
       margin: auto;
+    }
+
+    #${id} .locator {
+      position: relative;
+    }
+
+    #${id} .locator::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #FFF;
+      border-radius: 100%;
     }
 
     #${id} .pixel {

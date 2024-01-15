@@ -53,15 +53,16 @@ class Pixel {
 
 export default class Matrix {
   static _config = {
+    mode: 'resize', // (resize, gap, pixel)
     pixelSize: [32, 32],
-    gap: 4,
-    radius: 5,
-    padding: [0, 0],
     gridSize: [],
     maxGridSize: [64, 36],
-    showCoordinate: false,
+    padding: [0, 0],
+    gap: 4,
+    radius: 5,
     offColor: 'rgb(var(--background))',
     onColor: 'rgb(var(--foreground))',
+    showCoordinate: false,
     delta: 10
   }
 
@@ -88,7 +89,6 @@ export default class Matrix {
     // Must set styles before creating grid
     setMatrixStyle({ 
       id: rootId,
-      gap: this.config.gap,
       radius: this.config.radius,
       offColor: this.config.offColor,
       onColor: this.config.onColor,
@@ -96,17 +96,20 @@ export default class Matrix {
 
     this.createGrid()
 
-    // Check if the grid needs to be updated on window resize:
-    // Only update the grid if the new grid is of a different size
     window.addEventListener('resize', () => {
-      const [newSizeX, newSizeY] = this.calcGridSize()
-      if ((newSizeX !== this.gridSizeX || newSizeY !== this.gridSizeY) || (this.config.gridSize && this.config.gridSize.length === 2)) {
-        this.resetGrid()
-        this.createGrid()
-        this.resizeCallbacks.forEach(callback => {
-          callback(this)
-        })
+      if (this.config.mode === 'resize') {
+        // In resize mode, only continue if the new grid size is different
+        const [newSizeX, newSizeY] = this.getGridSize()
+        if (newSizeX === this.gridSizeX || newSizeY === this.gridSizeY) {
+          return
+        }
       }
+
+      this.resetGrid()
+      this.createGrid()
+      this.resizeCallbacks.forEach(callback => {
+        callback(this)
+      })
     })
 
     // Get mouse position on grid
@@ -153,11 +156,12 @@ export default class Matrix {
   }
 
   createGrid () {
-    [this.gridSizeX, this.gridSizeY] = this.calcGridSize()
+    [this.gridSizeX, this.gridSizeY] = this.getGridSize()
     const [pixelWidth, pixelHeight] = this.getPixelSize()
 
     this.gridDomNode.style.gridTemplateColumns = `repeat(${this.gridSizeX}, ${pixelWidth}px)`
     this.gridDomNode.style.gridTemplateRows = `repeat(${this.gridSizeY}, ${pixelHeight}px)`
+    this.gridDomNode.style.gap = `${this.getGap()}px`
   
     for (let y = 0; y < this.gridSizeY; y++) {
       for (let x = 0; x < this.gridSizeX; x++) {
@@ -174,37 +178,45 @@ export default class Matrix {
     this.pixels = []
   }
 
-   getPixelSize () {
-    if (this.config.gridSize && this.config.gridSize.length === 2) {
-      const rect = this.rootDomNode.getBoundingClientRect()
-      const width =  Math.floor((rect.width - this.config.gap * (this.config.gridSize[0] - 1)) / this.config.gridSize[0])
-      return [width, width]
+  getPixelSize () {
+    if (this.config.mode !== 'pixel') {
+      return this.config.pixelSize
     }
 
-    return this.config.pixelSize
+    const rect = this.rootDomNode.getBoundingClientRect()
+    const width = (rect.width - this.config.padding[0] * 2 - this.config.gap * (this.config.gridSize[0] - 1)) / this.config.gridSize[0]
+    return [width, width]
   }
 
-  calcGridSize () {
-    if (this.config.gridSize && this.config.gridSize.length === 2) {
+  getGap () {
+    if (this.config.mode !== 'gap') {
+      return this.config.gap
+    }
+
+    const rect = this.rootDomNode.getBoundingClientRect()
+    const gap = (rect.width - this.config.padding[0] * 2 - this.config.pixelSize[0] * this.config.gridSize[0]) / (this.config.gridSize[0] - 1)
+    return gap
+  }
+
+  getGridSize () {
+    if (this.config.mode !== 'resize') {
       return this.config.gridSize
     }
 
     const rect = this.rootDomNode.getBoundingClientRect()
-    const x = Math.min(
-      Math.floor((rect.width - this.config.padding[0] * 2) / (this.config.pixelSize[0] + this.config.gap)),
-      this.config.maxGridSize[0]
-    )
-    const y = Math.min(
-      Math.floor((rect.height - this.config.padding[1] * 2) / (this.config.pixelSize[1] + this.config.gap)),
-      this.config.maxGridSize[1]
-    )
+    const pixelSize = this.getPixelSize()
+    const gap = this.getGap()
+    const x = Math.min(Math.floor((rect.width - this.config.padding[0] * 2 - gap) / (pixelSize[0] + gap)), this.config.maxGridSize[0])
+    const y = Math.min(Math.floor((rect.height - this.config.padding[1] * 2 - gap) / (pixelSize[1] + gap)), this.config.maxGridSize[1])
     return [x, y]
   }
 
   screenToGridPos (x, y) {
     const rect = this.gridDomNode.getBoundingClientRect()
-    const gridX = Math.ceil((x - rect.x) / (this.config.pixelSize[0] + this.config.gap))
-    const gridY = Math.ceil((y - rect.y) / (this.config.pixelSize[1] + this.config.gap))
+    const pixelSize = this.getPixelSize()
+    const gap = this.getGap()
+    const gridX = Math.ceil((x - rect.x) / (pixelSize[0] + gap))
+    const gridY = Math.ceil((y - rect.y) / (pixelSize[1] + gap))
     return [gridX, gridY]
   }
 
