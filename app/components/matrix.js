@@ -100,13 +100,18 @@ export default class Matrix {
       if (this.config.mode === 'resize') {
         // In resize mode, only continue if the new grid size is different
         const [newSizeX, newSizeY] = this.getGridSize()
-        if (newSizeX === this.gridSizeX || newSizeY === this.gridSizeY) {
+        if (newSizeX === this.gridSizeX && newSizeY === this.gridSizeY) {
           return
         }
       }
 
-      this.resetGrid()
-      this.createGrid()
+      if (this.config.mode === 'resize') {
+        this.resetGrid()
+        this.createGrid()
+      } else {
+        this.setGridSize()
+      }
+
       this.resizeCallbacks.forEach(callback => {
         callback(this)
       })
@@ -159,12 +164,7 @@ export default class Matrix {
   }
 
   createGrid () {
-    [this.gridSizeX, this.gridSizeY] = this.getGridSize()
-    const [pixelWidth, pixelHeight] = this.getPixelSize()
-
-    this.gridDomNode.style.gridTemplateColumns = `repeat(${this.gridSizeX}, ${pixelWidth}px)`
-    this.gridDomNode.style.gridTemplateRows = `repeat(${this.gridSizeY}, ${pixelHeight}px)`
-    this.gridDomNode.style.gap = `${this.getGap()}px`
+   this.setGridSize()
   
     for (let y = 0; y < this.gridSizeY; y++) {
       for (let x = 0; x < this.gridSizeX; x++) {
@@ -173,6 +173,14 @@ export default class Matrix {
         this.pixels.push(pixel)
       }
     }
+  }
+
+  setGridSize () {
+    [this.gridSizeX, this.gridSizeY] = this.getGridSize()
+    const [pixelWidth, pixelHeight] = this.getPixelSize()
+    this.gridDomNode.style.gridTemplateColumns = `repeat(${this.gridSizeX}, ${pixelWidth}px)`
+    this.gridDomNode.style.gridTemplateRows = `repeat(${this.gridSizeY}, ${pixelHeight}px)`
+    this.gridDomNode.style.gap = `${this.getGap()}px`
   }
 
   resetGrid () {
