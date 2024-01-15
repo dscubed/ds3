@@ -82,3 +82,10 @@ html {
 ::selection {
   @apply text-selection bg-selection/10;
 }
+
+@keyframes location-ping {
+  75%, 100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
