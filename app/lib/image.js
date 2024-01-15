@@ -30,8 +30,8 @@ export async function createThumbnail (file) {
 
   const image = await compressImage(file, {
     quality: 0.8,
-    width: 600,
-    height: 400,
+    width: 500,
+    height: 500,
     resize: 'cover',
 
     // Convert all images to JPEGs

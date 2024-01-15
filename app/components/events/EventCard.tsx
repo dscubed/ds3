@@ -22,7 +22,7 @@ export default async function EventCard ({
   return (
     <div className="flex flex-col max-w-[350px] h-full rounded-md bg-background">
       <Image
-        className="w-full max-h-[150px] object-cover rounded-md"
+        className="w-full h-full object-cover rounded-md"
         src={image.publicUrl}
         width={300}
         height={300}
@@ -31,14 +31,14 @@ export default async function EventCard ({
       <div className="flex flex-col gap-2 p-4 h-full">
         <h4 className="text-lg truncate">{title}</h4>
         <p className="text-text-secondary">{formatDate(date)}</p>
-        <p className="text-lg text-text-secondary line-clamp-4">{description}</p>
+        <p className="text-text-secondary line-clamp-4">{description}</p>
         <Link 
           className="flex gap-2 text-text-secondary hover:text-text-primary transition mt-auto"
           href={link}
           target="_blank"
         >
           <span className="my-auto">View Event</span>
-          <ArrowRightIcon className="w-5 h-5 my-auto" />
+          <ArrowRightIcon className="w-4 h-4 my-auto" />
         </Link>
       </div>
     </div>

@@ -32,7 +32,7 @@ function EventFormChild () {
         {/* Image preview */}
         <div
           onClick={e => fileRef.current.click()}
-          className="flex w-full h-64 p-2 bg-background bg-no-repeat bg-center bg-cover rounded-md cursor-pointer" 
+          className="flex w-full h-64 p-2 bg-background bg-no-repeat bg-center bg-contain rounded-md cursor-pointer" 
           style={{ backgroundImage: `url(${imageData})` }}
         >
           {/* Instructions */}
