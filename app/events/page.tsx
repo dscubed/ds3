@@ -19,7 +19,7 @@ export default async function SponsersPage({ searchParams }: { searchParams: { p
       <main>
         <Section>
           <div>
-            <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">What's Happening at DS3</h3>
+            <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">What's happening</h3>
             <p className="text-xl text-text-secondary text-center mx-auto leading-tight">Browse our latest events, workshop sessions, and updates.</p>
           </div>
         </Section>
