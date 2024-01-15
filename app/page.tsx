@@ -185,15 +185,11 @@ export default function Index() {
         </div>
 
         <FollowSection />
-        
-        <div className="p-4 my-40 sm:my-20">
-          <div className="flex flex-col gap-10 max-w-screen-xl mx-auto">
-            <h3 className="text-5xl sm:text-4xl text-center">Activities For Everyone</h3>
-            <Gallery />
-          </div>
-        </div>
+      
 
         <Section>
+          <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">Recent updates</h3>
+
           <EventGallery range={[0, 3]} />
           
           <Link className="flex gap-2 text-xl text-theme mx-auto" href="/events">
@@ -201,6 +197,12 @@ export default function Index() {
             <ArrowRightIcon className="w-6 h-6 my-auto" />
           </Link>
         </Section>
+
+        <div className="my-40 sm:my-20">
+          <div className="flex flex-col gap-10 max-w-screen-xl mx-auto">
+            <Gallery />
+          </div>
+        </div>
 
         <Section>
           <div className="grid grid-cols-[auto,1fr] lg:grid-cols-1 gap-10">
