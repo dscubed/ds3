@@ -1,14 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
-  purge: [
+  content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  // content: [
-  //   './app/**/*.{js,ts,jsx,tsx,mdx}',
-  //   './components/**/*.{js,ts,jsx,tsx,mdx}',
-  // ],
   theme: {
     // Force Tailwind to be desktop-first
     // Need to manually set max-w-screen- properties
@@ -48,7 +43,4 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-  ],
 }

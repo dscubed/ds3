@@ -2,14 +2,20 @@ import { PencilSquareIcon } from "@heroicons/react/24/solid"
 import Link from "next/link"
 import EventCard from "../events/EventCard"
 
-export default function EventCardAdmin ({ ...props }) {
+export default function EventCardAdmin ({ ...data }) {
   return (
     <div className="flex flex-col gap-2 h-full">
-      <EventCard {...props} />
+      <EventCard 
+        title={data.title}
+        description={data.description}
+        thumbnail={data.thumbnail}
+        date={data.date}
+        link={data.link}
+      />
       
       <div className="flex gap-2 justify-between rounded-md text-text-secondary">
         <Link
-          href={`/admin/edit/${props.id}`}
+          href={`/admin/edit/${data.id}`}
           className="flex flex-1 justify-center gap-1.5 border border-border bg-background py-1 px-2 rounded-md"
         >
           <PencilSquareIcon className="my-auto w-5 h-5" />

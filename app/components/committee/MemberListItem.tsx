@@ -3,16 +3,16 @@ import Image from "next/image";
 
 // Use the 'filter' prop to set Tailwind css filters on the image
 
-export default function MemberListItem ({ teamName,
+export default function MemberListItem ({
   name,
   image,
   role,
-  filter
+  filter = ''
 }: {
   name: string,
   image: string,
   role: string,
-  filter: string
+  filter?: string
 }) {
   return (
     <div className="flex gap-4 bg-background rounded-md p-3">

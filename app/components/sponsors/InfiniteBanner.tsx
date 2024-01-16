@@ -19,7 +19,7 @@ export default function InfiniteBanner ({
         {[0, 0, 0].map(() => (
           <section 
             className="flex animate-[scroll_var(--speed)_linear_infinite]"
-            style={{"--speed": `${speed}ms`}} 
+            style={{'--speed': `${speed}ms`} as React.CSSProperties} 
             key={uuidv4()}
           >
             {images.map((src, index) => (

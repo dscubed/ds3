@@ -10,7 +10,7 @@ export default async function SponsersPage({ searchParams }: { searchParams: { p
   const page = Number(searchParams.page || 1)
   const limit = 4
   const count = await fetchEventCount()
-  const range = pageToRange(page, limit)
+  const range = pageToRange(page, limit) as [number, number]
 
   return (
     <>
@@ -19,7 +19,7 @@ export default async function SponsersPage({ searchParams }: { searchParams: { p
       <main>
         <Section>
           <div>
-            <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">What's happening</h3>
+            <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">What&apos;s happening</h3>
             <p className="text-xl text-text-secondary text-center mx-auto leading-tight">Browse our latest events, workshop sessions, and updates.</p>
           </div>
         </Section>
@@ -29,7 +29,7 @@ export default async function SponsersPage({ searchParams }: { searchParams: { p
         </Section>
 
         <Section>
-          <Paginator page={page} limit={limit} count={count} />
+          <Paginator page={page} limit={limit} count={count!} />
         </Section>
       </main>
 

@@ -11,12 +11,12 @@ export default function SponsorCard ({
   link,
   filter = '',
 }: {
-  name: String,
-  category: String,
-  color: String,
-  image: String,
-  link: String,
-  filter: String
+  name: string,
+  category: string,
+  color: string,
+  image: string,
+  link: string,
+  filter: string
 }) {
   return (
     <div className='relative h-[400px] sm:h-[300px] rounded-md overflow-hidden' style={{backgroundColor: color}}>

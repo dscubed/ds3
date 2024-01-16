@@ -1,6 +1,7 @@
 'use client'
 import { updateEvent } from '@/app/lib/action'
 import { getToday, getOneYearFromToday } from '@/app/lib/utils'
+//@ts-expect-error
 import { useFormStatus, useFormState } from 'react-dom'
 import Spinner from '../Spinner'
 
@@ -99,7 +100,13 @@ export default function EditForm ({ ...data }) {
       )}
 
       {/* Fields */}
-      <FormChild {...data} />
+      <FormChild
+        id={data.id}
+        title={data.title}
+        description={data.description}
+        date={data.date}
+        link={data.link}
+      />
     </form>
   )
 }
