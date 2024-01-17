@@ -66,6 +66,7 @@ export default function Gallery () {
                 width={300}
                 height={200}
                 alt={item.description}
+                key={index}
               ></Image>
             </li>
           ))}
