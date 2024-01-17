@@ -1,5 +1,4 @@
 'use client'
-
 import Splide from "@splidejs/splide";
 import { Intersection } from '@splidejs/splide-extension-intersection';
 import { useEffectOnce } from "../lib/utils";
@@ -7,6 +6,25 @@ import fadeScaleTransition from "./transition";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import '@splidejs/splide/css/core';
+
+const images: { src: string, description: string }[] = [
+  {
+    src: '/hero1.jpg',
+    description: ''
+  },
+  {
+    src: '/hero1.jpg',
+    description: ''
+  },
+  {
+    src: '/hero2.jpg',
+    description: ''
+  },
+  {
+    src: '/hero2.jpg',
+    description: ''
+  },
+]
 
 export default function Gallery () {
   useEffectOnce(() => {
@@ -40,42 +58,17 @@ export default function Gallery () {
     
       <div className="splide__track rounded-md">
         <ul className="splide__list">
-          <li className="splide__slide">
-            <Image
-              className="rounded-md object-cover w-full h-full max-h-[500px]"
-              src="/hero1.jpg"
-              width={300}
-              height={200}
-              alt="Data science career help cover image"
-            ></Image>
-          </li>
-          <li className="splide__slide">
-            <Image
-              className="rounded-md object-cover w-full h-full max-h-[500px]"
-              src="/hero1.jpg"
-              width={300}
-              height={200}
-              alt="Data science career help cover image"
-            ></Image>
-          </li>
-          <li className="splide__slide">
-            <Image
-              className="rounded-md object-cover w-full h-full max-h-[500px]"
-              src="/hero2.jpg"
-              width={300}
-              height={200}
-              alt="Data science career help cover image"
-            ></Image>  
-          </li>
-          <li className="splide__slide">
-            <Image
-              className="rounded-md object-cover w-full h-full max-h-[500px]"
-              src="/hero2.jpg"
-              width={300}
-              height={200}
-              alt="Data science career help cover image"
-            ></Image>
-          </li>
+          {images.map((item, index) => (
+            <li className="splide__slide">
+              <Image
+                className="rounded-2xl object-cover w-full h-full max-h-[500px]"
+                src={item.src}
+                width={300}
+                height={200}
+                alt={item.description}
+              ></Image>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
