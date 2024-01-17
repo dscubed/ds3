@@ -20,9 +20,9 @@ export default async function EventCard ({
   const image = await fetchThumbnail(thumbnail)
 
   return (
-    <div className="flex flex-col max-w-[350px] h-full rounded-md bg-background">
+    <div className="flex flex-col max-w-[350px] h-full rounded-2xl bg-background">
       <Image
-        className="w-full h-full object-cover rounded-md"
+        className="w-full h-full object-cover rounded-2xl"
         src={image.publicUrl}
         width={300}
         height={300}
