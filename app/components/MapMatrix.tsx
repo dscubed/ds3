@@ -62,6 +62,18 @@ export default function MapMatrix() {
 
     const matrix = new Matrix('map-matrix', config)
 
+    let minLocationRadius = 10
+    let maxLocationRadius = 30
+
+    if (window.innerWidth < 640) {
+      minLocationRadius = 5
+      maxLocationRadius = 20
+    }
+    if (window.innerWidth < 480) {
+      minLocationRadius = 5
+      maxLocationRadius = 10
+    }
+
     const min = getMinCity(data)
     const max = getMaxCity(data)
 
@@ -100,9 +112,9 @@ export default function MapMatrix() {
         'left': '50%',
         'opacity': opacity, 
         'transform': 'translate(-50%, -50%)',
-        'background': '#FFF',
+        'background': 'rgb(var(--foreground))',
         'border-radius': '100%',
-        // 'animation-delay': Math.random() - 0.9 + 's',
+        'animation-delay': Math.random() - 0.9 + 's',
       })
 
       setStyle(`#${name}:after`, {
@@ -114,10 +126,10 @@ export default function MapMatrix() {
         'left': '50%',
         'opacity': opacity, 
         'transform': 'translate(-50%, -50%)',
-        'background': '#FFF',
+        'background': 'rgb(var(--foreground))',
         'border-radius': '100%',
         'animation': 'location-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
-        // 'animation-delay': Math.random() - 0.9 + 's',
+        'animation-delay': Math.random() - 0.9 + 's',
       })
 
       matrix.setPixel(x, y, 1, `rgb(var(--foreground))`)
@@ -129,7 +141,7 @@ export default function MapMatrix() {
 
       data.forEach(item => {
         const opacity = mapToRange(item.count, min.count, max.count, 0.3, 0.9)
-        const radius = mapToRange(item.count, min.count, max.count, 10, 40)
+        const radius = mapToRange(item.count, min.count, max.count, minLocationRadius, maxLocationRadius)
         plotCity(radius, opacity, item.name, item.country || '')
       })
     })
