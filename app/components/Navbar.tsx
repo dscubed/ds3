@@ -14,7 +14,7 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
     <div className="sticky top-0 z-20">
       {/* <Banner text="We Are Recruiting For 2024" link="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" /> */}
 
-      <nav {...rest} className={clsx('relative w-full bg-background-secondary', className)}>
+      <nav {...rest} className={clsx('relative w-full bg-background-secondary border-b border-border', className)}>
         <div className="px-4 py-3">
           <div className="relative max-w-screen-xl flex justify-between gap-3 mx-auto">
             {/* Logo */}
