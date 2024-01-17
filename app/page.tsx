@@ -52,7 +52,7 @@ export default function Index() {
             <div className="grid gap-4 h-max">
               <h4 className="text-xl">Data Science Career Help</h4>
               <Image
-                className="rounded-md object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] md:h-[200px]"
+                className="rounded-2xl object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] xs:h-[200px]"
                 src="/dalle-suitcase.png"
                 width={1024}
                 height={1024}
@@ -64,7 +64,7 @@ export default function Index() {
             <div className="grid gap-4 h-max">
               <h4 className="text-xl">Technical Workshops</h4>
               <Image
-                className="rounded-md object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] md:h-[200px]"
+                className="rounded-2xl object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] xs:h-[200px]"
                 src="/dalle-tabletop-cropped.png"
                 width={1024}
                 height={1024}
@@ -76,7 +76,7 @@ export default function Index() {
             <div className="grid gap-4 h-max">
               <h4 className="text-xl">Student Networking</h4>
               <Image
-                className="rounded-md object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] md:h-[200px]"
+                className="rounded-2xl object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] xs:h-[200px]"
                 src="/dalle-people.png"
                 width={1024}
                 height={1024}
@@ -125,7 +125,7 @@ export default function Index() {
             <div className="grid grid-cols-1 gap-20 sm:gap-10 max-w-xl lg:max-w-none">
               <div className="flex flex-col gap-4 rounded-md">
                 <Image
-                  className="w-full h-72 object-cover rounded-md"
+                  className="w-full h-72 xs:h-64 object-cover rounded-2xl"
                   src="/dalle-basketball.webp"
                   width={1024}
                   height={1024}
@@ -137,7 +137,7 @@ export default function Index() {
               </div>
               <div className="flex flex-col gap-4 rounded-md">
                 <Image
-                  className="w-full h-72 object-cover rounded-md"
+                  className="w-full h-72 xs:h-64 object-cover rounded-2xl"
                   src="/dalle-people.png"
                   width={1024}
                   height={1024}
@@ -149,7 +149,7 @@ export default function Index() {
               </div>
               <div className="flex flex-col gap-4 rounded-md">
                 <Image
-                  className="w-full h-72 object-cover rounded-md"
+                  className="w-full h-72 xs:h-64 object-cover rounded-2xl"
                   src="/dalle-future-city.png"
                   width={1024}
                   height={1024}
@@ -161,7 +161,7 @@ export default function Index() {
               </div>
               <div className="flex flex-col gap-4 rounded-md">
                 <Image
-                  className="w-full h-72 object-cover rounded-md"
+                  className="w-full h-72 xs:h-64 object-cover rounded-2xl"
                   src="/dalle-monster.webp"
                   width={1024}
                   height={1024}
