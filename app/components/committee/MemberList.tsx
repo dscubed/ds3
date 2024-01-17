@@ -2,7 +2,7 @@ import MemberListItem from "./MemberListItem";
 
 // The default role is set to '<Team name> Officer', so don't need to set it in members.js
 
-export default function MemberList ({ teams }: { teams: { name: string, members: { name: string, image: string }[] }[] }) {
+export default function MemberList ({ teams }: { teams: { name: string, members: { name: string, image?: string }[] }[] }) {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-1 gap-x-10 gap-y-20 sm:gap-y-10">
       {teams.map((team, teamIndex) => (
