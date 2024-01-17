@@ -59,14 +59,13 @@ export default function Gallery () {
       <div className="splide__track rounded-md">
         <ul className="splide__list">
           {images.map((item, index) => (
-            <li className="splide__slide">
+            <li className="splide__slide" key={index}>
               <Image
                 className="rounded-2xl object-cover w-full h-full max-h-[500px]"
                 src={item.src}
                 width={300}
                 height={200}
                 alt={item.description}
-                key={index}
               ></Image>
             </li>
           ))}
