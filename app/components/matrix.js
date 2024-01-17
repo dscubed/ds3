@@ -118,14 +118,14 @@ export default class Matrix {
     })
 
     // Get mouse position on grid
-    window.addEventListener('mouseover', event => {
-      const domNode = event.target
-      if (domNode.classList.contains('pixel')) {
-        this.mouseX = Number(domNode.dataset.x)
-        this.mouseY = Number(domNode.dataset.y)
-        this.mouseMove = true
-      }
-    })
+    // window.addEventListener('mouseover', event => {
+    //   const domNode = event.target
+    //   if (domNode.classList.contains('pixel')) {
+    //     this.mouseX = Number(domNode.dataset.x)
+    //     this.mouseY = Number(domNode.dataset.y)
+    //     this.mouseMove = true
+    //   }
+    // })
   }
 
   setup (callback) {

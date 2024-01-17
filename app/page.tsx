@@ -15,10 +15,10 @@ import Section from "./components/Section"
 export default function Index() {
   return (
     <>
-      <div className="w-screen h-svh fixed top-0">
+      <div className="w-screen h-svh sm:max-h-[50svh] fixed top-0">
         <IntroMatrix />
       </div>
-      <div className="w-screen h-svh pointer-events-none"></div>
+      <div className="w-screen h-svh sm:max-h-[50svh] pointer-events-none"></div>
 
       <Navbar />
 

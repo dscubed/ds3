@@ -8,10 +8,10 @@ class Trail {
   radius: number
   id: NodeJS.Timer
   color: string
-  constructor (x: number, y: number, distance: number) {
+  constructor (x: number, y: number, radius: number) {
     this.x = x
     this.y = y
-    this.radius = Math.min(1 + Math.round(distance * 0.1), 7) // variable speed
+    this.radius = radius
     this.id = setInterval(() => {
       if (this.radius > 0) {
         this.radius--
@@ -64,27 +64,55 @@ export default function IntroMatrix() {
     const config = {
       padding: [2, 2],
       gap: 2,
+      radius: 10
     } as any
     
     if (window.innerWidth < 640) {
       config.pixelSize = [24, 24]
-      config.maxGridSize = [27, 48]
+      config.radius = 100
     }
 
     if (window.innerWidth < 480) {
       config.pixelSize = [18, 18]
-      config.radius = 3
     } 
 
     const matrix = new Matrix('intro-matrix', config)
 
-    var lastHoverPixel: EventTarget | null = null
-    function mouseMoveCallback (this: any, event: MouseEvent) {
-      if (event.target !== lastHoverPixel) {
-        const distance = Math.sqrt(event.movementX**2 + event.movementY**2)
-        this.trails.push(new Trail(this.mouseX, this.mouseY, distance))
-        lastHoverPixel = event.target
+    const maxTrailRadius = window.innerWidth > 640
+      ? 4
+      : 2
+
+    var lastPointerUpdated: Date = new Date()
+    var prevPos: [number, number] = [-1, -1] // Mouse or touch
+    var prevGridPos: [number, number] = [-1, -1]
+    
+    function mouseMoveCallback (this: any, event: MouseEvent | TouchEvent) {
+      // Debounce every 50ms
+      //@ts-expect-error
+      if (new Date() - lastPointerUpdated < 50) {
+        return
       }
+
+      var posX: number
+      var posY: number
+
+      if (event instanceof MouseEvent) {
+        posX = event.clientX
+        posY = event.clientY
+      } else { // Touch event
+        posX = event.targetTouches[0].clientX 
+        posY = event.targetTouches[0].clientY
+      }
+
+      const [gridX, gridY] = this.screenToGridPos(posX, posY)
+      if (gridX === prevGridPos[0] && gridY === prevGridPos[1]) {
+        return
+      }
+      const distance = Math.sqrt((posX - prevPos[0]) ** 2 + (posY - prevPos[1]) ** 2)
+      const radius = Math.round(mapToRange(Math.min(distance, 20), 1, 20, 1, maxTrailRadius))
+      this.trails.push(new Trail(gridX, gridY, radius))
+      prevPos = [posX, posY]
+      prevGridPos = [gridX, gridY]
     }
 
     var prevScroll = 0
@@ -151,6 +179,7 @@ export default function IntroMatrix() {
       mtx.mouseMoveCallback = mouseMoveCallback.bind(mtx)
       mtx.scrollCallback = scrollCallback.bind(mtx)
       window.addEventListener('mousemove', mtx.mouseMoveCallback)
+      window.addEventListener('touchmove', mtx.mouseMoveCallback, { passive: false })
       window.addEventListener('scroll', mtx.scrollCallback)
       setupShimmer(mtx)
     })
@@ -158,6 +187,7 @@ export default function IntroMatrix() {
     matrix.onResize((mtx: any) => {
       mtx.trails = []
       window.addEventListener('mousemove', mtx.mouseMoveCallback)
+      window.addEventListener('touchmove', mtx.mouseMoveCallback, { passive: false })
       window.addEventListener('scroll', mtx.scrollCallback)
       setupShimmer(mtx)
     })
