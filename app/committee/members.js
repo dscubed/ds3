@@ -4,7 +4,7 @@ export const executives = [
   {
     name: 'Nathan Luo',
     role: 'President',
-    image: '/dalle-monster.webp',
+    // image: '',
   },
   {
     name: 'Hanshi Tang',
@@ -14,12 +14,12 @@ export const executives = [
   {
     name: 'Justin',
     role: 'Secretary',
-    image: '/dalle-monster.webp',
+    // image: '',
   },
   {
     name: 'Georgina',
     role: 'Treasurer',
-    image: '/dalle-monster.webp',
+    // image: '',
   },
 ]
 
@@ -61,27 +61,27 @@ export const representatives = [
   {
     name: 'Nan Sang',
     role: 'Graduate Representative',
-    image: '/dalle-monster.webp',
+    // image: '',
   },
   {
     name: 'Harshit Badam',
     role: 'Undergraduate Representative',
-    image: '/dalle-monster.webp',
+    // image: '',
   },
   {
     name: 'Jacky Liao',
     role: 'Undergraduate Representative',
-    image: '/dalle-monster.webp',
+    // image: '',
   },
   {
     name: 'Rania Aziz',
     role: 'Undergraduate Representative',
-    image: '/dalle-monster.webp',
+    // image: '',
   },
   {
     name: 'Dhruv Ajay',
     role: 'Undergraduate Representative',
-    image: '/dalle-monster.webp',
+    // image: '',
   },
 ]
 
@@ -93,15 +93,15 @@ export const teams = [
     members: [
       {
         name: 'Mikael Sutiono',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Jongho Park',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Keshav Prasath',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
     ],
   },
@@ -110,11 +110,11 @@ export const teams = [
     members: [
       {
         name: 'Nhat Anh Le',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Ayra Hani',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Angus Chan',
@@ -126,20 +126,20 @@ export const teams = [
       },
       {
         name: 'Rayan Arain',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Ayushi Chauhan',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Madhumita Venkataraman',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Paige Meng',
         role: 'Graduate Officer',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
     ],
   },
@@ -148,19 +148,19 @@ export const teams = [
     members: [
       {
         name: 'Sarah Williams',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Halley Dao',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Manan Saddi',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Shashank Sanjay Bhat',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Khushi Malhotra',
@@ -173,11 +173,11 @@ export const teams = [
     members: [
       {
         name: 'Navya Malhotra',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Saki Hiraoka',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Rebecca Feng',
@@ -186,15 +186,15 @@ export const teams = [
       },
       {
         name: 'Danielle Tran',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Ryan Li',
-        image: '/dalle-monster.webp',
+        // image: '',
       },
       {
         name: 'Jason Wang',
-        image: '/dalle-monster.webp',
+        // image: '',
       }
     ],
   },
