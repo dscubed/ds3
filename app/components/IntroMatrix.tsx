@@ -216,6 +216,6 @@ export default function IntroMatrix() {
   }, [])
   
   return (
-    <div id="intro-matrix"></div>
+    <div id="intro-matrix" style={{touchAction: 'none'}}></div>
   )
 }
