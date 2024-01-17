@@ -68,6 +68,7 @@ export default function IntroMatrix() {
     } as any
     
     if (window.innerWidth < 640) {
+      config.maxGridSize = [32, 18]
       config.pixelSize = [24, 24]
       config.radius = 100
     }
