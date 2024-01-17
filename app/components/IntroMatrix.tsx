@@ -74,6 +74,7 @@ export default function IntroMatrix() {
     }
 
     if (window.innerWidth < 480) {
+      config.gap = 1
       config.pixelSize = [18, 18]
     } 
 
