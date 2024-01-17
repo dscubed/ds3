@@ -8,6 +8,7 @@ import SignOutButton from "../components/admin/SignOutButton";
 import { pageToRange } from "../lib/utils.server";
 import Paginator from "../components/Paginator";
 import { redirect } from "next/navigation";
+import Section from "../components/Section";
 
 export default async function AdminPage({ searchParams }: { searchParams: { page: number } }) {
   const user = await getUser()
@@ -26,22 +27,24 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
     <>
       <Navbar />
 
-      <main className='p-4'>
-        <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
-          <h3 className="text-4xl  leading-tight">Admin Dashboard</h3>
-          <p className="text-xl text-text-secondary leading-tight">
-            Logged in As 
-            <span className="text-text-secondary"> {user?.email}</span>
-          </p>
-          <SignOutButton />
-        </div>
+      <main>
+        <Section>
+          <div>
+            <h3 className="text-4xl mb-5 leading-tight">Admin Dashboard</h3>
+            <p className="text-xl text-text-secondary mb-5 leading-tight ">
+              Logged in As 
+              <span className="text-text-secondary"> {user?.email}</span>
+            </p>
+            <SignOutButton />
+          </div>
+        </Section>
 
-        <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
+        <Section>
           <div className="flex justify-between gap-8 mb-10">
             <h4 className="text-2xl my-auto">Manage Events</h4>
             <Link href="/admin/create" className="py-3 px-6 rounded-full bg-foreground text-lg text-background w-max my-auto">Create New</Link>
           </div>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 sm:mx-auto gap-x-4 gap-y-8">
             {events.map((item, index) => (
               <EventCardAdmin
                 id={item.id}
@@ -54,11 +57,8 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
               />
             ))}
           </div>
-        </div>
-
-        <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
           <Paginator page={page} limit={limit} count={count!} />
-        </div>
+        </Section>
       </main>
 
       <Footer />
