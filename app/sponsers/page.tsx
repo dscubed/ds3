@@ -126,7 +126,7 @@ export default function SponsersPage() {
                 <span className="block leading-tight xl:leading-snug">sponsor today</span>
               </h1>
               <p className="text-text-secondary text-xl sm:text-lg leading-relaxed">Empower student excellence and fuel future leaders in data science by sponsoring DS Cubed. Your support propels students into the forefront of data-driven innovation.</p>
-              <button className="w-max bg-foreground text-background px-8 py-4 font-medium rounded-full">Let's get in touch!</button>
+              <button className="w-max bg-foreground text-background px-8 py-4 font-medium rounded-full">Let&apos;s get in touch!</button>
             </div>
             <Image
               className="w-full h-full object-cover rounded-2xl"
