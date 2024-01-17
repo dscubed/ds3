@@ -44,6 +44,11 @@ export const directors = [
     role: 'IT Director',
     image: '/people/2024/michael-ren.jpg',
   },
+  {
+    name: 'Rebecca Feng',
+    role: 'Design Director',
+    image: '/people/2024/rebecca-feng.jpg',
+  },
 ]
 
 export const representatives = [
@@ -176,7 +181,8 @@ export const teams = [
       },
       {
         name: 'Rebecca Feng',
-        image: '/dalle-monster.webp',
+        role: 'Design Director',
+        image: '/people/2024/rebecca-feng.jpg',
       },
       {
         name: 'Danielle Tran',
