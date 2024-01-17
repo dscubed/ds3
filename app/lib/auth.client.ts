@@ -11,7 +11,7 @@ export async function signIn () {
   const { data, error } = await supabase.auth.signInWithOAuth({ 
     provider: 'google',
     options: {
-      redirectTo: `https://${process.env.NEXT_PUBLIC_DOMAIN_URL || 'localhost:3000'}/admin/login`
+      redirectTo: `${window.location.origin}/admin/login`
     },
   })
 }
