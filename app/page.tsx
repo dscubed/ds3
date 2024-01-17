@@ -184,8 +184,7 @@ export default function Index() {
           <MapMatrix></MapMatrix>
         </div>
 
-        <FollowSection />
-      
+        {/* <FollowSection /> */}
 
         <Section>
           <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">Recent updates</h3>
