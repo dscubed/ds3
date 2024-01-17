@@ -115,25 +115,21 @@ export default function SponsersPage() {
           <div className="flex flex-col gap-10 max-w-screen-xl mx-auto mb-10 p-4">
             <h4 className="text-2xl text-center">Past Speakers From</h4>
           </div>
-          <InfiniteBanner images={speakers} gap={80} speed={50000} />
+          <InfiniteBanner images={speakers} speed={50000} />
         </div>
 
         <Section>
-          <div className="grid grid-cols-[auto,1fr] gap-10">
-            <div className="flex flex-col gap-10 max-w-lg my-auto">
-              <h4 className="text-2xl">Become a Sponsor Today</h4>
-              <p className="text-text-secondary text-xl leading-relaxed">Empower student excellence and fuel future leaders in data science by sponsoring DS Cubed. Your support propels students into the forefront of data-driven innovation.</p>
-              <Link
-                href="mailto:hello@dscubed.org.au" 
-                target="_blank"
-                className="flex gap-2 w-max bg-foreground text-background px-10 py-4 font-medium rounded-md text-lg cursor-pointer"
-              >
-                <span className="my-auto w-max">Get In Touch</span>
-                <ArrowRightIcon className="my-auto w-7 h-7"/>
-              </Link>
+          <div className="grid grid-cols-[1fr,1fr] lg:grid-cols-1 gap-20 sm:gap-10">
+            <div className="flex flex-col gap-10 my-auto max-w-xl lg:max-w-xl">
+              <h1 className="text-6xl xl:text-5xl sm:text-4xl">
+                <span className="block leading-tight xl:leading-snug">Become a</span>
+                <span className="block leading-tight xl:leading-snug">sponsor today</span>
+              </h1>
+              <p className="text-text-secondary text-xl sm:text-lg leading-relaxed">Empower student excellence and fuel future leaders in data science by sponsoring DS Cubed. Your support propels students into the forefront of data-driven innovation.</p>
+              <button className="w-max bg-foreground text-background px-8 py-4 font-medium rounded-full">Let's get in touch!</button>
             </div>
             <Image
-              className="w-full max-h-[550px] object-cover rounded-md"
+              className="w-full h-full object-cover rounded-2xl"
               src="/dalle-money.png"
               width={1024}
               height={1024}
