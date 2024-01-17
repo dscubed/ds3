@@ -26,7 +26,7 @@ function PageLink ({
     <Link 
       href={url} 
       className={clsx(
-        "flex w-8 h-8 text-text-secondary bg-background border border-border transition rounded-md",
+        "flex text-lg w-10 h-10 text-text-secondary bg-background-secondary hover:bg-background transition rounded-full",
         {
           'bg-foreground text-background-secondary border-0': pageNum === currentPage,
           'opacity-30 pointer-events-none': disabled,
@@ -58,7 +58,7 @@ export default function Paginator ({
   }
 
   return (
-    <div className="flex justify-between w-full sm:max-w-[350px] sm:mx-auto gap-10">
+    <div className="flex justify-between w-max mx-auto gap-10">
     {/* <div className="flex sm:flex-col justify-between gap-10"> */}
       {/* <p className="text-text-secondary my-auto sm:text-center">Showing <b>{rangeStart + 1}</b> to <b>{Math.min(rangeEnd + 1, count)}</b> of <b>{count}</b> results</p> */}
       <div className="flex gap-2 my-auto">

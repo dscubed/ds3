@@ -26,9 +26,6 @@ export default async function SponsersPage({ searchParams }: { searchParams: { p
 
         <Section>
           <EventGallery range={range} />
-        </Section>
-
-        <Section>
           <Paginator page={page} limit={limit} count={count!} />
         </Section>
       </main>
