@@ -20,7 +20,7 @@ export default async function SponsersPage({ searchParams }: { searchParams: { p
         <Section>
           <div>
             <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">What&apos;s happening</h3>
-            <p className="text-xl text-text-secondary text-center mx-auto !leading-relaxed">Browse our latest events, workshop sessions, and updates</p>
+            <p className="text-xl text-text-secondary text-center mx-auto !leading-relaxed">Browse our latest events, workshop sessions, and updates.</p>
           </div>
         </Section>
 
