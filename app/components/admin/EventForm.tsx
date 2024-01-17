@@ -33,13 +33,13 @@ function EventFormChild () {
         {/* Image preview */}
         <div
           onClick={e => fileRef.current!.click()}
-          className="flex w-full h-64 p-2 bg-background bg-no-repeat bg-center bg-contain rounded-md cursor-pointer" 
+          className="flex w-full h-64 p-2 bg-background bg-no-repeat bg-center bg-contain rounded-lg cursor-pointer" 
           style={{ backgroundImage: `url(${imageData})` }}
         >
           {/* Instructions */}
           {
             imageData 
-            ? <p className="w-max h-max py-1 px-2 text-center text-sm text-text-secondary bg-background-secondary border border-border rounded-md">Edit</p>
+            ? <p className="w-max h-max py-1 px-2 text-center text-sm text-text-secondary bg-background-secondary border border-border rounded-lg">Edit</p>
             : <p className="m-auto py-2 px-6 text-center text-text-secondary bg-background-secondary border border-border rounded-full">Click to Select Image</p>
           }
         </div>
@@ -55,7 +55,7 @@ function EventFormChild () {
           min={getToday()}
           max={getOneYearFromToday()}
           type="date"
-          className="py-2 px-3 bg-background border border-border rounded-md placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
+          className="py-2 px-3 bg-background border border-border rounded-lg placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
           required
         />
       </div>
@@ -66,7 +66,7 @@ function EventFormChild () {
           name="title"
           type="text"
           placeholder="Title"
-          className="py-2 pr-2 indent-3 bg-background border border-border rounded-md placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
+          className="py-2 pr-2 indent-3 bg-background border border-border rounded-lg placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
           required
         />
       </div>
@@ -78,7 +78,7 @@ function EventFormChild () {
           rows={6}
           maxLength={200}
           placeholder="Description"
-          className="py-2 px-3 bg-background border border-border rounded-md placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border resize-none"
+          className="py-2 px-3 bg-background border border-border rounded-lg placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border resize-none"
           required
         />
       </div>
@@ -89,7 +89,7 @@ function EventFormChild () {
           name="link"
           type="text"
           placeholder="Redirect Link (https://)"
-          className="py-2 pr-2 indent-3 bg-background border border-border rounded-md placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
+          className="py-2 pr-2 indent-3 bg-background border border-border rounded-lg placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
           required
         />
       </div>
@@ -113,7 +113,7 @@ export default function EventForm () {
     <form className="flex flex-col gap-4 w-full mx-auto" action={action}>
       {/* Form message */}
       {status?.error && (
-        <div className="bg-error/10 rounded-md p-2">
+        <div className="bg-error/10 rounded-lg p-2">
           <p className="text-center text-error">{status.error.message}</p>
         </div>
       )}

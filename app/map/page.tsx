@@ -1,6 +1,5 @@
-'use client'
 import dynamic from 'next/dynamic'
-import ErrorPage from 'next/error'
+import { notFound } from 'next/navigation'
 
 const P5Map = dynamic(
   () => import('@/app/components/P5Map'),
@@ -11,7 +10,7 @@ export default function Map () {
   // It is CRUCIAL that this page is only accessible in dev mode to prevent unwanted charges
   // from Google Static Map API
   if (process.env.NODE_ENV === 'production') {
-    return <ErrorPage statusCode={404} />
+    return notFound()
   }
 
   return (

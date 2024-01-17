@@ -11,7 +11,7 @@ export default function SignOutButton () {
       signOut()
       router.push('/admin/login')
     }}>
-      <span className="my-auto">Sign Out</span>
+      <span className="my-auto">Sign out</span>
       <ArrowRightIcon className="w-6 h-6 my-auto" />
     </button>
   )

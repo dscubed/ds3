@@ -15,10 +15,10 @@ import Section from "./components/Section"
 export default function Index() {
   return (
     <>
-      <div className="w-screen h-screen fixed top-0">
+      <div className="w-screen h-svh sm:max-h-[50svh] fixed top-0">
         <IntroMatrix />
       </div>
-      <div className="w-screen h-screen pointer-events-none"></div>
+      <div className="w-screen h-svh sm:max-h-[50svh] pointer-events-none"></div>
 
       <Navbar />
 
@@ -52,7 +52,7 @@ export default function Index() {
             <div className="grid gap-4 h-max">
               <h4 className="text-xl">Data Science Career Help</h4>
               <Image
-                className="rounded-md object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] md:h-[200px]"
+                className="rounded-2xl object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] xs:h-[200px]"
                 src="/dalle-suitcase.png"
                 width={1024}
                 height={1024}
@@ -64,7 +64,7 @@ export default function Index() {
             <div className="grid gap-4 h-max">
               <h4 className="text-xl">Technical Workshops</h4>
               <Image
-                className="rounded-md object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] md:h-[200px]"
+                className="rounded-2xl object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] xs:h-[200px]"
                 src="/dalle-tabletop-cropped.png"
                 width={1024}
                 height={1024}
@@ -76,7 +76,7 @@ export default function Index() {
             <div className="grid gap-4 h-max">
               <h4 className="text-xl">Student Networking</h4>
               <Image
-                className="rounded-md object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] md:h-[200px]"
+                className="rounded-2xl object-cover w-full h-[250px] xl:h-[200px] lg:h-[250px] xs:h-[200px]"
                 src="/dalle-people.png"
                 width={1024}
                 height={1024}
@@ -125,7 +125,7 @@ export default function Index() {
             <div className="grid grid-cols-1 gap-20 sm:gap-10 max-w-xl lg:max-w-none">
               <div className="flex flex-col gap-4 rounded-md">
                 <Image
-                  className="w-full h-72 object-cover rounded-md"
+                  className="w-full h-72 xs:h-64 object-cover rounded-2xl"
                   src="/dalle-basketball.webp"
                   width={1024}
                   height={1024}
@@ -137,7 +137,7 @@ export default function Index() {
               </div>
               <div className="flex flex-col gap-4 rounded-md">
                 <Image
-                  className="w-full h-72 object-cover rounded-md"
+                  className="w-full h-72 xs:h-64 object-cover rounded-2xl"
                   src="/dalle-people.png"
                   width={1024}
                   height={1024}
@@ -149,7 +149,7 @@ export default function Index() {
               </div>
               <div className="flex flex-col gap-4 rounded-md">
                 <Image
-                  className="w-full h-72 object-cover rounded-md"
+                  className="w-full h-72 xs:h-64 object-cover rounded-2xl"
                   src="/dalle-future-city.png"
                   width={1024}
                   height={1024}
@@ -161,7 +161,7 @@ export default function Index() {
               </div>
               <div className="flex flex-col gap-4 rounded-md">
                 <Image
-                  className="w-full h-72 object-cover rounded-md"
+                  className="w-full h-72 xs:h-64 object-cover rounded-2xl"
                   src="/dalle-monster.webp"
                   width={1024}
                   height={1024}
@@ -175,7 +175,7 @@ export default function Index() {
           </div>
         </Section>
 
-        <div className="p-4">
+        <div className="px-5">
           <div className="flex flex-col gap-10 max-w-screen-xl mx-auto">
             <h4 className="text-5xl sm:text-4xl !leading-tight text-center max-w-lg sm:max-w-sm mx-auto mb-10">Meet members from all over the world.</h4>
           </div>
@@ -184,8 +184,7 @@ export default function Index() {
           <MapMatrix></MapMatrix>
         </div>
 
-        <FollowSection />
-      
+        {/* <FollowSection /> */}
 
         <Section>
           <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">Recent updates</h3>

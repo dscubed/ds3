@@ -1,9 +1,7 @@
 import { inter } from '@/app/fonts'
 import '@/app/styles/globals.css'
 
-const baseURL = process.env.DOMAIN_URL
-  ? `https://${process.env.DOMAIN_URL}`
-  : 'http://localhost:3000'
+const baseURL = 'https://' + process.env.DOMAIN_URL || 'localhost:3000'
 
 export const metadata = {
   metadataBase: new URL(baseURL),

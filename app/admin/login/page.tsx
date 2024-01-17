@@ -5,6 +5,7 @@ import Footer from "@/app/components/Footer";
 import GoogleAuthButton from "@/app/components/admin/login/GoogleAuthButton";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import Section from "@/app/components/Section";
 
 export default function LoginPage() {
   const router = useRouter()
@@ -23,17 +24,14 @@ export default function LoginPage() {
     <>
       <Navbar />
 
-      <main className='p-4'>
-        <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
-          <h3 className="text-4xl text-center mx-auto leading-tight">Admin Login Page</h3>
-          <p className="text-xl text-text-secondary text-center mx-auto leading-tight">Please login with your dscubed.org.au email account.</p>
-        </div>
-
-        <div className="flex flex-col gap-4 max-w-screen-xl mx-auto my-40">
-          <div className="flex gap-4 justify-center">
-            <GoogleAuthButton />
+      <main>
+        <Section>
+          <div>
+            <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">Admin login page</h3>
+            <p className="text-xl text-text-secondary text-center mx-auto leading-snug">Please login with your @dscubed.org.au email account.</p>
           </div>
-        </div>
+          <GoogleAuthButton className="mx-auto" />
+        </Section>
       </main>
 
       <Footer />

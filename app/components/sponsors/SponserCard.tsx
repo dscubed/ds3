@@ -19,16 +19,16 @@ export default function SponsorCard ({
   filter: string
 }) {
   return (
-    <div className='relative h-[400px] sm:h-[300px] rounded-md overflow-hidden' style={{backgroundColor: color}}>
-      <div className="absolute w-full grid grid-cols-[1fr,auto] p-4">
-        <div className="flex flex-col gap-2">
-          <h5 className="text-xl leading-none text-text-primary">{name}</h5>
+    <div className='relative h-[400px] sm:h-[300px] rounded-2xl overflow-hidden' style={{backgroundColor: color}}>
+      <div className="absolute w-full grid grid-cols-[1fr,auto] gap-2 p-4">
+        <div className="flex flex-col gap-1 my-auto">
+          <h5 className="text-xl leading-tight text-text-primary">{name}</h5>
           <p className="text-black/40 dark:text-white/40 leading-none text-lg">{category}</p>
         </div>
         <Link
           href={link} 
           target="_blank"
-          className="flex bg-black/10 dark:bg-white/10 text-black/50 dark:text-white/50 hover:text-opacity-100 transition gap-2 px-4 py-1.5 rounded-md cursor-pointer"
+          className="flex h-max bg-black/10 dark:bg-white/10 text-black/50 dark:text-white/50 hover:text-opacity-100 transition gap-2 px-4 py-3.5 rounded-lg cursor-pointer"
         >
           <span className="my-auto w-max">More</span>
           <ArrowRightIcon className="my-auto w-5 h-5"/>

@@ -11,11 +11,12 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
   const [showMenu, setShowMenu] = useState(false)
 
   return (
-    <div className="sticky top-0 z-20">
+    // Use top: -1px to remove gap on some browsers
+    <div className="sticky top-[-1px] z-20">
       {/* <Banner text="We Are Recruiting For 2024" link="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" /> */}
 
-      <nav {...rest} className={clsx('relative w-full bg-background-secondary', className)}>
-        <div className="px-4 py-3">
+      <nav {...rest} className={clsx('relative w-full bg-background-secondary border-b border-border pt-px', className)}>
+        <div className="px-5 py-3">
           <div className="relative max-w-screen-xl flex justify-between gap-3 mx-auto">
             {/* Logo */}
             <div className="flex flex-1">

@@ -33,7 +33,7 @@ function FormChild ({
           max={getOneYearFromToday()}
           defaultValue={date}
           type="date"
-          className="py-2 px-3 bg-background border border-border rounded-md placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
+          className="py-2 px-3 bg-background border border-border rounded-lg placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
           required
         />
       </div>
@@ -45,7 +45,7 @@ function FormChild ({
           type="text"
           defaultValue={title}
           placeholder="Title"
-          className="py-2 pr-2 indent-3 bg-background border border-border rounded-md placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
+          className="py-2 pr-2 indent-3 bg-background border border-border rounded-lg placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
           required
         />
       </div>
@@ -58,7 +58,7 @@ function FormChild ({
           maxLength={200}
           defaultValue={description}
           placeholder="Description"
-          className="py-2 px-3 bg-background border border-border rounded-md placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border resize-none"
+          className="py-2 px-3 bg-background border border-border rounded-lg placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border resize-none"
           required
         />
       </div>
@@ -70,7 +70,7 @@ function FormChild ({
           type="text"
           defaultValue={link}
           placeholder="Redirect Link (https://)"
-          className="py-2 pr-2 indent-3 bg-background border border-border rounded-md placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
+          className="py-2 pr-2 indent-3 bg-background border border-border rounded-lg placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border"
           required
         />
       </div>
@@ -94,7 +94,7 @@ export default function EditForm ({ ...data }) {
     <form className="flex flex-col gap-4 w-full mx-auto" action={action}>
       {/* Form message */}
       {status?.error && (
-        <div className="bg-error/10 rounded-md p-2">
+        <div className="bg-error/10 rounded-lg p-2">
           <p className="text-center text-error">{status.error.message}</p>
         </div>
       )}

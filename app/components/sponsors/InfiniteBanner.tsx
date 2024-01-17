@@ -6,11 +6,9 @@ import Image from "next/image"
 
 export default function InfiniteBanner ({ 
   images,
-  gap = 20,
   speed = 5000 
 }: {
   images: Array<string>,
-  gap: number,
   speed: number
 }) {
   return (
@@ -24,8 +22,7 @@ export default function InfiniteBanner ({
           >
             {images.map((src, index) => (
               <Image 
-                className="w-64 h-8 my-auto saturate-0 contrast-125 brightness-0 object-contain dark:invert"
-                style={{paddingLeft: gap}}
+                className="w-max h-8 pl-32 sm:pl-10 my-auto saturate-0 contrast-125 brightness-0 object-contain dark:invert"
                 src={src} 
                 width={100} 
                 height={50}

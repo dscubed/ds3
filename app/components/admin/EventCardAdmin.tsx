@@ -13,10 +13,10 @@ export default function EventCardAdmin ({ ...data }) {
         link={data.link}
       />
       
-      <div className="flex gap-2 justify-between rounded-md text-text-secondary">
+      <div className="flex gap-2 justify-between text-text-secondary">
         <Link
           href={`/admin/edit/${data.id}`}
-          className="flex flex-1 justify-center gap-1.5 border border-border bg-background py-1 px-2 rounded-md"
+          className="flex flex-1 justify-center gap-1.5 border border-border bg-background p-2 rounded-2xl"
         >
           <PencilSquareIcon className="my-auto w-5 h-5" />
           <span className="my-auto">Edit</span>
