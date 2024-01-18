@@ -29,7 +29,7 @@ export default function CommitteePage () {
 
         <div className="px-2 mx-auto">
           <Image
-            className="w-full max-w-screen-4xl h-full min-h-[300px] max-h-[1000px] mx-auto rounded-lg object-cover contrast-[1.1] brightness-[0.9] saturate-[1.2]"
+            className="w-full max-w-screen-4xl h-full min-h-[300px] max-h-[1000px] mx-auto rounded-2xl object-cover contrast-[1.1] brightness-[0.9] saturate-[1.2]"
             src="/cissa.jpg"
             width={2000}
             height={2000}

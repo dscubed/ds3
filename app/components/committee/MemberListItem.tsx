@@ -17,7 +17,7 @@ export default function MemberListItem ({
   filter?: string
 }) {
   return (
-    <div className="flex gap-4 bg-background rounded-md p-3">
+    <div className="flex gap-4 bg-background rounded-xl p-3">
       {image 
         ? (<Image
             className={clsx("object-cover w-16 h-16 rounded-full", filter)}
