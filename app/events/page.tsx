@@ -6,6 +6,8 @@ import Section from "../components/Section";
 import EventGallery from "../components/events/EventGallery";
 import { fetchEventCount } from "../lib/data";
 import { pageToRange } from "../lib/utils.server";
+import { Suspense } from 'react';
+import EventGallerySkeleton from '../components/events/EventGallerySkeleton';
 
 export default async function SponsersPage({ searchParams }: { searchParams: { page: number } }) {
   const page = Number(searchParams.page || 1)
@@ -31,7 +33,9 @@ export default async function SponsersPage({ searchParams }: { searchParams: { p
         </Section>
 
         <Section>
-          <EventGallery range={range} />
+          <Suspense fallback={<EventGallerySkeleton />}>
+            <EventGallery range={range} />
+          </Suspense>
           <Paginator page={page} limit={limit} count={count!} />
         </Section>
       </main>

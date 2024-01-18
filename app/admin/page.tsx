@@ -9,6 +9,10 @@ import { pageToRange } from "../lib/utils.server";
 import Paginator from "../components/Paginator";
 import { notFound, redirect } from "next/navigation";
 import Section from "../components/Section";
+import EventCardSkeleton from "../components/events/EventCardSkeleton";
+import { Suspense } from "react";
+import EventGallerySkeleton from "../components/events/EventGallerySkeleton";
+import EventGalleryAdmin from "../components/admin/EventGalleryAdmin";
 
 export default async function AdminPage({ searchParams }: { searchParams: { page: number } }) {
   const user = await getUser()
@@ -21,8 +25,8 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
   const limit = 4
   const count = await fetchEventCount()
   const pageCount = Math.ceil(count! / limit)
-  const range = pageToRange(page, limit)
-  const events = await fetchEvents(range as [number, number])
+  const range = pageToRange(page, limit) as [number, number]
+  // const events = await fetchEvents(range as [number, number])
 
   if (page <= 0 || page > pageCount) {
     return notFound()
@@ -49,19 +53,9 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
             <h4 className="text-2xl my-auto">Manage events</h4>
             <Link href="/admin/create" className="py-3 px-6 rounded-full bg-foreground text-lg text-background w-max my-auto">Create new</Link>
           </div>
-          <div className="grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 sm:mx-auto gap-x-4 gap-y-8">
-            {events.map((item, index) => (
-              <EventCardAdmin
-                id={item.id}
-                title={item.title}
-                description={item.description}
-                thumbnail={item.thumbnail}
-                date={item.date}
-                link={item.link}
-                key={index}
-              />
-            ))}
-          </div>
+          <Suspense fallback={<EventGallerySkeleton />}>
+            <EventGalleryAdmin range={range} />
+          </Suspense>
           <Paginator page={page} limit={limit} count={count!} />
         </Section>
       </main>

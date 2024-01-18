@@ -16,6 +16,8 @@
     --text-secondary: 153 153 153;
     --selection: 21 146 255;
     --error: 255 13 45;
+    --skeleton-background: 34 34 34;
+    --skeleton-content: 51 51 51;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -37,6 +39,8 @@
       --text-secondary: 102 102 102;
       --selection: 21 146 255;
       --error: 223 9 37;
+      --skeleton-background: 34 34 34;
+      --skeleton-content: 51 51 51;
     }
   }
 

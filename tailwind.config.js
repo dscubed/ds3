@@ -29,6 +29,8 @@ module.exports = {
         'text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
         'selection': 'rgb(var(--selection) / <alpha-value>)',
         'error': 'rgb(var(--error) / <alpha-value>)',
+        'skeleton-background': 'rgb(var(--skeleton-background) / <alpha-value>)',
+        'skeleton-content': 'rgb(var(--skeleton-content) / <alpha-value>)',
       },
       keyframes: {
         // For scrolling banner
