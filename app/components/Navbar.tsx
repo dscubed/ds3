@@ -27,9 +27,9 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
 
             {/* Desktop links */}
             <div className="flex gap-6 md:hidden">
-              <Link className="my-auto" href="committee">Committee</Link>
-              <Link className="my-auto" href="sponsers">Sponsors</Link>
-              <Link className="my-auto" href="events">Events</Link>
+              <Link className="my-auto" href="/committee">Committee</Link>
+              <Link className="my-auto" href="/sponsers">Sponsors</Link>
+              <Link className="my-auto" href="/events">Events</Link>
               <Link className="my-auto px-4 py-2 bg-foreground text-background rounded-full" href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" target="_blank">Membership</Link>
             </div>
 
@@ -45,9 +45,9 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
         <div className={clsx("absolute hidden flex-col w-full bg-background-secondary top-full border-t border-border", {
           'md:flex': showMenu,
         })}>
-          <Link className="p-4 border-b border-border" href="committee">Committee</Link>
-          <Link className="p-4 border-b border-border" href="sponsers">Sponsors</Link>
-          <Link className="p-4 border-b border-border" href="events">Events</Link>
+          <Link className="p-4 border-b border-border" href="/committee">Committee</Link>
+          <Link className="p-4 border-b border-border" href="/sponsers">Sponsors</Link>
+          <Link className="p-4 border-b border-border" href="/events">Events</Link>
           <Link className="p-4 border-b border-border" href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" target="_blank">Membership</Link>
         </div>
       </nav>
