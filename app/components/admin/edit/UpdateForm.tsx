@@ -2,8 +2,11 @@
 import { updateEvent } from '@/app/lib/action'
 import { getToday, getOneYearFromToday } from '@/app/lib/utils'
 //@ts-expect-error
-import { useFormStatus, useFormState } from 'react-dom'
-import Spinner from '../Spinner'
+import { useFormStatus } from 'react-dom'
+import { useFormStateFix } from '@/app/lib/utils'
+import Spinner from '../../Spinner'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 function FormChild ({
   id,
@@ -87,8 +90,17 @@ function FormChild ({
   
 }
 
-export default function EditForm ({ ...data }) {
-  const [status, action] = useFormState(updateEvent, {})
+export default function UpdateForm ({ ...data }) {
+  const [status, action] = useFormStateFix(updateEvent, {})
+  const router = useRouter()
+
+  useEffect(() => {
+    if (status.success) {
+      console.log('Redirecting.')
+      router.push('/admin')
+      router.refresh()
+    }
+  }, [status])
 
   return (
     <form className="flex flex-col gap-4 w-full mx-auto" action={action}>

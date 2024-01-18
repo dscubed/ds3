@@ -2,7 +2,7 @@ import { getUser } from "@/app/lib/auth.server";
 import Footer from "@/app/components/Footer";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import CreateForm from "@/app/components/admin/CreateForm";
+import CreateForm from "@/app/components/admin/create/CreateForm";
 import { redirect } from "next/navigation";
 
 export default async function CreatePage() {

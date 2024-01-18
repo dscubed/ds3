@@ -3,9 +3,10 @@ import { createEvent } from '@/app/lib/action'
 import { getToday, getOneYearFromToday, convertBase64 } from '@/app/lib/utils'
 import { useEffect, useRef, useState } from 'react'
 //@ts-expect-error
-import { useFormStatus, useFormState } from 'react-dom'
+import { useFormStatus } from 'react-dom'
+import { useFormStateFix } from '@/app/lib/utils'
 import { createThumbnail } from '@/app/lib/image'
-import Spinner from '../Spinner'
+import Spinner from '../../Spinner'
 import { useRouter } from 'next/navigation'
 
 function FormChild () {
@@ -104,16 +105,17 @@ function FormChild () {
       </button>
     </>
   )
-  
 }
 
 export default function CreateForm () {
-  const [status, action] = useFormState(createEvent, {})
+  const [status, action] = useFormStateFix(createEvent, {})
   const router = useRouter()
 
   useEffect(() => {
     if (status.success) {
+      console.log('Redirecting.')
       router.push('/admin')
+      router.refresh()
     }
   }, [status])
 

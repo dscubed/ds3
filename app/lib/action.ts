@@ -117,7 +117,7 @@ export async function updateEvent (
     }
   }
   
-  return redirect('/admin')
+  return { success: true }
 }
 
 export async function deleteEvent (
@@ -149,5 +149,5 @@ export async function deleteEvent (
     }
   }
   
-  return redirect('/admin')
+  return { success: true }
 }
