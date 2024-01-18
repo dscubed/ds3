@@ -53,7 +53,7 @@ export default function Paginator ({
 
   for (let i=0; i<pageCount; i++) {
     links.push((
-      <PageLink pageNum={i+1}>{i+1}</PageLink>
+      <PageLink pageNum={i+1} key={i}>{i+1}</PageLink>
     ))
   }
 
