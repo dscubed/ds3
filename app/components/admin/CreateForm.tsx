@@ -34,7 +34,7 @@ function FormChild () {
         {/* Image preview */}
         <div
           onClick={e => fileRef.current!.click()}
-          className="flex w-full h-64 p-2 bg-background bg-no-repeat bg-center bg-contain rounded-lg cursor-pointer" 
+          className="flex w-full aspect-square p-2 bg-background bg-no-repeat bg-center bg-cover rounded-lg cursor-pointer" 
           style={{ backgroundImage: `url(${imageData})` }}
         >
           {/* Instructions */}
