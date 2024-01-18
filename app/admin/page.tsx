@@ -20,7 +20,7 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
   }
 
   const page = Number(searchParams.page || 1)
-  const limit = 4
+  const limit = 16
   const count = await fetchEventCount()
   const pageCount = Math.ceil(count! / limit)
   const range = pageToRange(page, limit) as [number, number]
