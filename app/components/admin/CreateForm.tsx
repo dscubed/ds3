@@ -7,7 +7,7 @@ import { useFormStatus, useFormState } from 'react-dom'
 import { createThumbnail } from '@/app/lib/image'
 import Spinner from '../Spinner'
 
-function EventFormChild () {
+function FormChild () {
   const fileRef = useRef<HTMLInputElement>(null)
   const [imageData, setImageData] = useState()
   const status = useFormStatus()
@@ -49,7 +49,7 @@ function EventFormChild () {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-text-secondary">Event Date</label>
+        <label className="text-text-secondary">Event date</label>
         <input
           name="date"
           min={getToday()}
@@ -84,7 +84,7 @@ function EventFormChild () {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-text-secondary">Redirect Link</label>
+        <label className="text-text-secondary">Redirect link</label>
         <input
           name="link"
           type="text"
@@ -106,7 +106,7 @@ function EventFormChild () {
   
 }
 
-export default function EventForm () {
+export default function CreateForm () {
   const [status, action] = useFormState(createEvent, {})
 
   return (
@@ -119,7 +119,7 @@ export default function EventForm () {
       )}
 
       {/* Fields */}
-      <EventFormChild />
+      <FormChild />
     </form>
   )
 }

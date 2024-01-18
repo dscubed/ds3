@@ -2,7 +2,7 @@ import { getUser } from "@/app/lib/auth.server";
 import Footer from "@/app/components/Footer";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import EventForm from "@/app/components/admin/EventForm";
+import CreateForm from "@/app/components/admin/CreateForm";
 import { redirect } from "next/navigation";
 
 export default async function CreatePage() {
@@ -21,10 +21,10 @@ export default async function CreatePage() {
               <ArrowLeftIcon className="w-5 h-5 my-auto" />
               <span className="my-auto">Dashboard</span>
             </Link>
-            <h4 className="text-2xl my-auto">Create New Event</h4>
+            <h4 className="text-2xl my-auto">Create new event</h4>
           </div>
 
-          <EventForm />
+          <CreateForm />
         </div>
       </main>
 
