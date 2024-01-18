@@ -15,7 +15,7 @@ export default function WhatWeDoSection() {
           <Image
             className="rounded-2xl object-cover w-full aspect-video"
             src={suitcaseImage}
-            alt="Data science career help cover image"
+            alt=""
           ></Image>
           <p className="text-text-secondary text-lg leading-relaxed">We&apos;re the one-stop hub to provide data science career help. We are hosting recruitment talk throughout the academic calendars and data science related jobs through our newsletters.</p>
         </div>
@@ -25,7 +25,7 @@ export default function WhatWeDoSection() {
           <Image
             className="rounded-2xl object-cover w-full aspect-video"
             src={tabletopImage}
-            alt="Data science career help cover image"
+            alt=""
           ></Image>
           <p className="text-text-secondary text-lg leading-relaxed">We explore data science topics and organise technical workshops for our fellow members. From creating data visualisation dashboards to building E2E Machine Learning pipelines, we got you covered for any essential skills that you may require during your AI/ML career.</p>
         </div>
@@ -35,7 +35,7 @@ export default function WhatWeDoSection() {
           <Image
             className="rounded-2xl object-cover w-full aspect-video"
             src={peopleImage}
-            alt="Data science career help cover image"
+            alt=""
           ></Image>
           <p className="text-text-secondary text-lg leading-relaxed">We organize student community events and here’s your chance to meet and network with other like-minded students. Apart from the get-along events, we also host revision workshop for common data science subjects with past tutors.</p>
         </div>

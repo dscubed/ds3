@@ -26,7 +26,7 @@ export default function InfiniteBanner ({
                 src={src} 
                 width={100} 
                 height={50}
-                alt="logo"
+                alt="company logo"
                 key={index}
               />
             ))}
