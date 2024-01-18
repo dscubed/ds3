@@ -53,7 +53,7 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
             <h4 className="text-2xl my-auto">Manage events</h4>
             <Link href="/admin/create" className="py-3 px-6 rounded-full bg-foreground text-lg text-background w-max my-auto">Create new</Link>
           </div>
-          <Suspense fallback={<EventGallerySkeleton />}>
+          <Suspense fallback={<EventGallerySkeleton />} key={page}>
             <EventGalleryAdmin range={range} />
           </Suspense>
           <Paginator page={page} limit={limit} count={count!} />

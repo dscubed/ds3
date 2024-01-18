@@ -33,7 +33,7 @@ export default async function SponsersPage({ searchParams }: { searchParams: { p
         </Section>
 
         <Section>
-          <Suspense fallback={<EventGallerySkeleton />}>
+          <Suspense fallback={<EventGallerySkeleton />} key={page}>
             <EventGallery range={range} />
           </Suspense>
           <Paginator page={page} limit={limit} count={count!} />
