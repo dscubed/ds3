@@ -6,12 +6,13 @@ export async function getUser () {
 	return user
 }
 
-export async function signIn () {
+export async function signIn (next: string = '/admin') {
+  const params = new URLSearchParams({ next }).toString()
   const supabase = createClient()
-  const { data, error } = await supabase.auth.signInWithOAuth({ 
+  await supabase.auth.signInWithOAuth({ 
     provider: 'google',
     options: {
-      redirectTo: `${window.location.origin}/auth/callback`
+      redirectTo: `${window.location.origin}/auth/callback?${params}`
     },
   })
 }

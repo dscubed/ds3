@@ -2,6 +2,11 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { createClient } from '@/utils/supabase/middleware'
 
 export async function middleware(request: NextRequest) {
+  // Add the current url and pathname to headers so they can be accessed in server components
+  // https://stackoverflow.com/questions/77100792/next-js-13-current-url/77811578#77811578
+  request.headers.set('x-url', request.url)
+  request.headers.set('x-pathname', request.nextUrl.pathname)
+
   try {
     // This `try/catch` block is only here for the interactive tutorial.
     // Feel free to remove once you have Supabase connected.

@@ -11,14 +11,10 @@ import Section from "../components/Section";
 import { Suspense } from "react";
 import EventGallerySkeleton from "../components/events/EventGallerySkeleton";
 import EventGalleryAdmin from "../components/admin/EventGalleryAdmin";
+import { headers } from "next/headers";
 
 export default async function AdminPage({ searchParams }: { searchParams: { page: number } }) {
   const user = await getUser()
-
-  if (!user) {
-    return redirect('/admin/login')
-  }
-
   const page = Number(searchParams.page || 1)
   const limit = 16
   const count = await fetchEventCount()
