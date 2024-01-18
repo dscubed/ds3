@@ -1,4 +1,4 @@
-import FAQItem from "./FAQItem";
+import FAQItem from '@/app/components/faq/FAQItem'
 
 const data = [
   {

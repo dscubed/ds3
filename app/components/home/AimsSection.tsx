@@ -1,4 +1,4 @@
-import Section from "../Section";
+import Section from '@/app/components/Section'
 
 export default function AimsSection() {
   return (

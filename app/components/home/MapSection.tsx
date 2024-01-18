@@ -1,4 +1,4 @@
-import MapMatrix from "./MapMatrix";
+import MapMatrix from '@/app/components/home/MapMatrix'
 
 export default function MapSection () {
   return (

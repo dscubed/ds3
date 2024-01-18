@@ -1,5 +1,5 @@
 'use client'
-import Matrix from "@/app/components/matrix"
+import Matrix from '@/app/components/matrix'
 import { mapToRange, useEffectOnce } from '@/app/lib/utils'
 import { getPixelCoordinateByName, getScaledCoordinate } from '@/app/lib/map-utils'
 

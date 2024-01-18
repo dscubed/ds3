@@ -1,6 +1,6 @@
-import Section from "@/app/components/Section";
+import Section from '@/app/components/Section'
 import { directors } from '@/app/components/committee/memberData'
-import MemberCard from "@/app/components/committee/MemberCard";
+import MemberCard from '@/app/components/committee/MemberCard'
 
 export default function DirectorSection () {
   return (

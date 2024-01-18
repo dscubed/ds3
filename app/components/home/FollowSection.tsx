@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import * as Icon from 'react-bootstrap-icons';
+import Image from 'next/image'
+import Link from 'next/link'
+import * as Icon from 'react-bootstrap-icons'
 
 export default function FollowSection () {
   return (

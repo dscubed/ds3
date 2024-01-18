@@ -1,8 +1,8 @@
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
-import Link from "next/link";
-import { fetchThumbnail } from "../../lib/data";
-import { formatDate } from "@/app/lib/utils.server";
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
+import Image from 'next/image'
+import Link from 'next/link'
+import { fetchThumbnail } from '@/app/lib/data'
+import { formatDate } from '@/app/lib/utils.server'
 
 export default async function EventCard ({
   title,

@@ -1,7 +1,6 @@
-import { UserIcon } from "@heroicons/react/24/solid";
-import clsx from "clsx";
-import Image from "next/image";
-import GenericAvatar from "./GenericAvatar";
+import clsx from 'clsx'
+import Image from 'next/image'
+import GenericAvatar from '@/app/components/committee/GenericAvatar'
 
 // Use the 'filter' prop to set Tailwind css filters on the image
 

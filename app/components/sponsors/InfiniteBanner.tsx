@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import Image from "next/image"
+import Image from 'next/image'
 
 // Infinite scrolling banner
 // Based on https://codesandbox.io/p/sandbox/infinite-horizontal-auto-scroll-y82f8

@@ -1,4 +1,4 @@
-import EventCardSkeleton from "./EventCardSkeleton";
+import EventCardSkeleton from '@/app/components/events/EventCardSkeleton'
 
 export default function EventGallerySkeleton () {
   return (

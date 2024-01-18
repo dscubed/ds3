@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Section from "../Section";
+import Image from 'next/image'
+import Section from '@/app/components/Section'
 import image from '@/public/sponsors/money.png'
 
 export default function PromoteSection () {

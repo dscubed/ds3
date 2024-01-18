@@ -1,4 +1,4 @@
-import MemberListItem from "./MemberListItem";
+import MemberListItem from '@/app/components/committee/MemberListItem'
 
 // The default role is set to '<Team name> Officer', so don't need to set it in members.js
 

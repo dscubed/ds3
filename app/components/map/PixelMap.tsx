@@ -1,6 +1,6 @@
 'use client'
 import p5 from 'p5'
-import { useEffectOnce } from "@/app/lib/utils"
+import { useEffectOnce } from '@/app/lib/utils'
 import { config, getPixelCoordinateByName, getScaledCoordinate } from '@/app/lib/map-utils'
 
 export default function P5Map () {

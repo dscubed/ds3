@@ -1,12 +1,12 @@
 'use client'
-import Splide from "@splidejs/splide";
-import { Intersection } from '@splidejs/splide-extension-intersection';
-import { useEffectOnce } from "../../lib/utils";
-import fadeScaleTransition from "./transition";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
-import '@splidejs/splide/css/core';
-import data from "./galleryData";
+import Splide from '@splidejs/splide'
+import { Intersection } from '@splidejs/splide-extension-intersection'
+import { useEffectOnce } from '@/app/lib/utils'
+import fadeScaleTransition from '@/app/components/home/transition'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import Image from 'next/image'
+import '@splidejs/splide/css/core'
+import data from '@/app/components/home/galleryData'
 
 export default function GallerySlides () {
   useEffectOnce(() => {

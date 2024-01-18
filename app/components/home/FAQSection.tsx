@@ -1,7 +1,7 @@
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import Section from "../Section";
-import Link from "next/link";
-import FAQList from "../faq/FAQList";
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
+import Section from '@/app/components/Section'
+import Link from 'next/link'
+import FAQList from '@/app/components/faq/FAQList'
 
 export default function FAQSection () {
   return (

@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Section from "../Section";
-import EventGallery from "../events/EventGallery";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import Link from 'next/link'
+import Section from '@/app/components/Section'
+import EventGallery from '@/app/components/events/EventGallery'
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
 
 export default function EventSection () {
   return (

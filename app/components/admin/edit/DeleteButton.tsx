@@ -3,7 +3,7 @@ import { deleteEvent } from '@/app/lib/action'
 //@ts-expect-error
 import { useFormStatus } from 'react-dom'
 import { useFormStateFix } from '@/app/lib/utils'
-import Spinner from '../../Spinner'
+import Spinner from '@/app/components/Spinner'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 

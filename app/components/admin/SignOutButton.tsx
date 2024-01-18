@@ -1,6 +1,6 @@
 'use client'
-import { signOut } from "@/app/lib/auth.client";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { signOut } from '@/app/lib/auth.client'
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { useRouter } from 'next/navigation'
 
 export default function SignOutButton () {

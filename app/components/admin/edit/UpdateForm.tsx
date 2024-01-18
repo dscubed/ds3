@@ -4,7 +4,7 @@ import { getToday, getOneYearFromToday } from '@/app/lib/utils'
 //@ts-expect-error
 import { useFormStatus } from 'react-dom'
 import { useFormStateFix } from '@/app/lib/utils'
-import Spinner from '../../Spinner'
+import Spinner from '@/app/components/Spinner'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 

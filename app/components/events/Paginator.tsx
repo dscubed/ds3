@@ -1,9 +1,9 @@
 'use client'
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid"
-import clsx from "clsx"
-import Link from "next/link"
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import clsx from 'clsx'
+import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { pageToRange } from "../../lib/utils.server"
+import { pageToRange } from '@/app/lib/utils.server'
 
 function PageLink ({ 
   pageNum, 

@@ -1,7 +1,7 @@
-import { fetchEvents } from "@/app/lib/data"
-import EventCard from "../events/EventCard"
-import Link from "next/link"
-import { PencilSquareIcon } from "@heroicons/react/24/solid"
+import { fetchEvents } from '@/app/lib/data'
+import EventCard from '@/app/components/events/EventCard'
+import Link from 'next/link'
+import { PencilSquareIcon } from '@heroicons/react/24/solid'
 
 export default async function EventGalleryAdmin ({ range = [0, 3] }: { range: [number, number] }) {
   const events = await fetchEvents(range)

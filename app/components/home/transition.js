@@ -1,4 +1,4 @@
-import { EventInterface } from '@splidejs/splide';
+import { EventInterface } from '@splidejs/splide'
 
 export default function fadeScaleTransition( Splide, Components ) {
   const { bind } = EventInterface( Splide );

@@ -1,4 +1,4 @@
-import InfiniteBanner from "./InfiniteBanner";
+import InfiniteBanner from '@/app/components/sponsors/InfiniteBanner'
 
 const speakers = [
   '/sponsors/logos/citadel.svg',

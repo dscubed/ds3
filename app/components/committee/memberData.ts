@@ -1,7 +1,5 @@
 // Use the 'filter' property to set Tailwind css filters on images
 
-import { StaticImageData } from "next/image"
-
 export const executives: { name: string, role: string, image?: string, filter?: string }[] = [
   {
     name: 'Nathan Luo',

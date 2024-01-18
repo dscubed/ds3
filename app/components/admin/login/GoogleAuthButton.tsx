@@ -1,7 +1,7 @@
 'use client'
-import { signIn } from "@/app/lib/auth.client";
-import clsx from "clsx";
-import { Google } from "react-bootstrap-icons";
+import { signIn } from '@/app/lib/auth.client'
+import clsx from 'clsx'
+import { Google } from 'react-bootstrap-icons'
 
 export default function GoogleAuthButton ({ next, className = '' }: { next: string, className?: string }) {
   return (

@@ -1,5 +1,5 @@
-import { UserIcon } from "@heroicons/react/24/solid";
-import clsx from "clsx";
+import { UserIcon } from '@heroicons/react/24/solid'
+import clsx from 'clsx'
 
 export default function GenericAvatar ({ className = '' }: { className?: string }) {
   return (

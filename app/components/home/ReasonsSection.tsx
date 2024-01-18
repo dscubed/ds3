@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Section from "../Section";
+import Image from 'next/image'
+import Section from '@/app/components/Section'
 import membersImage from '@/public/home/dog.webp'
 import degreesImage from '@/public/home/flower.webp'
 import eventsImage from '@/public/home/ai-painting.webp'

@@ -1,4 +1,4 @@
-import clsx from "clsx"
+import clsx from 'clsx'
 
 export default function Spinner ({ className = '' }: { className?: string }) {
   return (

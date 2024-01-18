@@ -1,7 +1,7 @@
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import clsx from "clsx";
-import Image from "next/image";
-import Link from "next/link";
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
+import clsx from 'clsx'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function SponsorCard ({
   name,

@@ -1,4 +1,4 @@
-import HeroMatrix from "./HeroMatrix";
+import HeroMatrix from '@/app/components/home/HeroMatrix'
 
 export default function HeroSection () {
   return (

@@ -1,7 +1,7 @@
 'use client'
-import { PlusIcon } from "@heroicons/react/24/solid"
-import clsx from "clsx"
-import { useState } from "react"
+import { PlusIcon } from '@heroicons/react/24/solid'
+import clsx from 'clsx'
+import { useState } from 'react'
 
 export default function FAQItem ({
   question,

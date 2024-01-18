@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Section from "../Section";
+import Image from 'next/image'
+import Section from '@/app/components/Section'
 import suitcaseImage from '@/public/home/suitcase.png'
 import tabletopImage from '@/public/home/tabletop.png'
 import peopleImage from '@/public/home/people.png'

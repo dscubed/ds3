@@ -1,4 +1,4 @@
-import GallerySlides from "./GallerySlides";
+import GallerySlides from '@/app/components/home/GallerySlides'
 
 export default function GallerySection () {
   return (

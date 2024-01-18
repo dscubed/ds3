@@ -1,6 +1,6 @@
-import Section from "../Section";
+import Section from '@/app/components/Section'
 import { gold } from '@/app/components/sponsors/sponsorData'
-import SponsorCard from "./SponserCard";
+import SponsorCard from '@/app/components/sponsors/SponserCard'
 
 export default function GoldTierSection () {
   return (

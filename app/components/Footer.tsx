@@ -1,5 +1,5 @@
-import Link from "next/link"
-import * as Icon from 'react-bootstrap-icons';
+import Link from 'next/link'
+import * as Icon from 'react-bootstrap-icons'
 
 export default function Footer () {
   return (
