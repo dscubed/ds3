@@ -1,11 +1,12 @@
 'use client'
 import { createEvent } from '@/app/lib/action'
 import { getToday, getOneYearFromToday, convertBase64 } from '@/app/lib/utils'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 //@ts-expect-error
 import { useFormStatus, useFormState } from 'react-dom'
 import { createThumbnail } from '@/app/lib/image'
 import Spinner from '../Spinner'
+import { useRouter } from 'next/navigation'
 
 function FormChild () {
   const fileRef = useRef<HTMLInputElement>(null)
@@ -108,6 +109,13 @@ function FormChild () {
 
 export default function CreateForm () {
   const [status, action] = useFormState(createEvent, {})
+  const router = useRouter()
+
+  useEffect(() => {
+    if (status.success) {
+      router.push('/admin')
+    }
+  }, [status])
 
   return (
     <form className="flex flex-col gap-4 w-full mx-auto" action={action}>

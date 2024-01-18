@@ -24,6 +24,8 @@ export async function createEvent (
      }
   }
 
+  console.log('Processed image.')
+
   const supabase = createClient()
   const fileName = createUniqueFileName(image.name)
 
@@ -39,6 +41,8 @@ export async function createEvent (
     if (error) {
       throw error
     }
+
+    console.log('Uploaded image.')
   } catch (error) {
     console.log(error)
     return {
@@ -62,6 +66,8 @@ export async function createEvent (
     if (error) {
       throw error
     }
+
+    console.log('Created event.')
   } catch (error) {
     console.log(error)
     return {
@@ -70,8 +76,8 @@ export async function createEvent (
       }
     }
   }
-  
-  return redirect('/admin')
+
+  return { success: true }
 }
 
 export async function updateEvent (
@@ -100,6 +106,8 @@ export async function updateEvent (
     if (error) {
       throw error
     }
+
+    console.log('Updated event.')
   } catch (error) {
     console.log(error)
     return {
@@ -117,7 +125,6 @@ export async function deleteEvent (
   formData: FormData
 ) {
   const id = formData.get('id') as string
-
   const supabase = createClient()
 
   // Only delete event,
@@ -131,6 +138,8 @@ export async function deleteEvent (
     if (error) {
       throw error
     }
+
+    console.log('Deleted event.')
   } catch (error) {
     console.log(error)
     return {
