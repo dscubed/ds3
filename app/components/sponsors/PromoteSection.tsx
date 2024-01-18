@@ -17,8 +17,6 @@ export default function PromoteSection () {
         <Image
           className="w-full aspect-square object-cover rounded-2xl"
           src={image}
-          width={512}
-          height={512}
           alt="DALL-E generated image of money and currency"
         ></Image>
       </div>

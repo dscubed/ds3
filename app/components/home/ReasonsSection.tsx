@@ -18,10 +18,8 @@ export default function ReasonsSection () {
         <div className="grid grid-cols-1 gap-20 sm:gap-10 max-w-xl lg:max-w-none">
           <div className="flex flex-col gap-4 rounded-md">
             <Image
-              className="w-full h-72 xs:h-64 object-cover rounded-2xl"
+              className="w-full aspect-video object-cover rounded-2xl"
               src={membersImage}
-              width={512}
-              height={300}
               alt=""
             />
             <h4 className="text-4xl">203</h4>
@@ -30,10 +28,8 @@ export default function ReasonsSection () {
           </div>
           <div className="flex flex-col gap-4 rounded-md">
             <Image
-              className="w-full h-72 xs:h-64 object-cover rounded-2xl"
+              className="w-full aspect-video object-cover rounded-2xl"
               src={degreesImage}
-              width={512}
-              height={300}
               alt=""
             />
             <h4 className="text-4xl">006</h4>
@@ -42,10 +38,8 @@ export default function ReasonsSection () {
           </div>
           <div className="flex flex-col gap-4 rounded-md">
             <Image
-              className="w-full h-72 xs:h-64 object-cover rounded-2xl"
+              className="w-full aspect-video object-cover rounded-2xl"
               src={eventsImage}
-              width={512}
-              height={300}
               alt=""
             />
             <h4 className="text-4xl">048</h4>
@@ -54,10 +48,8 @@ export default function ReasonsSection () {
           </div>
           <div className="flex flex-col gap-4 rounded-md">
             <Image
-              className="w-full h-72 xs:h-64 object-cover rounded-2xl"
+              className="w-full aspect-video object-cover rounded-2xl"
               src={workshopsImage}
-              width={512}
-              height={300}
               alt=""
             />
             <h4 className="text-4xl">010</h4>

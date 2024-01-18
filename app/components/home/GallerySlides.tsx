@@ -43,10 +43,10 @@ export default function GallerySlides () {
           {data.map((item, index) => (
             <li className="splide__slide" key={index}>
               <Image
-                className="rounded-2xl object-cover w-full h-full max-h-[500px]"
+                className="rounded-2xl object-cover w-full aspect-video"
                 src={item.src}
-                width={300}
-                height={200}
+                width={640}
+                height={360}
                 alt={item.description}
               ></Image>
             </li>

@@ -19,8 +19,6 @@ export default function IntroSection () {
         <Image
           className="w-full aspect-square object-cover rounded-2xl"
           src={image}
-          width={512}
-          height={512}
           alt=""
         ></Image>
       </div>
