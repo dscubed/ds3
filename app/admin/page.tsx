@@ -1,15 +1,13 @@
 import { getUser } from "@/app/lib/auth.server";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import EventCardAdmin from "../components/admin/EventCardAdmin";
 import Link from "next/link";
-import { fetchEventCount, fetchEvents, fetchThumbnail } from "../lib/data";
+import { fetchEventCount } from "../lib/data";
 import SignOutButton from "../components/admin/SignOutButton";
 import { pageToRange } from "../lib/utils.server";
-import Paginator from "../components/Paginator";
+import Paginator from "../components/events/Paginator";
 import { notFound, redirect } from "next/navigation";
 import Section from "../components/Section";
-import EventCardSkeleton from "../components/events/EventCardSkeleton";
 import { Suspense } from "react";
 import EventGallerySkeleton from "../components/events/EventGallerySkeleton";
 import EventGalleryAdmin from "../components/admin/EventGalleryAdmin";
@@ -26,7 +24,6 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
   const count = await fetchEventCount()
   const pageCount = Math.ceil(count! / limit)
   const range = pageToRange(page, limit) as [number, number]
-  // const events = await fetchEvents(range as [number, number])
 
   if (page <= 0 || page > pageCount) {
     return notFound()

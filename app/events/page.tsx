@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Paginator from "../components/Paginator";
+import Paginator from "../components/events/Paginator";
 import Section from "../components/Section";
 import EventGallery from "../components/events/EventGallery";
 import { fetchEventCount } from "../lib/data";

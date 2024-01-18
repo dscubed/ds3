@@ -3,10 +3,12 @@ import Navbar from "../components/Navbar"
 import { ArrowRightIcon } from "@heroicons/react/24/solid"
 import Footer from "../components/Footer"
 import Link from "next/link"
-import MemberCard from "../components/committee/MemberCard"
-import { executives, directors, representatives, teams } from './members'
-import MemberList from "../components/committee/MemberList"
 import Section from "../components/Section"
+import committeePhoto from '@/public/people/committee.jpg'
+import ExecutiveSection from "../components/committee/ExecutiveSection"
+import DirectorSection from "../components/committee/DirectorSection"
+import RepresentativeSection from "../components/committee/RepresentativeSection"
+import TeamsSection from "../components/committee/TeamsSection"
 
 export default function CommitteePage () {
   return (
@@ -30,44 +32,17 @@ export default function CommitteePage () {
         <div className="px-2 mx-auto">
           <Image
             className="w-full max-w-screen-4xl h-full min-h-[300px] max-h-[1000px] mx-auto rounded-2xl object-cover contrast-[1.1] brightness-[0.9] saturate-[1.2]"
-            src="/cissa.jpg"
+            src={committeePhoto}
             width={2000}
             height={2000}
             alt="Committee group photo"
           ></Image>
         </div>
 
-        <Section>
-          <h4 className="text-2xl">Executive Team</h4>
-          <div className="grid grid-cols-4 gap-4 lg:grid-cols-2 xs:grid-cols-1">
-            {executives.map((profile, index) => (
-              <MemberCard {...profile} key={index} />)
-            )}
-          </div>
-        </Section>
-
-        <Section>
-          <h4 className="text-2xl">Directors</h4>
-          <div className="grid grid-cols-4 gap-4 lg:grid-cols-2 xs:grid-cols-1">
-            {directors.map((profile, index) => (
-              <MemberCard {...profile} key={index} />)
-            )}
-          </div>
-        </Section>
-
-        <Section>
-          <h4 className="text-2xl">Representatives</h4>
-          <div className="grid grid-cols-4 gap-4 lg:grid-cols-2 xs:grid-cols-1">
-            {representatives.map((profile, index) => (
-              <MemberCard {...profile} key={index} />)
-            )}
-          </div>
-        </Section>
-
-        <Section>
-          <h4 className="text-2xl">Officers</h4>
-          <MemberList teams={teams}/>
-        </Section>
+        <ExecutiveSection />
+        <DirectorSection />
+        <RepresentativeSection />
+        <TeamsSection />
       </main>
 
       <Footer />

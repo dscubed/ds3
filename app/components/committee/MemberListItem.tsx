@@ -1,7 +1,7 @@
 import { UserIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import Image from "next/image";
-import AvatarGeneric from "./AvatarGeneric";
+import GenericAvatar from "./GenericAvatar";
 
 // Use the 'filter' prop to set Tailwind css filters on the image
 
@@ -26,7 +26,7 @@ export default function MemberListItem ({
             height={50}
             alt={`${name}'s profile picture`}
           ></Image>) 
-        : <AvatarGeneric />}
+        : <GenericAvatar />}
       <div className="flex flex-col gap-1 my-auto truncate">
       <h6 className="leading-tight text-lg text-ellipsis overflow-hidden">{name}</h6>
       <p className="text-text-secondary leading-tight text-lg text-ellipsis overflow-hidden">{role}</p>
