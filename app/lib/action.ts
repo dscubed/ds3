@@ -1,7 +1,6 @@
 import { createThumbnail } from '@/app/lib/image'
 import { createClient } from '@/utils/supabase/client'
-import { redirect } from 'next/navigation'
-import { createUniqueFileName } from './utils'
+import { createUniqueFileName } from '@/app/lib/utils'
 
 export async function createEvent (
   prevState: string | undefined,

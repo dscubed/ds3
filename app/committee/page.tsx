@@ -1,14 +1,14 @@
-import Image from "next/image"
-import Navbar from "../components/Navbar"
-import { ArrowRightIcon } from "@heroicons/react/24/solid"
-import Footer from "../components/Footer"
-import Link from "next/link"
-import Section from "../components/Section"
+import Image from 'next/image'
+import Navbar from '@/app/components/Navbar'
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
+import Footer from '@/app/components/Footer'
+import Link from 'next/link'
+import Section from '@/app/components/Section'
 import committeePhoto from '@/public/people/committee.jpg'
-import ExecutiveSection from "../components/committee/ExecutiveSection"
-import DirectorSection from "../components/committee/DirectorSection"
-import RepresentativeSection from "../components/committee/RepresentativeSection"
-import TeamsSection from "../components/committee/TeamsSection"
+import ExecutiveSection from '@/app/components/committee/ExecutiveSection'
+import DirectorSection from '@/app/components/committee/DirectorSection'
+import RepresentativeSection from '@/app/components/committee/RepresentativeSection'
+import TeamsSection from '@/app/components/committee/TeamsSection'
 
 export default function CommitteePage () {
   return (

@@ -1,13 +1,13 @@
 import { notFound } from 'next/navigation'
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Paginator from "../components/events/Paginator";
-import Section from "../components/Section";
-import EventGallery from "../components/events/EventGallery";
-import { fetchEventCount } from "../lib/data";
-import { pageToRange } from "../lib/utils.server";
-import { Suspense } from 'react';
-import EventGallerySkeleton from '../components/events/EventGallerySkeleton';
+import Footer from '@/app/components/Footer'
+import Navbar from '@/app/components/Navbar'
+import Paginator from '@/app/components/events/Paginator'
+import Section from '@/app/components/Section'
+import EventGallery from '@/app/components/events/EventGallery'
+import { fetchEventCount } from '../lib/data'
+import { pageToRange } from '@/app/lib/utils.server'
+import { Suspense } from 'react'
+import EventGallerySkeleton from '@/app/components/events/EventGallerySkeleton'
 
 export default async function SponsersPage({ searchParams }: { searchParams: { page: number } }) {
   const page = Number(searchParams.page || 1)

@@ -1,9 +1,9 @@
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import Section from '../components/Section'
-import PromoteSection from '../components/sponsors/PromoteSection'
-import SpeakersSection from '../components/sponsors/SpeakersSection'
-import GoldTierSection from '../components/sponsors/GoldTierSection'
+import Footer from '@/app/components/Footer'
+import Navbar from '@/app/components/Navbar'
+import Section from '@/app/components/Section'
+import PromoteSection from '@/app/components/sponsors/PromoteSection'
+import SpeakersSection from '@/app/components/sponsors/SpeakersSection'
+import GoldTierSection from '@/app/components/sponsors/GoldTierSection'
 
 export default function SponsersPage() {
   return (
