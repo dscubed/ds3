@@ -1,6 +1,6 @@
-import { headers } from "next/headers"
-import { redirect } from "next/navigation"
-import { getUser } from "@/app/lib/auth.server"
+import { headers } from 'next/headers'
+import { redirect } from 'next/navigation'
+import { getUser } from '@/app/lib/auth.server'
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const user = await getUser()

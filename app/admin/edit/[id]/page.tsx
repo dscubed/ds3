@@ -1,11 +1,11 @@
-import { getUser } from "@/app/lib/auth.server";
-import Footer from "@/app/components/Footer";
-import { ArrowLeftIcon } from "@heroicons/react/24/solid";
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import UpdateForm from "@/app/components/admin/edit/UpdateForm";
-import { fetchEvent } from "@/app/lib/data";
-import DeleteButton from "@/app/components/admin/edit/DeleteButton";
+import { getUser } from '@/app/lib/auth.server'
+import Footer from '@/app/components/Footer'
+import { ArrowLeftIcon } from '@heroicons/react/24/solid'
+import Link from 'next/link'
+import { redirect } from 'next/navigation'
+import UpdateForm from '@/app/components/admin/edit/UpdateForm'
+import { fetchEvent } from '@/app/lib/data'
+import DeleteButton from '@/app/components/admin/edit/DeleteButton'
 
 export default async function EditPage({ params }: { params: { id: string } }) {
   const user = await getUser()

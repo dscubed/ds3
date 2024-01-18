@@ -1,17 +1,16 @@
-import { getUser } from "@/app/lib/auth.server";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
-import Link from "next/link";
-import { fetchEventCount } from "../lib/data";
-import SignOutButton from "../components/admin/SignOutButton";
-import { pageToRange } from "../lib/utils.server";
-import Paginator from "../components/events/Paginator";
-import { notFound, redirect } from "next/navigation";
-import Section from "../components/Section";
-import { Suspense } from "react";
-import EventGallerySkeleton from "../components/events/EventGallerySkeleton";
-import EventGalleryAdmin from "../components/admin/EventGalleryAdmin";
-import { headers } from "next/headers";
+import { getUser } from '@/app/lib/auth.server'
+import Navbar from '@/app/components/Navbar'
+import Footer from '@/app/components/Footer'
+import Link from 'next/link'
+import { fetchEventCount } from '@/app/lib/data'
+import SignOutButton from '@/app/components/admin/SignOutButton'
+import { pageToRange } from '@/app/lib/utils.server'
+import Paginator from '@/app/components/events/Paginator'
+import { notFound } from 'next/navigation'
+import Section from '@/app/components/Section'
+import { Suspense } from 'react'
+import EventGallerySkeleton from '@/app/components/events/EventGallerySkeleton'
+import EventGalleryAdmin from '@/app/components/admin/EventGalleryAdmin'
 
 export default async function AdminPage({ searchParams }: { searchParams: { page: number } }) {
   const user = await getUser()

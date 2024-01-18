@@ -1,9 +1,9 @@
 'use client'
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
-import { useSearchParams } from "next/navigation";
-import Section from "@/app/components/Section";
-import GoogleAuthButton from "@/app/components/admin/login/GoogleAuthButton";
+import Navbar from '@/app/components/Navbar'
+import Footer from '@/app/components/Footer'
+import { useSearchParams } from 'next/navigation'
+import Section from '@/app/components/Section'
+import GoogleAuthButton from '@/app/components/admin/login/GoogleAuthButton'
 
 export default function LoginPage() {
   const next = useSearchParams().get('next') || '/admin'
