@@ -24,7 +24,7 @@ export default async function EditPage({ params }: { params: { id: string } }) {
               <ArrowLeftIcon className="w-5 h-5 my-auto" />
               <span className="my-auto">Dashboard</span>
             </Link>
-            <h4 className="text-2xl my-auto">Update Event</h4>
+            <h1 className="text-2xl my-auto">Update Event</h1>
           </div>
 
           <UpdateForm 

@@ -22,7 +22,7 @@ export default function SponsorCard ({
     <div className='relative w-full aspect-video min-h-80 rounded-2xl overflow-hidden' style={{backgroundColor: color}}>
       <div className="absolute w-full grid grid-cols-[1fr,auto] gap-2 p-4">
         <div className="flex flex-col gap-1 my-auto">
-          <h5 className="text-xl leading-tight text-text-primary">{name}</h5>
+          <h4 className="text-xl leading-tight text-text-primary">{name}</h4>
           <p className="text-black/40 dark:text-white/40 leading-none text-lg">{category}</p>
         </div>
         <Link

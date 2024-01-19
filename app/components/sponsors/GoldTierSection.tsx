@@ -5,7 +5,7 @@ import SponsorCard from '@/app/components/sponsors/SponserCard'
 export default function GoldTierSection () {
   return (
     <Section>
-      {/* <h4 className="text-2xl text-center">Gold Sponsors</h4> */}
+      {/* <h3 className="text-2xl text-center">Gold Sponsors</h3> */}
       <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
         {gold.map((item: any, index) => (
           <SponsorCard

@@ -29,7 +29,7 @@ export default function MemberCard ({
             alt={`${name}'s profile picture`}
           ></Image>)
         : <GenericAvatar className="w-52 h-52 sm:w-40 sm:h-40 mx-auto mb-2" />}
-      <h6 className="text-center leading-tight text-lg text-ellipsis truncate overflow-hidden">{name}</h6>
+      <h4 className="text-center leading-tight text-lg text-ellipsis truncate overflow-hidden">{name}</h4>
       <p className="text-text-secondary text-center leading-tight text-lg text-ellipsis truncate overflow-hidden">{role}</p>
     </div>
   )

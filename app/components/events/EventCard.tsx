@@ -29,7 +29,7 @@ export default async function EventCard ({
         alt={`${title} cover image`}
       ></Image>
       <div className="flex flex-col gap-2 p-4 h-full">
-        <h4 className="text-lg truncate">{title}</h4>
+        <h2 className="text-lg truncate">{title}</h2>
         <p className="text-text-secondary">{formatDate(date)}</p>
         <p className="text-text-secondary line-clamp-4">{description}</p>
         <Link 

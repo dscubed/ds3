@@ -27,7 +27,7 @@ export default function MemberListItem ({
           ></Image>) 
         : <GenericAvatar />}
       <div className="flex flex-col gap-1 my-auto truncate">
-      <h6 className="leading-tight text-lg text-ellipsis overflow-hidden">{name}</h6>
+      <h3 className="leading-tight text-lg text-ellipsis overflow-hidden">{name}</h3>
       <p className="text-text-secondary leading-tight text-lg text-ellipsis overflow-hidden">{role}</p>
       </div>
     </div>

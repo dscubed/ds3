@@ -42,7 +42,7 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
 
         <Section>
           <div className="flex justify-between gap-8">
-            <h4 className="text-2xl my-auto">Manage events</h4>
+            <h2 className="text-2xl my-auto">Manage events</h2>
             <Link href="/admin/create" className="py-3 px-6 rounded-full bg-foreground text-lg text-background w-max my-auto">Create new</Link>
           </div>
           <Suspense fallback={<EventGallerySkeleton />} key={page}>

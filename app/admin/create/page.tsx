@@ -21,7 +21,7 @@ export default async function CreatePage() {
               <ArrowLeftIcon className="w-5 h-5 my-auto" />
               <span className="my-auto">Dashboard</span>
             </Link>
-            <h4 className="text-2xl my-auto">Create new event</h4>
+            <h1 className="text-2xl my-auto">Create new event</h1>
           </div>
 
           <CreateForm />

@@ -11,7 +11,7 @@ export default function WhatWeDoSection() {
 
       <div className="grid grid-cols-3 lg:grid-cols-1 gap-10 lg:gap-20 sm:gap-10">
         <div className="grid gap-4 h-max">
-          <h4 className="text-xl">Data Science Career Help</h4>
+          <h3 className="text-xl">Data Science Career Help</h3>
           <Image
             className="rounded-2xl object-cover w-full aspect-video"
             src={suitcaseImage}
@@ -21,7 +21,7 @@ export default function WhatWeDoSection() {
         </div>
 
         <div className="grid gap-4 h-max">
-          <h4 className="text-xl">Technical Workshops</h4>
+          <h3 className="text-xl">Technical Workshops</h3>
           <Image
             className="rounded-2xl object-cover w-full aspect-video"
             src={tabletopImage}
@@ -31,7 +31,7 @@ export default function WhatWeDoSection() {
         </div>
 
         <div className="grid gap-4 h-max">
-          <h4 className="text-xl">Student Networking</h4>
+          <h3 className="text-xl">Student Networking</h3>
           <Image
             className="rounded-2xl object-cover w-full aspect-video"
             src={peopleImage}

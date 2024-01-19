@@ -5,7 +5,7 @@ import MemberList from '@/app/components/committee/MemberList'
 export default function TeamsSection () {
   return (
     <Section>
-      <h4 className="text-2xl">Officers</h4>
+      <h2 className="text-2xl">Officers</h2>
       <MemberList teams={teams}/>
     </Section>
   )
