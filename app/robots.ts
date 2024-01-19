@@ -1,4 +1,6 @@
 import type { MetadataRoute } from 'next'
+
+const baseURL = 'https://' + process.env.DOMAIN_URL || 'localhost:3000'
  
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -28,5 +30,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       }
     ],
+    sitemap: baseURL + '/sitemap.xml',
   }
 }
