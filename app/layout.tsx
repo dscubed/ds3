@@ -4,18 +4,17 @@ import '@/app/styles/globals.css'
 const baseURL = 'https://' + process.env.DOMAIN_URL || 'localhost:3000'
 
 export const metadata = {
-  metadataBase: new URL(baseURL),
+  metadataBase: new URL(baseURL), // Only need to set once here
   title: "DS Cubed | Data Science Student Society | The University of Melbourne",
   description: "DS Cubed is the premier data science club at The University of Melbourne. Connect with our vibrant community, explore student-led workshops, and unlock career opportunities through networking events. Become a member today - it's free!",
   openGraph: {
     title: "DS Cubed | Data Science Student Society | The University of Melbourne",
     description: "DS Cubed is the premier data science club at The University of Melbourne. Connect with our vibrant community, explore student-led workshops, and unlock career opportunities through networking events. Become a member today - it's free!",
-    url: baseURL,
+    url: '/',
     siteName: 'DS Cubed',
     locale: 'en_AU',
     type: 'website',
   },
-  // https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
   twitter: {
     card: 'summary_large_image',
     // Max 70 chars

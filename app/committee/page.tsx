@@ -10,6 +10,24 @@ import DirectorSection from '@/app/components/committee/DirectorSection'
 import RepresentativeSection from '@/app/components/committee/RepresentativeSection'
 import TeamsSection from '@/app/components/committee/TeamsSection'
 
+export const metadata = {
+  title: 'Committee | DS Cubed',
+  description: 'Meet the team behind DS Cubed. Introducing our committee for 2024.',
+  openGraph: {
+    title: 'Committee | DS Cubed',
+    description: 'Meet the team behind DS Cubed. Introducing our committee for 2024.',
+    url: '/committee',
+    siteName: 'DS Cubed',
+    locale: 'en_AU',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Committee | DS Cubed",
+    description: 'Meet the team behind DS Cubed. Introducing our committee for 2024.',
+  },
+}
+
 export default function CommitteePage () {
   return (
     <>
