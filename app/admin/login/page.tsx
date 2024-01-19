@@ -15,7 +15,7 @@ export default function LoginPage() {
       <main>
         <Section>
           <div>
-            <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">Admin login page</h3>
+            <h1 className="text-4xl text-center mx-auto mb-5 leading-tight">Admin login page</h1>
             <p className="text-xl text-text-secondary text-center mx-auto leading-snug">Please login with your @dscubed.org.au email account.</p>
           </div>
 

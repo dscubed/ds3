@@ -36,7 +36,7 @@ export default function CommitteePage () {
       <main>
         <Section>
           <div>
-            <h3 className="text-4xl mb-5">2024 Committee</h3>
+            <h1 className="text-4xl mb-5">2024 Committee</h1>
             {(new Date()).getFullYear() > 2024 && (
               <Link className="flex gap-2 text-xl text-theme" href="#">
                 <span className="my-auto">Past Committee</span>

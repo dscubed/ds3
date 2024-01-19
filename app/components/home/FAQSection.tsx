@@ -7,7 +7,7 @@ export default function FAQSection () {
   return (
     <Section>
       <div className="grid grid-cols-[auto,1fr] lg:grid-cols-1 gap-10">
-        <h3 className="text-5xl sm:text-4xl max-w-lg sm:max-w-sm !leading-tight h-max">Frequently Asked Questions</h3>
+        <h2 className="text-5xl sm:text-4xl max-w-lg sm:max-w-sm !leading-tight h-max">Frequently Asked Questions</h2>
         <div>
           <FAQList />
           <div className="flex gap-4 py-8">

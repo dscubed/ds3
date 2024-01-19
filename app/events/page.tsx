@@ -27,7 +27,7 @@ export const metadata = {
   },
 }
 
-export default async function SponsersPage({ searchParams }: { searchParams: { page: number } }) {
+export default async function EventsPage({ searchParams }: { searchParams: { page: number } }) {
   const page = Number(searchParams.page || 1)
   const limit = 16
   const count = await fetchEventCount()
@@ -45,7 +45,7 @@ export default async function SponsersPage({ searchParams }: { searchParams: { p
       <main>
         <Section>
           <div>
-            <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">What&apos;s happening</h3>
+            <h1 className="text-4xl text-center mx-auto mb-5 leading-tight">What&apos;s happening</h1>
             <p className="text-xl text-text-secondary text-center mx-auto !leading-relaxed">Browse our latest events, workshop sessions, and updates.</p>
           </div>
         </Section>

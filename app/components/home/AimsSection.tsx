@@ -3,7 +3,7 @@ import Section from '@/app/components/Section'
 export default function AimsSection() {
   return (
     <Section>
-      <h3 className="text-5xl sm:text-4xl">Club Aims</h3>
+      <h2 className="text-5xl sm:text-4xl">Club Aims</h2>
 
       <div className="grid grid-cols-3 gap-10 lg:grid-cols-2 sm:grid-cols-1">
         <div className="flex flex-col gap-4 max-w-[300px] sm:max-w-none">

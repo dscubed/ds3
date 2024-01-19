@@ -11,7 +11,7 @@ export default function ReasonsSection () {
       <div className="grid grid-cols-[1fr,1fr] lg:grid-cols-1 lg:gap-20 sm:gap-10">
         <div className="">
           <div className="sticky max-w-sm sm:max-w-none top-[calc(102.55px+20px)]">
-            <h3 className="mb-10 text-5xl sm:text-4xl !leading-tight">Four reasons to join the club.</h3>
+            <h2 className="mb-10 text-5xl sm:text-4xl !leading-tight">Four reasons to join the club.</h2>
             <p className="text-text-secondary text-xl leading-relaxed">Embrace the unknown, for within it lies the canvas of endless possibilities waiting to be painted with the strokes of your curiosity and courage.</p>
           </div>
         </div>

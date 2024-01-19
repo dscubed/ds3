@@ -6,7 +6,7 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid'
 export default function EventSection () {
   return (
     <Section>
-      <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">Recent updates</h3>
+      <h2 className="text-4xl text-center mx-auto mb-5 leading-tight">Recent updates</h2>
 
       <EventGallery range={[0, 3]} />
       

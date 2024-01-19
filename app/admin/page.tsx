@@ -31,7 +31,7 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
       <main>
         <Section>
           <div>
-            <h3 className="text-4xl mb-5 leading-tight">Admin dashboard</h3>
+            <h1 className="text-4xl mb-5 leading-tight">Admin dashboard</h1>
             <p className="text-xl text-text-secondary mb-5 leading-snug">
               Logged in as 
               <span className="text-text-secondary"> {user?.email}</span>

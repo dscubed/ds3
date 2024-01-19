@@ -7,7 +7,7 @@ import peopleImage from '@/public/home/people.png'
 export default function WhatWeDoSection() {
   return (
     <Section>
-      <h3 className="text-5xl sm:text-4xl">What We Do</h3>
+      <h2 className="text-5xl sm:text-4xl">What We Do</h2>
 
       <div className="grid grid-cols-3 lg:grid-cols-1 gap-10 lg:gap-20 sm:gap-10">
         <div className="grid gap-4 h-max">
