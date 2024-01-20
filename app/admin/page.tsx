@@ -14,15 +14,11 @@ import EventGalleryAdmin from '@/app/components/admin/EventGalleryAdmin'
 
 export default async function AdminPage({ searchParams }: { searchParams: { page: number } }) {
   const user = await getUser()
-  const page = Number(searchParams.page || 1)
   const limit = 16
   const count = await fetchEventCount()
   const pageCount = Math.ceil(count! / limit)
+  const page = Math.min(Math.max(Number(searchParams.page || 1), 1), pageCount)
   const range = pageToRange(page, limit) as [number, number]
-
-  if (page <= 0 || page > pageCount) {
-    return notFound()
-  }
 
   return (
     <>

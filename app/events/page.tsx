@@ -28,15 +28,11 @@ export const metadata = {
 }
 
 export default async function EventsPage({ searchParams }: { searchParams: { page: number } }) {
-  const page = Number(searchParams.page || 1)
   const limit = 16
   const count = await fetchEventCount()
   const pageCount = Math.ceil(count! / limit)
+  const page = Math.min(Math.max(Number(searchParams.page || 1), 1), pageCount)
   const range = pageToRange(page, limit) as [number, number]
-
-  if (page <= 0 || page > pageCount) {
-    return notFound()
-  }
 
   return (
     <>
