@@ -31,7 +31,7 @@ function FormChild ({
         <label className="text-text-secondary">Event Date</label>
         <input
           name="date"
-          min={getToday()}
+          // min={getToday()}
           max={getOneYearFromToday()}
           defaultValue={date}
           type="date"
@@ -57,7 +57,7 @@ function FormChild ({
         <textarea
           name="description"
           rows={6}
-          maxLength={200}
+          maxLength={300}
           defaultValue={description}
           placeholder="Description"
           className="py-2 px-3 bg-background border border-border rounded-lg placeholder:text-text-secondary focus:outline outline-2 outline-offset-2 outline-outline-border resize-none"
