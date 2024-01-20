@@ -1,7 +1,6 @@
-import { UserIcon } from "@heroicons/react/24/solid";
-import clsx from "clsx";
-import Image from "next/image";
-import AvatarGeneric from "./AvatarGeneric";
+import clsx from 'clsx'
+import Image from 'next/image'
+import GenericAvatar from '@/app/components/committee/GenericAvatar'
 
 // Use the 'filter' prop to set Tailwind css filters on the image
 
@@ -17,7 +16,7 @@ export default function MemberCard ({
   filter?: string
 }) {
   return (
-    <div className="flex flex-col gap-3 py-10 px-5 bg-background rounded-md">
+    <div className="flex flex-col gap-3 py-10 px-5 bg-background rounded-2xl">
       {image 
         ? (<Image
             className={clsx(
@@ -29,8 +28,8 @@ export default function MemberCard ({
             height={300}
             alt={`${name}'s profile picture`}
           ></Image>)
-        : <AvatarGeneric className="w-52 h-52 sm:w-40 sm:h-40 mx-auto mb-2" />}
-      <h6 className="text-center leading-tight text-lg text-ellipsis truncate overflow-hidden">{name}</h6>
+        : <GenericAvatar className="w-52 h-52 sm:w-40 sm:h-40 mx-auto mb-2" />}
+      <h4 className="text-center leading-tight text-lg text-ellipsis truncate overflow-hidden">{name}</h4>
       <p className="text-text-secondary text-center leading-tight text-lg text-ellipsis truncate overflow-hidden">{role}</p>
     </div>
   )

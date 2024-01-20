@@ -1,8 +1,7 @@
 'use client'
-import { ArrowRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import clsx from "clsx";
-import Link from "next/link";
-import { useState } from "react";
+import { ArrowRightIcon, XMarkIcon } from '@heroicons/react/24/solid'
+import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Banner ({
   text,

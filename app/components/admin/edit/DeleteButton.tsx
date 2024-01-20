@@ -1,8 +1,11 @@
 'use client'
 import { deleteEvent } from '@/app/lib/action'
 //@ts-expect-error
-import { useFormStatus, useFormState } from 'react-dom'
-import Spinner from '../../Spinner'
+import { useFormStatus } from 'react-dom'
+import { useFormStateFix } from '@/app/lib/utils'
+import Spinner from '@/app/components/Spinner'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
 function FormChild ({ id }: {id: number }) {
   const status = useFormStatus()
@@ -24,7 +27,16 @@ function FormChild ({ id }: {id: number }) {
 }
 
 export default function DeleteButton ({ id }: { id: number }) {
-  const [status, action] = useFormState(deleteEvent, {})
+  const [status, action] = useFormStateFix(deleteEvent, {})
+  const router = useRouter()
+
+  useEffect(() => {
+    if (status.success) {
+      console.log('Redirecting.')
+      router.push('/admin')
+      router.refresh()
+    }
+  }, [status])
 
   return (
     <form action={action}>

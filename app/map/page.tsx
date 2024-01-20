@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import { notFound } from 'next/navigation'
 
 const P5Map = dynamic(
-  () => import('@/app/components/P5Map'),
+  () => import('@/app/components/map/PixelMap'),
   { ssr: false }
 )
 

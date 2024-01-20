@@ -1,12 +1,32 @@
-import Image from "next/image"
-import Navbar from "../components/Navbar"
-import { ArrowRightIcon } from "@heroicons/react/24/solid"
-import Footer from "../components/Footer"
-import Link from "next/link"
-import MemberCard from "../components/committee/MemberCard"
-import { executives, directors, representatives, teams } from './members'
-import MemberList from "../components/committee/MemberList"
-import Section from "../components/Section"
+import Image from 'next/image'
+import Navbar from '@/app/components/Navbar'
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
+import Footer from '@/app/components/Footer'
+import Link from 'next/link'
+import Section from '@/app/components/Section'
+import committeePhoto from '@/public/people/committee.jpg'
+import ExecutiveSection from '@/app/components/committee/ExecutiveSection'
+import DirectorSection from '@/app/components/committee/DirectorSection'
+import RepresentativeSection from '@/app/components/committee/RepresentativeSection'
+import TeamsSection from '@/app/components/committee/TeamsSection'
+
+export const metadata = {
+  title: 'Committee | DS Cubed',
+  description: 'Meet the team behind DS Cubed. Introducing our committee for 2024.',
+  openGraph: {
+    title: 'Committee | DS Cubed',
+    description: 'Meet the team behind DS Cubed. Introducing our committee for 2024.',
+    url: '/committee',
+    siteName: 'DS Cubed',
+    locale: 'en_AU',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Committee | DS Cubed",
+    description: 'Meet the team behind DS Cubed. Introducing our committee for 2024.',
+  },
+}
 
 export default function CommitteePage () {
   return (
@@ -16,7 +36,7 @@ export default function CommitteePage () {
       <main>
         <Section>
           <div>
-            <h3 className="text-4xl mb-5">2024 Committee</h3>
+            <h1 className="text-4xl mb-5">2024 Committee</h1>
             {(new Date()).getFullYear() > 2024 && (
               <Link className="flex gap-2 text-xl text-theme" href="#">
                 <span className="my-auto">Past Committee</span>
@@ -29,45 +49,16 @@ export default function CommitteePage () {
 
         <div className="px-2 mx-auto">
           <Image
-            className="w-full max-w-screen-4xl h-full min-h-[300px] max-h-[1000px] mx-auto rounded-lg object-cover contrast-[1.1] brightness-[0.9] saturate-[1.2]"
-            src="/cissa.jpg"
-            width={2000}
-            height={2000}
+            className="w-full max-w-screen-2xl aspect-video mx-auto rounded-2xl object-cover contrast-[1.1] brightness-[0.9] saturate-[1.2]"
+            src={committeePhoto}
             alt="Committee group photo"
           ></Image>
         </div>
 
-        <Section>
-          <h4 className="text-2xl">Executive Team</h4>
-          <div className="grid grid-cols-4 gap-4 lg:grid-cols-2 xs:grid-cols-1">
-            {executives.map((profile, index) => (
-              <MemberCard {...profile} key={index} />)
-            )}
-          </div>
-        </Section>
-
-        <Section>
-          <h4 className="text-2xl">Directors</h4>
-          <div className="grid grid-cols-4 gap-4 lg:grid-cols-2 xs:grid-cols-1">
-            {directors.map((profile, index) => (
-              <MemberCard {...profile} key={index} />)
-            )}
-          </div>
-        </Section>
-
-        <Section>
-          <h4 className="text-2xl">Representatives</h4>
-          <div className="grid grid-cols-4 gap-4 lg:grid-cols-2 xs:grid-cols-1">
-            {representatives.map((profile, index) => (
-              <MemberCard {...profile} key={index} />)
-            )}
-          </div>
-        </Section>
-
-        <Section>
-          <h4 className="text-2xl">Officers</h4>
-          <MemberList teams={teams}/>
-        </Section>
+        <ExecutiveSection />
+        <DirectorSection />
+        <RepresentativeSection />
+        <TeamsSection />
       </main>
 
       <Footer />

@@ -77,3 +77,25 @@ export async function fetchThumbnail (path: string) {
 
   return data
 }
+
+export async function fetchMostRecentEventUpdatedAt () {
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
+  
+  try {
+    const { data, error } = await supabase
+      .from('events')
+      .select('updated_at')
+      .order('updated_at', { ascending: false })
+      .limit(1)
+    
+    if (error) {
+      throw error
+    }
+
+    return data[0]
+  } catch (error) {
+    console.log(error)
+    throw new Error('Failed to fetch most recent event\'s updated_at field.')
+  }
+}

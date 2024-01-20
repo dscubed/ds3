@@ -1,9 +1,9 @@
-import { getUser } from "@/app/lib/auth.server";
-import Footer from "@/app/components/Footer";
-import { ArrowLeftIcon } from "@heroicons/react/24/solid";
-import Link from "next/link";
-import EventForm from "@/app/components/admin/EventForm";
-import { redirect } from "next/navigation";
+import { getUser } from '@/app/lib/auth.server'
+import Footer from '@/app/components/Footer'
+import { ArrowLeftIcon } from '@heroicons/react/24/solid'
+import Link from 'next/link'
+import CreateForm from '@/app/components/admin/create/CreateForm'
+import { redirect } from 'next/navigation'
 
 export default async function CreatePage() {
   const user = await getUser()
@@ -21,10 +21,10 @@ export default async function CreatePage() {
               <ArrowLeftIcon className="w-5 h-5 my-auto" />
               <span className="my-auto">Dashboard</span>
             </Link>
-            <h4 className="text-2xl my-auto">Create New Event</h4>
+            <h1 className="text-2xl my-auto">Create new event</h1>
           </div>
 
-          <EventForm />
+          <CreateForm />
         </div>
       </main>
 

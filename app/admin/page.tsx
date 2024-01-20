@@ -1,32 +1,24 @@
-import { getUser } from "@/app/lib/auth.server";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
-import EventCardAdmin from "../components/admin/EventCardAdmin";
-import Link from "next/link";
-import { fetchEventCount, fetchEvents, fetchThumbnail } from "../lib/data";
-import SignOutButton from "../components/admin/SignOutButton";
-import { pageToRange } from "../lib/utils.server";
-import Paginator from "../components/Paginator";
-import { notFound, redirect } from "next/navigation";
-import Section from "../components/Section";
+import { getUser } from '@/app/lib/auth.server'
+import Navbar from '@/app/components/Navbar'
+import Footer from '@/app/components/Footer'
+import Link from 'next/link'
+import { fetchEventCount } from '@/app/lib/data'
+import SignOutButton from '@/app/components/admin/SignOutButton'
+import { pageToRange } from '@/app/lib/utils.server'
+import Paginator from '@/app/components/events/Paginator'
+import { notFound } from 'next/navigation'
+import Section from '@/app/components/Section'
+import { Suspense } from 'react'
+import EventGallerySkeleton from '@/app/components/events/EventGallerySkeleton'
+import EventGalleryAdmin from '@/app/components/admin/EventGalleryAdmin'
 
 export default async function AdminPage({ searchParams }: { searchParams: { page: number } }) {
   const user = await getUser()
-
-  if (!user) {
-    return redirect('/admin/login')
-  }
-
-  const page = Number(searchParams.page || 1)
-  const limit = 4
+  const limit = 16
   const count = await fetchEventCount()
   const pageCount = Math.ceil(count! / limit)
-  const range = pageToRange(page, limit)
-  const events = await fetchEvents(range as [number, number])
-
-  if (page <= 0 || page > pageCount) {
-    return notFound()
-  }
+  const page = Math.min(Math.max(Number(searchParams.page || 1), 1), pageCount)
+  const range = pageToRange(page, limit) as [number, number]
 
   return (
     <>
@@ -35,7 +27,7 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
       <main>
         <Section>
           <div>
-            <h3 className="text-4xl mb-5 leading-tight">Admin dashboard</h3>
+            <h1 className="text-4xl mb-5 leading-tight">Admin dashboard</h1>
             <p className="text-xl text-text-secondary mb-5 leading-snug">
               Logged in as 
               <span className="text-text-secondary"> {user?.email}</span>
@@ -46,22 +38,12 @@ export default async function AdminPage({ searchParams }: { searchParams: { page
 
         <Section>
           <div className="flex justify-between gap-8">
-            <h4 className="text-2xl my-auto">Manage events</h4>
+            <h2 className="text-2xl my-auto">Manage events</h2>
             <Link href="/admin/create" className="py-3 px-6 rounded-full bg-foreground text-lg text-background w-max my-auto">Create new</Link>
           </div>
-          <div className="grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 sm:mx-auto gap-x-4 gap-y-8">
-            {events.map((item, index) => (
-              <EventCardAdmin
-                id={item.id}
-                title={item.title}
-                description={item.description}
-                thumbnail={item.thumbnail}
-                date={item.date}
-                link={item.link}
-                key={index}
-              />
-            ))}
-          </div>
+          <Suspense fallback={<EventGallerySkeleton />} key={page}>
+            <EventGalleryAdmin range={range} />
+          </Suspense>
           <Paginator page={page} limit={limit} count={count!} />
         </Section>
       </main>

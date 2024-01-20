@@ -1,24 +1,12 @@
 'use client'
-import { getUser } from "@/app/lib/auth.client";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
-import GoogleAuthButton from "@/app/components/admin/login/GoogleAuthButton";
-import { redirect, useRouter } from "next/navigation";
-import { useEffect } from "react";
-import Section from "@/app/components/Section";
+import Navbar from '@/app/components/Navbar'
+import Footer from '@/app/components/Footer'
+import { useSearchParams } from 'next/navigation'
+import Section from '@/app/components/Section'
+import GoogleAuthButton from '@/app/components/admin/login/GoogleAuthButton'
 
 export default function LoginPage() {
-  const router = useRouter()
-
-  useEffect(() => {
-    (async () => {
-      const user = await getUser()
-      if (user) {
-        router.push('/admin')
-      }
-    })()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  const next = useSearchParams().get('next') || '/admin'
 
   return (
     <>
@@ -27,10 +15,11 @@ export default function LoginPage() {
       <main>
         <Section>
           <div>
-            <h3 className="text-4xl text-center mx-auto mb-5 leading-tight">Admin login page</h3>
+            <h1 className="text-4xl text-center mx-auto mb-5 leading-tight">Admin login page</h1>
             <p className="text-xl text-text-secondary text-center mx-auto leading-snug">Please login with your @dscubed.org.au email account.</p>
           </div>
-          <GoogleAuthButton className="mx-auto" />
+
+          <GoogleAuthButton next={next} className="mx-auto" />
         </Section>
       </main>
 

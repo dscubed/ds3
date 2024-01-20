@@ -1,4 +1,4 @@
-import { createClient } from "@/utils/supabase/client";
+import { createClient } from '@/utils/supabase/client'
 
 export async function getUser () {
 	const supabase = createClient()
@@ -6,12 +6,13 @@ export async function getUser () {
 	return user
 }
 
-export async function signIn () {
+export async function signIn (next: string = '/admin') {
+  const params = new URLSearchParams({ next }).toString()
   const supabase = createClient()
-  const { data, error } = await supabase.auth.signInWithOAuth({ 
+  await supabase.auth.signInWithOAuth({ 
     provider: 'google',
     options: {
-      redirectTo: `https://${process.env.NEXT_PUBLIC_DOMAIN_URL || 'localhost:3000'}/admin/login`
+      redirectTo: `${window.location.origin}/auth/callback?${params}`
     },
   })
 }

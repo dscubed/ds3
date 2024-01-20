@@ -1,10 +1,21 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from 'react'
 import Compressor from 'compressorjs'
 import { v4 as uuidv4 } from 'uuid'
 
 // Map a range of values to another
 export function mapToRange (number, inMin, inMax, outMin, outMax) {
   return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin
+}
+
+// useFormState in react-dom v18.2.0 doesn't update state if async action executes for more than a few seconds
+// Use this function below to provide a temporary fix until this issue has been solved.
+export function useFormStateFix (action, initialState) {
+  const [state, setState] = useState(initialState)
+  const formAction = async (formData) => {
+    const newStateValue = await action(state, formData)
+    setState(newStateValue)
+  }
+  return [state, formAction]
 }
 
 // Prevent running effect twice in React strict mode

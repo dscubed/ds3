@@ -1,9 +1,9 @@
-import Link from "next/link"
-import * as Icon from 'react-bootstrap-icons';
+import Link from 'next/link'
+import * as Icon from 'react-bootstrap-icons'
 
 export default function Footer () {
   return (
-    <footer className="px-4 py-8">
+    <footer className="relative z-20 px-4 py-8">
       <div className="flex flex-col gap-10 max-w-screen-xl mx-auto">
         <div className="flex sm:flex-col gap-4 sm:gap-5 justify-between text-text-secondary">
           <p className="sm:text-center">© {(new Date).getFullYear()} DS Cubed</p>
