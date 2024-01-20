@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Section from '@/app/components/Section'
-import image from '@/public/home/chess.webp'
+import image from '@/public/home/robot-running.jpg'
 
 export default function IntroSection () {
   return (
