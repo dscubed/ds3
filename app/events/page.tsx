@@ -1,4 +1,3 @@
-import { notFound } from 'next/navigation'
 import Footer from '@/app/components/Footer'
 import Navbar from '@/app/components/Navbar'
 import Paginator from '@/app/components/events/Paginator'
