@@ -7,12 +7,15 @@ export async function getUser () {
 }
 
 export async function signIn (next: string = '/admin') {
+  const origin = process.env.NODE_ENV === 'production'
+    ? process.env.NEXT_PUBLIC_DOMAIN_URL
+    : 'localhost:3000'
   const params = new URLSearchParams({ next }).toString()
   const supabase = createClient()
   await supabase.auth.signInWithOAuth({ 
     provider: 'google',
     options: {
-      redirectTo: `${window.location.origin}/auth/callback?${params}`
+      redirectTo: `https://${origin}/auth/callback?${params}`
     },
   })
 }
