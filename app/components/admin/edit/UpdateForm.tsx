@@ -1,7 +1,6 @@
 'use client'
 import { updateEvent } from '@/app/lib/action'
 import { getToday, getOneYearFromToday } from '@/app/lib/utils'
-//@ts-expect-error
 import { useFormStatus } from 'react-dom'
 import { useFormStateFix } from '@/app/lib/utils'
 import Spinner from '@/app/components/Spinner'
