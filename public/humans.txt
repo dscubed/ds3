@@ -12,3 +12,7 @@
   LinkedIn: https://www.linkedin.com/in/m-ren/
   Location: Melbourne, Australia
   For: The website's UI/UX design and its initial development
+
+/* SITE */
+
+  Images: Bing Image Creator
