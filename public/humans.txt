@@ -15,4 +15,4 @@
 
 /* SITE */
 
-  Images: Bing Image Creator
+  Images: Bing Image Creator, OpenAI DALLE 2

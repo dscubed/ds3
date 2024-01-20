@@ -28,7 +28,7 @@ export default function SponsorCard ({
         <Link
           href={link} 
           target="_blank"
-          className="flex h-max bg-black/10 dark:bg-white/10 text-black/50 dark:text-white/50 hover:text-opacity-100 transition gap-2 px-4 py-3.5 rounded-lg cursor-pointer"
+          className="flex h-max bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 text-black/40 dark:text-white/40 transition gap-2 px-4 py-3.5 rounded-lg cursor-pointer"
         >
           <span className="my-auto w-max">More</span>
           <ArrowRightIcon className="my-auto w-5 h-5"/>

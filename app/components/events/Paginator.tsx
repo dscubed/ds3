@@ -25,12 +25,11 @@ function PageLink ({
   return (
     <Link 
       href={url} 
-      className={clsx(
-        "flex text-lg w-10 h-10 text-text-secondary bg-background-secondary hover:bg-background transition rounded-full",
-        {
-          'bg-foreground text-background-secondary border-0': pageNum === currentPage,
-          'opacity-30 pointer-events-none': disabled,
-        }
+      className={clsx("flex text-lg w-10 h-10 transition rounded-full",
+        (pageNum === currentPage 
+          ? 'text-background-secondary bg-foreground hover:bg-foreground/80'
+          : 'text-text-secondary bg-background-secondary hover:bg-background'),
+        disabled && 'opacity-30 pointer-events-none'
       )}
     >
       <span className="m-auto">{children}</span>
