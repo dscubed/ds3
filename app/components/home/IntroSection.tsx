@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Section from '@/app/components/Section'
 import image from '@/public/home/robot-running.jpg'
+import Link from 'next/link'
 
 export default function IntroSection () {
   return (
@@ -14,7 +15,13 @@ export default function IntroSection () {
             <span className="block leading-tight xl:leading-snug">Melbourne.</span>
           </h1>
           <p className="text-text-secondary text-xl sm:text-lg leading-relaxed">We are dedicated to connect all data enthusiasts, to support and engage students who have a passion for Data Science at The University of Melbourne</p>
-          <button className="w-max bg-foreground text-background px-8 py-4 font-medium rounded-full">Become a Member</button>
+          <Link 
+            target="_blank"
+            href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/"
+            className="w-max bg-foreground text-background px-8 py-4 font-medium rounded-full"
+          >
+            Become a Member
+          </Link>
         </div>
         <Image
           className="w-full aspect-square object-cover rounded-2xl"

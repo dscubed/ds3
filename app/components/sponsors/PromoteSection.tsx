@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Section from '@/app/components/Section'
 import image from '@/public/sponsors/robot-human.jpg'
+import Link from 'next/link'
 
 export default function PromoteSection () {
   return (
@@ -12,7 +13,13 @@ export default function PromoteSection () {
             <span className="block leading-tight xl:leading-snug">sponsor today</span>
           </h2>
           <p className="text-text-secondary text-xl sm:text-lg leading-relaxed">Empower student excellence and fuel future leaders in data science by sponsoring DS Cubed. Your support propels students into the forefront of data-driven innovation.</p>
-          <button className="w-max bg-foreground text-background px-8 py-4 font-medium rounded-full">Let&apos;s get in touch!</button>
+          <Link
+            target="_blank"
+            href="mailto:hello@dscubed.org.au"
+            className="w-max bg-foreground text-background px-8 py-4 font-medium rounded-full"
+          >
+            Let&apos;s get in touch!
+          </Link>
         </div>
         <Image
           className="w-full aspect-square object-cover rounded-2xl"
