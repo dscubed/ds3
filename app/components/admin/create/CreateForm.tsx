@@ -2,6 +2,7 @@
 import { createEvent } from '@/app/lib/action'
 import { getToday, getOneYearFromToday, convertBase64 } from '@/app/lib/utils'
 import { useEffect, useRef, useState } from 'react'
+//@ts-expect-error
 import { useFormStatus } from 'react-dom'
 import { useFormStateFix } from '@/app/lib/utils'
 import { createThumbnail } from '@/app/lib/image'
