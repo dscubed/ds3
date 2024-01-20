@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Section from '@/app/components/Section'
-import membersImage from '@/public/home/dog.webp'
-import degreesImage from '@/public/home/flower.webp'
-import eventsImage from '@/public/home/ai-painting.webp'
-import workshopsImage from '@/public/home/ai.webp'
+import membersImage from '@/public/home/pineapple.jpg'
+import degreesImage from '@/public/home/degree.jpg'
+import eventsImage from '@/public/home/abstract.jpg'
+import workshopsImage from '@/public/home/robot.jpg'
 
 export default function ReasonsSection () {
   return (

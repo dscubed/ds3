@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Section from '@/app/components/Section'
-import suitcaseImage from '@/public/home/suitcase.png'
+import briefcaseImage from '@/public/home/briefcase.png'
 import tabletopImage from '@/public/home/tabletop.png'
 import peopleImage from '@/public/home/people.png'
 
@@ -14,7 +14,7 @@ export default function WhatWeDoSection() {
           <h3 className="text-xl">Data Science Career Help</h3>
           <Image
             className="rounded-2xl object-cover w-full aspect-video"
-            src={suitcaseImage}
+            src={briefcaseImage}
             alt=""
           ></Image>
           <p className="text-text-secondary text-lg leading-relaxed">We&apos;re the one-stop hub to provide data science career help. We are hosting recruitment talk throughout the academic calendars and data science related jobs through our newsletters.</p>
