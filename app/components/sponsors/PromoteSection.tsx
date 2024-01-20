@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Section from '@/app/components/Section'
-import image from '@/public/sponsors/money.png'
+import image from '@/public/sponsors/robot-human.jpg'
 
 export default function PromoteSection () {
   return (
