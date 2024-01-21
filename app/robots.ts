@@ -21,6 +21,7 @@ export default function robots(): MetadataRoute.Robots {
           'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)',
           'facebookexternalhit/1.1',
           'facebookcatalog/1.0',
+          'Twitterbot',
         ],
         allow: ['/'],
         disallow: [
