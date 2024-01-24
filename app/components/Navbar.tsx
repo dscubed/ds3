@@ -7,8 +7,8 @@ import { useState } from 'react'
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import Logo from '@/app/components/Logo'
 
-const ThemeToggle = dynamic(
-  () => import('./ThemeToggle'),
+const ThemeButton = dynamic(
+  () => import('@/app/components/ThemeButton'),
   { ssr: false }
 )
 
@@ -32,7 +32,7 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
 
             {/* Desktop links */}
             <div className="flex gap-6 md:hidden">
-              <ThemeToggle showText={false} />
+              <ThemeButton showText={false} />
               <div className="block h-1/2 w-0 border-l border-border my-auto"></div>
               <Link className="my-auto" href="/events">Events</Link>
               <Link className="my-auto" href="/committee">Committee</Link>
@@ -56,7 +56,7 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
           <Link className="p-4 border-b border-border" href="/committee">Committee</Link>
           <Link className="p-4 border-b border-border" href="/sponsers">Sponsors</Link>
           <Link className="p-4 border-b border-border" href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" target="_blank">Membership</Link>
-          <ThemeToggle className="p-4 border-b border-border" />
+          <ThemeButton className="p-4 border-b border-border" />
         </div>
       </nav>
     </div>
