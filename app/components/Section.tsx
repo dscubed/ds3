@@ -9,7 +9,7 @@ export default function Section ({
   children?: React.ReactNode
 }) {
   return (
-    <section {...props} className={clsx('px-5 my-60 sm:my-20', className)}>
+    <section {...props} className={clsx('px-5 my-40 sm:my-24', className)}>
       <div className="flex flex-col gap-10 max-w-screen-xl lg:max-w-screen-sm mx-auto">
         {children}
       </div>

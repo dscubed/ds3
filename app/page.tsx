@@ -19,14 +19,22 @@ export default function Index() {
 
       <main className="relative bg-background-secondary z-10">
         <IntroSection />
+        <hr className="border-0 border-b border-border" />
         <WhatWeDoSection />
+        <hr className="border-0 border-b border-border" />
         <AimsSection />
+        <hr className="border-0 border-b border-border" />
         <AboutSection />
+        <hr className="border-0 border-b border-border" />
         <ReasonsSection />
+        <hr className="border-0 border-b border-border" />
         {/* <MapSection /> */}
+        {/* <hr className="border-0 border-b border-border" /> */}
         {/* <FollowSection /> */}
         <EventSection />
+        <hr className="border-0 border-b border-border" />
         <GallerySection />
+        <hr className="border-0 border-b border-border" />
         <FAQSection />
       </main>
 

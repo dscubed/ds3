@@ -1,25 +1,25 @@
 'use client'
 import HeroMatrix from '@/app/components/home/HeroMatrix'
-import { useEffectOnce } from '@/app/lib/utils'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function HeroSection () {
   const buttonRef = useRef(null)
 
-  useEffectOnce(() => {
-    const callback = () => {
-      const elem: HTMLElement = buttonRef.current!
-      if (window.scrollY > 40) {
-        elem.style.opacity = '0';
-        elem.style.pointerEvents = 'none';
-      } else {
-        elem.style.opacity = '1';
-        elem.style.pointerEvents = 'auto';
-      }
+  const callback = () => {
+    const elem = buttonRef.current as any
+    if (!elem) return
+    
+    if (window.scrollY > 40) {
+      elem.style.opacity = '0';
+      elem.style.pointerEvents = 'none';
+    } else {
+      elem.style.opacity = '1';
+      elem.style.pointerEvents = 'auto';
     }
+  }
 
-    window.addEventListener('scroll', callback)
-
+  useEffect(() => {
+    window.addEventListener('scroll', callback) 
     return () => window.removeEventListener('scroll', callback)
   }, [])
 
