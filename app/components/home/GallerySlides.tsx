@@ -30,10 +30,10 @@ export default function GallerySlides () {
   return (
     <div className="splide" role="group" aria-label="Gallery carousel">
       <div className="splide__arrows sm:hidden">
-        <button className="splide__arrow splide__arrow--prev flex w-10 h-10 bg-background-secondary rounded-full text-text-secondary hover:text-text-primary transition border border-border absolute left-[-18px] top-1/2 translate-y-[-50%] z-10">
+        <button className="splide__arrow splide__arrow--prev flex w-10 h-10 bg-background-secondary rounded-full text-text-secondary hover:text-text-primary transition border border-border absolute left-5 top-1/2 translate-y-[-50%] z-10">
           <ChevronLeftIcon className="m-auto w-7 pr-0.5"></ChevronLeftIcon>
         </button>
-        <button className="splide__arrow splide__arrow--next flex w-10 h-10 bg-background-secondary rounded-full text-text-secondary hover:text-text-primary transition border border-border absolute right-[-18px] top-1/2 translate-y-[-50%] z-10">
+        <button className="splide__arrow splide__arrow--next flex w-10 h-10 bg-background-secondary rounded-full text-text-secondary hover:text-text-primary transition border border-border absolute right-5 top-1/2 translate-y-[-50%] z-10">
           <ChevronRightIcon className="m-auto w-7 pl-0.5"></ChevronRightIcon>
         </button>
       </div>
