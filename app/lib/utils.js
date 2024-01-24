@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Compressor from 'compressorjs'
 import { v4 as uuidv4 } from 'uuid'
+import { isEqual } from 'underscore'
 
 // Map a range of values to another
 export function mapToRange (number, inMin, inMax, outMin, outMax) {
@@ -21,11 +22,19 @@ export function useFormStateFix (action, initialState) {
 // Prevent running effect twice in React strict mode
 export function useEffectOnce (callback, deps) {
   const count = useRef(0)
+  const prevDeps = useRef(deps)
 
   useEffect(() => {
+    if (!isEqual(prevDeps.current, deps)) {
+      // Reset count if dependencies changes
+      count.current = 0
+      prevDeps.current = deps
+    }
     count.current++
+    
     if (count.current === 1) {
-      callback()
+      const cleanup = callback()
+      return cleanup
     } else {
       console.warn(`[Strict Mode] prevent calling function '${callback.name}' a second time`)
     }
