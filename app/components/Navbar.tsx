@@ -7,9 +7,10 @@ import { useState } from 'react'
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import Logo from '@/app/components/Logo'
 
-const ThemeToggle = dynamic(() => import('@/app/components/ThemeToggle'), {
-  ssr: false,
-});
+const ThemeToggle = dynamic(
+  () => import('../components/ThemeToggle'), 
+  { ssr: false }
+)
 
 export default function Navbar ({ className = '', ...rest }: { className?: string }) {
   const [showMenu, setShowMenu] = useState(false)
