@@ -11,13 +11,13 @@ export default function WhatWeDoSection() {
 
       <div className="grid grid-cols-3 lg:grid-cols-1 gap-10 lg:gap-20 sm:gap-10">
         <div className="grid gap-4 h-max">
-          <h3 className="text-xl">Data Science Career Help</h3>
+          <h3 className="text-xl">Industry Opportunities</h3>
           <Image
             className="rounded-2xl object-cover w-full aspect-video"
             src={briefcaseImage}
             alt=""
           ></Image>
-          <p className="text-text-secondary text-lg leading-relaxed">We&apos;re the one-stop hub to provide data science career help. We are hosting recruitment talk throughout the academic calendars and data science related jobs through our newsletters.</p>
+          <p className="text-text-secondary text-lg leading-relaxed">As the go-to hub for industry opportunities in data science, we offer comprehensive support for your career journey. Our program includes hosting recruitment talks with industry leaders throughout the academic year and sharing exclusive data science job opportunities in our newsletters.</p>
         </div>
 
         <div className="grid gap-4 h-max">

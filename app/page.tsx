@@ -9,6 +9,7 @@ import HeroSection from '@/app/components/home/HeroSection'
 import EventSection from '@/app/components/home/EventSection'
 import GallerySection from '@/app/components/home/GallerySection'
 import FAQSection from '@/app/components/home/FAQSection'
+import AboutSection from '@/app/components/home/AboutSection'
 
 export default function Index() {
   return (
@@ -20,8 +21,9 @@ export default function Index() {
         <IntroSection />
         <WhatWeDoSection />
         <AimsSection />
+        <AboutSection />
         <ReasonsSection />
-        <MapSection />
+        {/* <MapSection /> */}
         {/* <FollowSection /> */}
         <EventSection />
         <GallerySection />
