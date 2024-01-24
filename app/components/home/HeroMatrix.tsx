@@ -62,6 +62,7 @@ function setupShimmer (mtx: any) {
 export default function HeroMatrix() {
   useEffectOnce(() => {
     const config = {
+      maxGridSize: [48, 27],
       padding: [2, 2],
       gap: 2,
       radius: 10
