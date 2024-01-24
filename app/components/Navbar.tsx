@@ -1,10 +1,16 @@
 'use client'
 import clsx from 'clsx'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import Banner from '@/app/components/Banner'
 import { useState } from 'react'
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import Logo from '@/app/components/Logo'
+
+const ThemeButton = dynamic(
+  () => import('@/app/components/ThemeButton'),
+  { ssr: false }
+)
 
 export default function Navbar ({ className = '', ...rest }: { className?: string }) {
   const [showMenu, setShowMenu] = useState(false)
@@ -26,7 +32,9 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
 
             {/* Desktop links */}
             <div className="flex gap-6 md:hidden">
-            <Link className="my-auto" href="/events">Events</Link>
+              <ThemeButton showText={false} />
+              <div className="block h-1/2 w-0 border-l border-border my-auto"></div>
+              <Link className="my-auto" href="/events">Events</Link>
               <Link className="my-auto" href="/committee">Committee</Link>
               <Link className="my-auto" href="/sponsers">Sponsors</Link>
               <Link className="my-auto px-4 py-2 bg-foreground text-background rounded-full" href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" target="_blank">Membership</Link>
@@ -48,6 +56,7 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
           <Link className="p-4 border-b border-border" href="/committee">Committee</Link>
           <Link className="p-4 border-b border-border" href="/sponsers">Sponsors</Link>
           <Link className="p-4 border-b border-border" href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" target="_blank">Membership</Link>
+          <ThemeButton className="p-4 border-b border-border" />
         </div>
       </nav>
     </div>

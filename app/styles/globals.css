@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  .colors-light {
     --theme: 21 146 255;
     --background: 244 244 244;
     --background-secondary: 255 255 255;
@@ -20,30 +20,46 @@
     --skeleton-content: 221 221 221;
   }
 
+  .colors-dark {
+    --theme: 21 146 255;
+    --background: 34 34 34;
+    --background-secondary: 24 24 24;
+    --foreground: 255 255 255;
+    --btn-background: 34 34 34;
+    --btn-background-hover: 40 40 40;
+    --border: 40 40 40;
+    --outline-border: 102 102 102;
+    --text-primary: 255 255 255;
+    --text-secondary: 119 119 119;
+    --selection: 21 146 255;
+    --error: 223 9 37;
+    --skeleton-background: 34 34 34;
+    --skeleton-content: 51 51 51;
+  }
+
+  html {
+    @apply colors-light;
+  }
+
+  .dark {
+    @apply colors-dark;
+  }
+
+  @media (prefers-color-scheme: light) {
+    /* If system theme is set to light, and dark class is applied */
+    .dark.system {
+      /* Change override dark colors to be light */
+      @apply colors-light;
+    }
+  }
+
   @media (prefers-color-scheme: dark) {
     /* Set calendar icon color */
     input {
       color-scheme: dark;
     }
-    
-    :root {
-      --theme: 21 146 255;
-      --background: 34 34 34;
-      --background-secondary: 24 24 24;
-      --foreground: 255 255 255;
-      --btn-background: 34 34 34;
-      --btn-background-hover: 40 40 40;
-      --border: 40 40 40;
-      --outline-border: 102 102 102;
-      --text-primary: 255 255 255;
-      --text-secondary: 119 119 119;
-      --selection: 21 146 255;
-      --error: 223 9 37;
-      --skeleton-background: 34 34 34;
-      --skeleton-content: 51 51 51;
-    }
   }
-
+  
   html {
     font-size: 14px;
   }
