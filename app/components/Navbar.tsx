@@ -8,7 +8,7 @@ import { Bars3Icon } from '@heroicons/react/24/solid'
 import Logo from '@/app/components/Logo'
 
 const ThemeToggle = dynamic(
-  () => import('../components/ThemeToggle'), 
+  () => import('@/app/components/ThemeToggle'),
   { ssr: false }
 )
 
