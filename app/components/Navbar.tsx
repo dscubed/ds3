@@ -1,11 +1,15 @@
 'use client'
 import clsx from 'clsx'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import Banner from '@/app/components/Banner'
 import { useState } from 'react'
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import Logo from '@/app/components/Logo'
-import ThemeToggle from './themeToggle'
+
+const ThemeToggle = dynamic(() => import('@/app/components/ThemeToggle'), {
+  ssr: false,
+});
 
 export default function Navbar ({ className = '', ...rest }: { className?: string }) {
   const [showMenu, setShowMenu] = useState(false)
