@@ -117,8 +117,8 @@ export const teams: {
     name: 'Events',
     members: [
       {
-        name: 'Nhat Anh Le',
-        // image: '',
+        name: 'Alex Le',
+        image: '/people/2024/alex-le.jpg',
       },
       {
         name: 'Ayra Hani',
@@ -138,7 +138,7 @@ export const teams: {
       },
       {
         name: 'Ayushi Chauhan',
-        // image: '',
+        image: '/people/2024/ayushi-chauhan.jpg',
       },
       {
         name: 'Madhumita Venkataraman',

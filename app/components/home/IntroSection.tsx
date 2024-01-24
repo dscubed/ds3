@@ -8,13 +8,13 @@ export default function IntroSection () {
     <Section>
       <div className="grid grid-cols-[1fr,1fr] lg:grid-cols-1 gap-20 sm:gap-10">
         <div className="flex flex-col gap-10 my-auto max-w-xl lg:max-w-xl">
-          <h1 className="text-6xl xl:text-5xl sm:text-4xl">
-            <span className="block leading-tight xl:leading-snug">The leading </span>
-            <span className="block leading-tight xl:leading-snug">data science club at </span>
+          <h1 className="text-5xl sm:text-4xl">
+            <span className="block leading-tight xl:leading-snug">The Leading </span>
+            <span className="block leading-tight xl:leading-snug">Data Science Club at </span>
             <span className="block leading-tight xl:leading-snug">The University of </span>
             <span className="block leading-tight xl:leading-snug">Melbourne.</span>
           </h1>
-          <p className="text-text-secondary text-xl sm:text-lg leading-relaxed">We are dedicated to connect all data enthusiasts, to support and engage students who have a passion for Data Science at The University of Melbourne</p>
+          <p className="text-text-secondary text-xl sm:text-lg leading-relaxed">We are committed in our mission to connect and empower data enthusiasts, providing an unparalleled platform for students who are passionate about Data Science.</p>
           <Link 
             target="_blank"
             href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/"
