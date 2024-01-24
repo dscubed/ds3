@@ -4,7 +4,7 @@ export const executives: { name: string, role: string, image?: string, filter?: 
   {
     name: 'Nathan Luo',
     role: 'President',
-    // image: '',
+    image: '/people/2024/nathan-luo.png',
   },
   {
     name: 'Hanshi Tang',
@@ -101,7 +101,7 @@ export const teams: {
     members: [
       {
         name: 'Mikael Sutiono',
-        // image: '',
+        image: '/people/2024/mikael-sutiono.jpg',
       },
       {
         name: 'Jongho Park',
@@ -117,8 +117,8 @@ export const teams: {
     name: 'Events',
     members: [
       {
-        name: 'Alex Le',
-        image: '/people/2024/alex-le.jpg',
+        name: 'Nhat Anh Le',
+        image: '/people/2024/nhat-anh-le.jpg',
       },
       {
         name: 'Ayra Hani',
