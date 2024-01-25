@@ -12,14 +12,14 @@ export const executives: { name: string, role: string, image?: string, filter?: 
     image: '/people/2024/hanshi-tang.jpg',
   },
   {
-    name: 'Justin',
+    name: 'Justin Lee',
     role: 'Secretary',
-    // image: '',
+    image: '/people/2024/justin-lee.jpg',
   },
   {
-    name: 'Georgina',
+    name: 'Georgina Qiu',
     role: 'Treasurer',
-    // image: '',
+    image: '/people/2024/georgina-qiu.jpg',
   },
 ]
 
