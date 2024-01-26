@@ -7,13 +7,13 @@
     --theme: 21 146 255;
     --background: 244 244 244;
     --background-secondary: 255 255 255;
-    --foreground: 0 0 0;
+    --foreground: 34 34 34;
     --btn-background: 255 255 255;
     --btn-background-hover: 250 250 250;
     --border: 238 238 238;
     --outline-border: 153 153 153;
-    --text-primary: 0 0 0;
-    --text-secondary: 136 136 136;
+    --text-primary: 34 34 34;
+    --text-secondary: 116 116 116;
     --selection: 21 146 255;
     --error: 255 13 45;
     --skeleton-background: 244 244 244;
@@ -24,17 +24,22 @@
     --theme: 21 146 255;
     --background: 34 34 34;
     --background-secondary: 24 24 24;
-    --foreground: 255 255 255;
+    --foreground: 221 221 221;
     --btn-background: 34 34 34;
     --btn-background-hover: 40 40 40;
     --border: 40 40 40;
     --outline-border: 102 102 102;
-    --text-primary: 255 255 255;
-    --text-secondary: 119 119 119;
+    --text-primary: 221 221 221;
+    --text-secondary: 132 132 132;
     --selection: 21 146 255;
     --error: 223 9 37;
     --skeleton-background: 34 34 34;
     --skeleton-content: 51 51 51;
+  }
+
+  .colors-dark img {
+    /* Slightly dim images in dark mode */
+    opacity: 0.9 !important;
   }
 
   html {
