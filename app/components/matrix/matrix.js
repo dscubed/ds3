@@ -89,7 +89,7 @@ export default class Matrix {
   }
 
   setCanvasSize () {
-    const scale = 1
+    const scale = 1 // window.devicePixelRatio
     const rect = this.canvas.getBoundingClientRect()
     this.ctx.canvas.width  = scale * rect.width
     this.ctx.canvas.height = scale * rect.height
