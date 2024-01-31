@@ -1,11 +1,15 @@
 'use client'
-import Matrix from '@/app/components/matrix'
-import { mapToRange, useEffectOnce } from '@/app/lib/utils'
+import clsx from 'clsx'
+import { useEffect, useRef, useState } from 'react'
+import Matrix from '@/app/components/matrix/matrix'
+import textAddon from '@/app/components/matrix/addons/text'
+import pingAddon from '@/app/components/matrix/addons/ping'
 import { getPixelCoordinateByName, getScaledCoordinate } from '@/app/lib/map-utils'
+import { mapToRange } from '@/app/lib/utils'
 
 type LocationData = { name: string, country?: string, count: number }[]
 
-const data: LocationData = [
+const locationData: LocationData = [
   { name: 'Pretoria', count: 1 },
   { name: 'Washington', count: 1 },
   { name: 'Austin', count: 2 },
@@ -21,7 +25,7 @@ const data: LocationData = [
   { name: 'Drouin', count: 1 },
 ]
 
-const points: { x: number, y: number, radius: number }[] = []
+const points: { x: number, y: number, count: number }[] = []
 
 function getMinCity (data: LocationData) {
   let min = { count: 0 }
@@ -30,7 +34,7 @@ function getMinCity (data: LocationData) {
       min = item
     }
   })
-  return min
+  return min.count
 }
 
 function getMaxCity (data: LocationData) {
@@ -40,114 +44,113 @@ function getMaxCity (data: LocationData) {
       max = item
     }
   })
-  return max
+  return max.count
 }
 
-export default function MapMatrix() {
-  useEffectOnce(() => {
-    const config = {
-      mode: 'gap',
-      pixelSize: [3, 3],
-      radius: 100,
-      offColor: 'rgb(var(--background-secondary))',
-      onColor: 'rgb(var(--text-secondary))',
-      gridSize: [102, 66],
-      padding: [10, 0],
-      delta: 10000 // 0.1 HZ
-    }
+function convertColor (cssVarName: string) {
+  return `rgb(${getComputedStyle(document.body).getPropertyValue(cssVarName)})`
+}
 
-    if (window.innerWidth < 640) {
-      config.pixelSize = [1, 1]
-    }
+function getTheme() {
+  const classList = document.documentElement.classList
+  const useSystem = classList.contains('system')
+  const isDark = classList.contains('dark') || (useSystem && window.matchMedia("(prefers-color-scheme: dark)").matches)
+  return isDark ? 'dark' : 'light'
+}
 
-    const matrix = new Matrix('map-matrix', config)
+export default function MapMatrix ({ id, className }: { id: string, className?: string }) {
+  const matrixRef = useRef(null) 
+  const [prevTheme, setPrevTheme] = useState('dark')
 
-    let minLocationRadius = 10
-    let maxLocationRadius = 30
+  useEffect(() => {
+    const foreground = convertColor('--foreground')
+    const textSecondary = convertColor('--text-secondary')
+    const background = convertColor('--background-secondary')
+    const backgroundSecondary = convertColor('--background-secondary')
 
-    if (window.innerWidth < 640) {
-      minLocationRadius = 5
-      maxLocationRadius = 20
-    }
-    if (window.innerWidth < 480) {
-      minLocationRadius = 5
-      maxLocationRadius = 10
-    }
+    var mtx: any;
 
-    const min = getMinCity(data)
-    const max = getMaxCity(data)
+    function createMatrix () {
+      const mtx: any = new Matrix(id, {
+        pixel: {
+          width: 3,
+          height: 3,
+          colors: {
+            off: background,
+            on: textSecondary
+          }
+        },
+        grid: {
+          enforce: 'both',
+          size: {
+            x: 102,
+            y: 66
+          }
+        },
+        backgroundColor: backgroundSecondary,
+        frameRate: 30
+      }, [
+        textAddon,
+        pingAddon,
+      ])
+      mtx.init()
 
-    var setStyle = (function (style) {
-      var sheet = document.head.appendChild(style).sheet!;
-      return function (selector: string, css: any) {
-          var propText = typeof css === "string" ? css : Object.keys(css).map(function (p) {
-              return p + ":" + (p === "content" ? "'" + css[p] + "'" : css[p]);
-          }).join(";");
-          sheet.insertRule(selector + "{" + propText + "}", sheet.cssRules.length);
-      };
-    })(document.createElement("style"))
+      const minCount = getMinCity(locationData)
+      const maxCount = getMaxCity(locationData)
 
-    function plotCity (radius: number, opacity: number, name: string, country: string = '') {
-      const coord = getPixelCoordinateByName(name, country)
-      const { x, y } = getScaledCoordinate(coord)
-      const prevPoint = points.find(item => item.x === x && item.y === y)
-      if (prevPoint && radius <= prevPoint.radius) {
-        return 
-      }
+      // Plot city points
+      locationData.forEach(loc => {
+        const coord = getPixelCoordinateByName(loc.name, loc.country)
+        const { x, y } = getScaledCoordinate(coord)
 
-      if (prevPoint) prevPoint.radius = radius
-      else points.push({ x, y, radius })
+        const prevPoint = points.find(point => point.x === x && point.y === y)
 
-      const pixel = matrix.pixels.find(pixel => pixel.x === x && pixel.y === y)
-      pixel.domNode.id = name
-      pixel.domNode.style.position = 'relative'
-      
-      // pixel.domNode.style.background = `rgb(var(--foreground) / ${opacity})`
-      setStyle(`#${name}:before`, {
-        'content': '',
-        'position': 'absolute',
-        'width': radius + 'px',
-        'height': radius + 'px',
-        'top': '50%',
-        'left': '50%',
-        'opacity': opacity, 
-        'transform': 'translate(-50%, -50%)',
-        'background': 'rgb(var(--foreground))',
-        'border-radius': '100%',
-        'animation-delay': Math.random() - 0.9 + 's',
+        if (!prevPoint) {
+          points.push({ x, y, count: loc.count })
+        } else if (prevPoint.count < loc.count) {
+          prevPoint.count = loc.count
+        }
       })
 
-      setStyle(`#${name}:after`, {
-        'content': '',
-        'position': 'absolute',
-        'width': radius + 'px',
-        'height': radius + 'px',
-        'top': '50%',
-        'left': '50%',
-        'opacity': opacity, 
-        'transform': 'translate(-50%, -50%)',
-        'background': 'rgb(var(--foreground))',
-        'border-radius': '100%',
-        'animation': 'location-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'animation-delay': Math.random() - 0.9 + 's',
+      points.forEach(point => {
+        const radius = Math.round(mapToRange(point.count, minCount, maxCount, 5, 15))
+        mtx.setPing(point.x, point.y, radius)
       })
 
-      matrix.setPixel(x, y, 1, `rgb(var(--foreground))`)
+
+      mtx.render((mtx: any) => {
+        mtx.write('*')
+        mtx.grid.render()
+        mtx.renderPings(foreground)
+      })
+      return mtx
     }
 
-    matrix.update((mtx: any) => {
-      mtx.clear()
-      mtx.display('*')
-
-      data.forEach(item => {
-        const opacity = mapToRange(item.count, min.count, max.count, 0.3, 0.9)
-        const radius = mapToRange(item.count, min.count, max.count, minLocationRadius, maxLocationRadius)
-        plotCity(radius, opacity, item.name, item.country || '')
-      })
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutationRecord) {
+            const theme = getTheme()
+            if (theme !== prevTheme) {
+              // console.log(123)
+              setPrevTheme(theme)
+            }
+        })
     })
-  }, [])
-  
+
+    observer.observe(document.documentElement, { attributes : true, attributeFilter : ['class'] });
+
+    mtx = createMatrix()
+    return () => {
+      observer.disconnect()
+      mtx.destroy()
+      mtx = null
+    }
+  }, [prevTheme])
+
   return (
-    <div id="map-matrix"></div>
+    <canvas 
+      ref={matrixRef} 
+      id={id} 
+      className={clsx(className)} 
+    ></canvas>
   )
 }

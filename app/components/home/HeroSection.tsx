@@ -1,6 +1,6 @@
 'use client'
-import HeroMatrix from '@/app/components/home/HeroMatrix'
 import { useEffect, useRef } from 'react'
+import HeroMatrix from './HeroMatrix'
 
 export default function HeroSection () {
   const buttonRef = useRef(null)
@@ -25,10 +25,8 @@ export default function HeroSection () {
 
   return (
     <>
-      <div className="w-screen h-svh sm:max-h-[50svh] fixed top-0">
-        <HeroMatrix />
-      </div>
-      <div className="w-screen h-svh sm:max-h-[50svh] pointer-events-none"></div>
+      <HeroMatrix id="hero" className="fixed top-0 w-screen h-[100svh]" />
+      <div className="block w-screen h-svh"></div>
       <div className="relative">
         <button 
           ref = {buttonRef}
