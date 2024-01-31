@@ -121,22 +121,9 @@ export default class Pixel {
     this.transitionColor = { r, g, b }
   }
 
-  render (ctx, onScreenX, onScreenY) {
+  update (delta) {
     this.updateColors()
-    this.updateTransition(ctx.delta)
-
-    onScreenX = Math.floor(onScreenX)
-    onScreenY = Math.floor(onScreenY)
-    const width = Math.floor(this.width)
-    const height = Math.floor(this.height)
-
-    ctx.beginPath()
-    ctx.fillStyle = this.getCurrentColor()
-    
-    // Use fillRect on older browsers that doesn't support roundRect
-    const drawFunc = (ctx.roundRect || ctx.fillRect).bind(ctx)
-    drawFunc(onScreenX, onScreenY, width, height, this.rounded)
-    ctx.fill()
+    this.updateTransition(delta)
   }
 
   reset () {

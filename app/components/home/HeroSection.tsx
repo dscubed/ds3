@@ -25,8 +25,8 @@ export default function HeroSection () {
 
   return (
     <>
-      <HeroMatrix id="hero" className="fixed top-0 w-screen h-[100svh]" />
-      <div className="block w-screen h-svh"></div>
+      <HeroMatrix id="hero" className="fixed top-0 w-screen h-svh sm:h-[50svh]" />
+      <div className="block w-screen h-svh sm:h-[50svh]"></div>
       <div className="relative">
         <button 
           ref = {buttonRef}

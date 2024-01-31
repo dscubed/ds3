@@ -8,7 +8,9 @@ export const CONFIG = {
     x: 64,
     y: 36
   },
-  gap: 2
+  gap: 2,
+  hideOffPixels: false,
+  drawShape: 'rect',
 }
 
 export default class Grid {
@@ -56,7 +58,7 @@ export default class Grid {
   getPixelSize () {
     if (this.config.enforce === 'grid') {
       const canvas = this.ctx.canvas
-      const width = (canvas.width - this.gap * (this.config.size.x - 1)) / this.config.size.x
+      const width = Math.round((canvas.width - this.gap * (this.config.size.x - 1)) / this.config.size.x)
       return { width, height: width } // Return square pixel
     }
 
@@ -157,16 +159,76 @@ export default class Grid {
     return { x, y }
   }
 
-  render () {
-    const pixelSize = this.getPixelSize()
-
+  groupPixelsByColor () {
+    const groups = {}
     for (let y=0; y<this.size.y; y++) {
       for (let x=0; x<this.size.x; x++) {
-        const onScreenX = x * (pixelSize.width + this.gap) + this.paddingLeft
-        const onScreenY = y * (pixelSize.height + this.gap) + this.paddingTop
-        const pixel = this.getPixel(x, y) // pixel will never be null
-        pixel.render(this.ctx, onScreenX, onScreenY)
-        // Reset pixel states
+        const pixel = this.getPixel(x, y)
+      
+        // Run color transitions
+        pixel.update(this.ctx.delta)
+
+        // If hideOffPixels is true, don't render off pixels
+        if (this.config.hideOffPixels && pixel.state === 0) {
+          continue
+        }
+
+        // Add pixel to color group
+        const color = pixel.getCurrentColor()
+        if (!(color in groups)) {
+          groups[color] = []
+        }
+        groups[color].push({ x, y, pixel })
+      }
+    }
+    return groups
+  } 
+
+  render () {
+    const RAD_2 = 2 * Math.PI
+    const pixelSize = this.getPixelSize()
+    const groups = this.groupPixelsByColor()
+
+    /**
+     * Render pixels by color.
+     * This method greatly reduces the number of individual paths and fill operations
+     * which improves performance.
+     */
+    for (const color in groups) {
+      this.ctx.beginPath()
+      const items = groups[color]
+
+      for (let i=0; i<items.length; i++) {
+        const { x, y, pixel } = items[i]
+
+        if (this.config.drawShape === 'rect') {
+          // Draw rectangle
+          // const onScreenX = Math.floor(x * (pixelSize.width + this.gap) + this.paddingLeft)
+          // const onScreenY = Math.floor(y * (pixelSize.height + this.gap) + this.paddingTop)
+          // Disable rounding when rendering to remove mesh screen effect on small displays
+          const onScreenX = x * (pixelSize.width + this.gap) + this.paddingLeft
+          const onScreenY = y * (pixelSize.height + this.gap) + this.paddingTop
+          this.ctx.rect(onScreenX, onScreenY, pixel.width, pixel.height)
+        } else if (this.config.drawShape === 'circle') {
+          // Draw circle
+          // Offset the drawing position because the circle's origin is at the center, not top left
+          const offset = this.config.pixel.width / 2
+          const onScreenX = Math.floor(x * (pixelSize.width + this.gap) + this.paddingLeft + offset)
+          const onScreenY = Math.floor(y * (pixelSize.height + this.gap) + this.paddingTop + offset)
+          const radius = pixel.width / 2
+          this.ctx.moveTo(onScreenX + radius, onScreenY)
+          this.ctx.arc(onScreenX, onScreenY, radius, 0, RAD_2)
+        }
+      }
+      this.ctx.fillStyle = color
+      this.ctx.fill()
+    }
+  }
+
+  reset () {
+    for (let y=0; y<this.size.y; y++) {
+      for (let x=0; x<this.size.x; x++) {
+        const pixel = this.getPixel(x, y)
         pixel.reset()
       }
     }

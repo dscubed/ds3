@@ -41,6 +41,7 @@ export default class Matrix {
   init () {
     this.canvas = document.getElementById(this.domId)
     this.ctx = this.canvas.getContext('2d')
+    this.ctx.imageSmoothingEnabled = false
     this.grid = new Grid({
       canvas: this.canvas, 
       config: {
@@ -89,7 +90,7 @@ export default class Matrix {
   }
 
   setCanvasSize () {
-    const scale = 1 // window.devicePixelRatio
+    const scale = window.devicePixelRatio
     const rect = this.canvas.getBoundingClientRect()
     this.ctx.canvas.width  = scale * rect.width
     this.ctx.canvas.height = scale * rect.height

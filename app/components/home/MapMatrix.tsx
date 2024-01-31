@@ -70,26 +70,35 @@ export default function MapMatrix ({ id, className }: { id: string, className?: 
 
     var mtx: any;
 
+    const config = {
+      pixel: {
+        width: 3,
+        height: 3,
+        colors: {
+          off: background,
+          on: textSecondary
+        }
+      },
+      grid: {
+        enforce: 'both',
+        size: {
+          x: 102,
+          y: 66
+        },
+        hideOffPixels: true,
+      },
+      backgroundColor: backgroundSecondary,
+      frameRate: 30,
+      debug: true,
+    }
+
+    if (window.innerWidth < 640) {
+      config.pixel.width = 1
+      config.pixel.height = 1
+    }
+
     function createMatrix () {
-      const mtx: any = new Matrix(id, {
-        pixel: {
-          width: 3,
-          height: 3,
-          colors: {
-            off: background,
-            on: textSecondary
-          }
-        },
-        grid: {
-          enforce: 'both',
-          size: {
-            x: 102,
-            y: 66
-          }
-        },
-        backgroundColor: backgroundSecondary,
-        frameRate: 30
-      }, [
+      const mtx: any = new Matrix(id, config, [
         textAddon,
         pingAddon,
       ])
@@ -117,9 +126,10 @@ export default function MapMatrix ({ id, className }: { id: string, className?: 
         mtx.setPing(point.x, point.y, radius)
       })
 
+      mtx.write('*')
 
       mtx.render((mtx: any) => {
-        mtx.write('*')
+        // mtx.write('*')
         mtx.grid.render()
         mtx.renderPings(foreground)
       })

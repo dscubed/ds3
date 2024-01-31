@@ -58,11 +58,13 @@ function init (mtx) {
       : 3
   
   function mouseMoveCallback (event, relativePos) {
-    // Debounce every 50ms
-    //@ts-expect-error
-    if (new Date() - lastMouseMoveTime < 50) {
+    // Debounce every 15ms
+    const now = Date.now()
+    if (now - lastMouseMoveTime < 15) {
       return
     }
+
+    lastMouseMoveTime = now
 
     const { x, y } = relativePos
     const cellPos = mtx.grid.coordToCell(x, y)

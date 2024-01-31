@@ -29,17 +29,28 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
 
     var mtx: any;
 
+    const config = {
+      pixel: {
+        colors: {
+          off: background,
+          on: foreground
+        }
+      },
+      grid: {
+        drawShape: 'circle',
+      },
+      backgroundColor: backgroundSecondary,
+      frameRate: 60,
+      debug: true,
+    }
+
+    if (window.innerWidth < 640) {
+      config.pixel.width = 15
+      config.pixel.height = 15
+    }
+
     function createMatrix () {
-      const mtx = new Matrix(id, {
-        pixel: {
-          colors: {
-            off: background,
-            on: foreground
-          }
-        },
-        backgroundColor: backgroundSecondary,
-        frameRate: 60
-      }, [
+      const mtx = new Matrix(id, config, [
         textAddon,
         trailAddon,
         transitionAddon,
@@ -47,6 +58,7 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
       ])
       mtx.init()
       mtx.render((mtx: any) => {
+        mtx.grid.reset()
         mtx.renderWave()
         mtx.write('ds3', 'invert')
         mtx.renderTrails()
