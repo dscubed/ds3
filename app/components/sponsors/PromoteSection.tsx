@@ -12,7 +12,7 @@ export default function PromoteSection () {
             <span className="block leading-tight xl:leading-snug">Become a</span>
             <span className="block leading-tight xl:leading-snug">Sponsor Today</span>
           </h2>
-          <p className="text-text-secondary text-xl sm:text-lg leading-relaxed">Your invaluable support grants you exclusive access to the finest data science graduates, paving the way for your top-tier recruitment and innovation in the data-driven landscape.</p>
+          <p className="text-xl sm:text-lg leading-relaxed">Your invaluable support grants you exclusive access to the finest data science graduates, paving the way for your top-tier recruitment and innovation in the data-driven landscape.</p>
           <Link
             target="_blank"
             href="mailto:hello@dscubed.org.au"

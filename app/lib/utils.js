@@ -80,3 +80,15 @@ export function createUniqueFileName (name) {
   const extension = name.split('.')[1]
   return `${prefix}-${uuidv4()}.${extension}`
 }
+
+// Get css color by variable name
+export function convertColor (cssVarName) {
+  return `rgb(${getComputedStyle(document.body).getPropertyValue(cssVarName)})`
+}
+
+// Get current theme
+export function getTheme () {
+  const classList = document.documentElement.classList
+  const isDark = classList.contains('dark')
+  return isDark ? 'dark' : 'light'
+}

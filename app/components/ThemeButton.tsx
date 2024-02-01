@@ -1,11 +1,27 @@
 'use client'
 import { ComputerDesktopIcon, MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 import clsx from 'clsx'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useEffectOnce } from '@/app/lib/utils'
 
-export default function ThemeToggle ({ className = '', showText = true }: { className?: string, showText?: boolean }) {
-  const [theme, setTheme] = useState(localStorage.theme || 'dark')
+export default function ThemeToggle ({ 
+  className = '', 
+  showText = true,
+  state = null
+}: { 
+  className?: string, 
+  showText?: boolean,
+  state?: any
+}) {
+  let [theme, setTheme] = useState('')
+  
+  if (state) {
+    [theme, setTheme] = state
+  }
+
+  if (!theme) {
+    setTheme(localStorage.theme || 'dark')
+  }
 
   function cycleTheme () {
     if (theme === 'dark') {
@@ -20,22 +36,33 @@ export default function ThemeToggle ({ className = '', showText = true }: { clas
   useEffectOnce(() => {
     localStorage.theme = theme
 
-    if (theme === 'system') {
-      // Enable dark mode by setting 'dark' class
-      document.documentElement.classList.add('dark')
-      // Add 'system' class to override 'dark' class when the device is in light mode
-      document.documentElement.classList.add('system')
-    } else {
-      document.documentElement.classList.remove('system')
-
-      // Normal light/dark mode
-      if (theme === 'dark') {
+    const matchMedia = window.matchMedia("(prefers-color-scheme: dark)")
+    
+    function updateDeviceTheme () {
+      if (matchMedia.matches) {
         document.documentElement.classList.add('dark')
       } else {
         document.documentElement.classList.remove('dark')
       }
     }
+
+    if (theme === 'system') {
+      updateDeviceTheme()
+      matchMedia.addEventListener('change', updateDeviceTheme)
+    } else if (theme === 'light') {
+      document.documentElement.classList.remove('dark')
+    } else if (theme === 'dark' ){
+      document.documentElement.classList.add('dark')
+    }
+
+    return () => {
+      matchMedia.removeEventListener('change', updateDeviceTheme)
+    }
   }, [theme])
+
+  if (!theme) {
+    return <></>
+  }
   
   return (
     <button onClick={cycleTheme} className={clsx("flex gap-2 text-text-secondary", className)}>
