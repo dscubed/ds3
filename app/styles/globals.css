@@ -50,14 +50,6 @@
     @apply colors-dark;
   }
 
-  @media (prefers-color-scheme: light) {
-    /* If system theme is set to light, and dark class is applied */
-    .dark.system {
-      /* Change override dark colors to be light */
-      @apply colors-light;
-    }
-  }
-
   @media (prefers-color-scheme: dark) {
     /* Set calendar icon color */
     input {

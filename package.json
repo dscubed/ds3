@@ -24,6 +24,7 @@
     "compressorjs": "^1.2.1",
     "eslint": "^8.56.0",
     "geist": "^1.0.0",
+    "lodash": "^4.17.21",
     "next": "^14.0.4",
     "p5": "^1.9.0",
     "postcss": "8.4.31",
@@ -36,6 +37,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.202",
     "@types/node": "20.3.1",
     "@types/p5": "^1.7.6",
     "@types/react": "18.2.8",

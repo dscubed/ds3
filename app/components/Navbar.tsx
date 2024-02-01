@@ -14,6 +14,8 @@ const ThemeButton = dynamic(
 
 export default function Navbar ({ className = '', ...rest }: { className?: string }) {
   const [showMenu, setShowMenu] = useState(false)
+  // Share the same state across both theme buttons
+  const themeState = useState('')
 
   return (
     // Use top: -1px to remove gap on some browsers
@@ -32,7 +34,7 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
 
             {/* Desktop links */}
             <div className="flex gap-6 md:hidden">
-              <ThemeButton showText={false} />
+              <ThemeButton showText={false} state={themeState} />
               <div className="block h-1/2 w-0 border-l border-border my-auto"></div>
               <Link className="my-auto" href="/events">Events</Link>
               <Link className="my-auto" href="/committee">Committee</Link>
@@ -56,7 +58,7 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
           <Link className="p-4 border-b border-border" href="/committee">Committee</Link>
           <Link className="p-4 border-b border-border" href="/sponsers">Sponsors</Link>
           <Link className="p-4 border-b border-border" href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/" target="_blank">Membership</Link>
-          <ThemeButton className="p-4 border-b border-border" />
+          <ThemeButton className="p-4 border-b border-border" state={themeState} />
         </div>
       </nav>
     </div>
