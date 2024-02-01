@@ -53,7 +53,7 @@ export default class Pixel {
     this.toColor = this.getRBG(this.offColor)
     this.transitionColor = this.getRBG(this.offColor)
     this.transitionStep = 0
-    this.duration = 50
+    this.duration = 100
   }
 
   getRBG (color) {
