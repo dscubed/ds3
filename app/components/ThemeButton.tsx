@@ -13,7 +13,11 @@ export default function ThemeToggle ({
   showText?: boolean,
   state?: any
 }) {
-  const [theme, setTheme] = state || useState()
+  let [theme, setTheme] = useState('')
+  
+  if (state) {
+    [theme, setTheme] = state
+  }
 
   if (!theme) {
     setTheme(localStorage.theme || 'dark')

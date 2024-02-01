@@ -15,7 +15,7 @@ const ThemeButton = dynamic(
 export default function Navbar ({ className = '', ...rest }: { className?: string }) {
   const [showMenu, setShowMenu] = useState(false)
   // Share the same state across both theme buttons
-  const themeState = useState()
+  const themeState = useState('')
 
   return (
     // Use top: -1px to remove gap on some browsers

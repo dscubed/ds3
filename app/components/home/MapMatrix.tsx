@@ -39,7 +39,7 @@ export default function MapMatrix ({ id, className }: { id: string, className?: 
 
     const pingRadius = window.innerWidth < 640 ? 5 : 15
 
-    const config = {
+    const config: any = {
       pixel: {
         width: 3,
         height: 3,

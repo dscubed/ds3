@@ -17,7 +17,7 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
     const background = convertColor('--background')
     const backgroundSecondary = convertColor('--background-secondary')
 
-    const config = {
+    const config: any = {
       pixel: {
         colors: {
           off: background,
