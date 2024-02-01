@@ -55,7 +55,7 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
     mtx.render((mtx: any) => {
       mtx.grid.reset()
       mtx.renderWave()
-      mtx.write('d3s', 'invert')
+      mtx.write('ds3', 'invert')
       mtx.renderTrails()
       mtx.renderTransition(backgroundSecondary)
       mtx.grid.render()
