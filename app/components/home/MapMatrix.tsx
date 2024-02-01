@@ -5,7 +5,7 @@ import Matrix from '@/app/components/matrix/matrix'
 import textAddon from '@/app/components/matrix/addons/text'
 import pingAddon from '@/app/components/matrix/addons/ping'
 import { getPixelCoordinateByName, getScaledCoordinate } from '@/app/lib/map-utils'
-import { mapToRange } from '@/app/lib/utils'
+import { convertColor, getTheme, mapToRange } from '@/app/lib/utils'
 
 type LocationData = { name: string, country?: string, count: number }[]
 
@@ -27,37 +27,6 @@ const locationData: LocationData = [
 
 const points: { x: number, y: number, count: number }[] = []
 
-function getMinCity (data: LocationData) {
-  let min = { count: 0 }
-  data.forEach(item => {
-    if (item.count < min.count) {
-      min = item
-    }
-  })
-  return min.count
-}
-
-function getMaxCity (data: LocationData) {
-  let max = { count: 0 }
-  data.forEach(item => {
-    if (item.count > max.count) {
-      max = item
-    }
-  })
-  return max.count
-}
-
-function convertColor (cssVarName: string) {
-  return `rgb(${getComputedStyle(document.body).getPropertyValue(cssVarName)})`
-}
-
-function getTheme() {
-  const classList = document.documentElement.classList
-  const useSystem = classList.contains('system')
-  const isDark = classList.contains('dark') || (useSystem && window.matchMedia("(prefers-color-scheme: dark)").matches)
-  return isDark ? 'dark' : 'light'
-}
-
 export default function MapMatrix ({ id, className }: { id: string, className?: string }) {
   const matrixRef = useRef(null) 
   const [prevTheme, setPrevTheme] = useState('dark')
@@ -67,8 +36,6 @@ export default function MapMatrix ({ id, className }: { id: string, className?: 
     const textSecondary = convertColor('--text-secondary')
     const background = convertColor('--background-secondary')
     const backgroundSecondary = convertColor('--background-secondary')
-
-    var mtx: any;
 
     const pingRadius = window.innerWidth < 640 ? 5 : 15
 
@@ -90,7 +57,7 @@ export default function MapMatrix ({ id, className }: { id: string, className?: 
         hideOffPixels: true,
       },
       backgroundColor: backgroundSecondary,
-      frameRate: 30,
+      frameRate: 24,
       // debug: true,
     }
 
@@ -104,62 +71,63 @@ export default function MapMatrix ({ id, className }: { id: string, className?: 
       config.pixel.height = 1
     }
 
-    function createMatrix () {
-      const mtx: any = new Matrix(id, config, [
-        textAddon,
-        pingAddon,
-      ])
-      mtx.init()
+    const mtx: any = new Matrix(id, config, [
+      textAddon,
+      pingAddon,
+    ])
+    
+    mtx.init()
+    mtx.write('*')
 
-      const minCount = getMinCity(locationData)
-      const maxCount = getMaxCity(locationData)
+    let minCount: number | null = null
+    let maxCount = 0
 
-      // Plot city points
-      locationData.forEach(loc => {
-        const coord = getPixelCoordinateByName(loc.name, loc.country)
-        const { x, y } = getScaledCoordinate(coord)
+    locationData.forEach(loc => {
+      const coord = getPixelCoordinateByName(loc.name, loc.country)
+      const { x, y } = getScaledCoordinate(coord)
+      const prevPoint = points.find(point => point.x === x && point.y === y)
 
-        const prevPoint = points.find(point => point.x === x && point.y === y)
+      // If multiple coordinates reduce to the same point, then add the people count
+      // and only draw one point.
+      if (!prevPoint) {
+        points.push({ x, y, count: loc.count })
+      } else if (prevPoint.count < loc.count) {
+        prevPoint.count += loc.count
+      }
 
-        if (!prevPoint) {
-          points.push({ x, y, count: loc.count })
-        } else if (prevPoint.count < loc.count) {
-          prevPoint.count = loc.count
-        }
-      })
-
-      points.forEach(point => {
-        const radius = Math.round(mapToRange(point.count, minCount, maxCount, 5, pingRadius))
-        mtx.setPing(point.x, point.y, radius)
-      })
-
-      mtx.write('*')
-
-      mtx.render((mtx: any) => {
-        // mtx.write('*')
-        mtx.grid.render()
-        mtx.renderPings(foreground)
-      })
-      return mtx
-    }
-
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutationRecord) {
-            const theme = getTheme()
-            if (theme !== prevTheme) {
-              // console.log(123)
-              setPrevTheme(theme)
-            }
-        })
+      if (minCount === null || loc.count < minCount) {
+        minCount = loc.count
+      }
+      if (loc.count > maxCount) {
+        maxCount = loc.count
+      }
     })
 
-    observer.observe(document.documentElement, { attributes : true, attributeFilter : ['class'] });
+    points.forEach(point => {
+      const radius = Math.round(mapToRange(point.count, minCount, maxCount, 5, pingRadius))
+      mtx.setPing(point.x, point.y, radius)
+    })
 
-    mtx = createMatrix()
+    mtx.render((mtx: any) => {
+      mtx.grid.render()
+      mtx.renderPings(foreground)
+    })
+
+    // Reload component on theme change
+    function switchTheme () {
+      const theme = getTheme()
+      if (theme !== prevTheme) {
+        setPrevTheme(theme)
+      }
+    }
+
+    // Listen for theme changes
+    const observer = new MutationObserver((switchTheme))
+    observer.observe(document.documentElement, { attributes : true, attributeFilter : ['class'] })
+
     return () => {
       observer.disconnect()
       mtx.destroy()
-      mtx = null
     }
   }, [prevTheme])
 

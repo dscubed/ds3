@@ -6,17 +6,7 @@ import textAddon from '@/app/components/matrix/addons/text'
 import trailAddon from '@/app/components/matrix/addons/trail'
 import transitionAddon from '@/app/components/matrix/addons/transition'
 import waveAddon from '@/app/components/matrix/addons/wave'
-
-function convertColor (cssVarName: string) {
-  return `rgb(${getComputedStyle(document.body).getPropertyValue(cssVarName)})`
-}
-
-function getTheme() {
-  const classList = document.documentElement.classList
-  const useSystem = classList.contains('system')
-  const isDark = classList.contains('dark') || (useSystem && window.matchMedia("(prefers-color-scheme: dark)").matches)
-  return isDark ? 'dark' : 'light'
-}
+import { convertColor, getTheme } from '@/app/lib/utils'
 
 export default function HeroMatrix ({ id, className }: { id: string, className?: string }) {
   const matrixRef = useRef(null) 
@@ -26,8 +16,6 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
     const foreground = convertColor('--foreground')
     const background = convertColor('--background')
     const backgroundSecondary = convertColor('--background-secondary')
-
-    var mtx: any;
 
     const config = {
       pixel: {
@@ -55,41 +43,39 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
       config.grid.size.y = 36
     }
 
-    function createMatrix () {
-      const mtx = new Matrix(id, config, [
-        textAddon,
-        trailAddon,
-        transitionAddon,
-        waveAddon,
-      ])
-      mtx.init()
-      mtx.render((mtx: any) => {
-        mtx.grid.reset()
-        mtx.renderWave()
-        mtx.write('ds3', 'invert')
-        mtx.renderTrails()
-        mtx.renderTransition(backgroundSecondary)
-        mtx.grid.render()
-      })
-      return mtx
-    }
+    const mtx = new Matrix(id, config, [
+      textAddon,
+      trailAddon,
+      transitionAddon,
+      waveAddon,
+    ])
 
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutationRecord) {
-            const theme = getTheme()
-            if (theme !== prevTheme) {
-              setPrevTheme(theme)
-            }
-        })
+    mtx.init()
+
+    mtx.render((mtx: any) => {
+      mtx.grid.reset()
+      mtx.renderWave()
+      mtx.write('d3s', 'invert')
+      mtx.renderTrails()
+      mtx.renderTransition(backgroundSecondary)
+      mtx.grid.render()
     })
 
-    observer.observe(document.documentElement, { attributes : true, attributeFilter : ['class'] });
+    // Reload component on theme change
+    function switchTheme () {
+      const theme = getTheme()
+      if (theme !== prevTheme) {
+        setPrevTheme(theme)
+      }
+    }
 
-    mtx = createMatrix()
+    // Listen for theme changes
+    const observer = new MutationObserver((switchTheme))
+    observer.observe(document.documentElement, { attributes : true, attributeFilter : ['class'] })
+
     return () => {
       observer.disconnect()
       mtx.destroy()
-      mtx = null
     }
   }, [prevTheme])
 
