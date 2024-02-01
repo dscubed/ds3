@@ -50,19 +50,10 @@
     @apply colors-dark;
   }
 
-  @media (prefers-color-scheme: light) {
-    .system {
-      @apply colors-light;
-    }
-  }
-
   @media (prefers-color-scheme: dark) {
     /* Set calendar icon color */
     input {
       color-scheme: dark;
-    }
-    .system {
-      @apply colors-dark;
     }
   }
   
