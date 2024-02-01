@@ -37,16 +37,22 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
         }
       },
       grid: {
+        size: {
+          x: 64,
+          y: 36
+        },
         drawShape: 'circle',
       },
       backgroundColor: backgroundSecondary,
       frameRate: 60,
-      debug: true,
+      // debug: true,
     }
 
     if (window.innerWidth < 640) {
       config.pixel.width = 15
       config.pixel.height = 15
+      config.grid.size.x = 36
+      config.grid.size.y = 36
     }
 
     function createMatrix () {
