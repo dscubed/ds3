@@ -21,9 +21,7 @@ export default function ThemeToggle ({ className = '', showText = true }: { clas
     localStorage.theme = theme
 
     if (theme === 'system') {
-      // Enable dark mode by setting 'dark' class
-      document.documentElement.classList.add('dark')
-      // Add 'system' class to override 'dark' class when the device is in light mode
+      document.documentElement.classList.remove('dark')
       document.documentElement.classList.add('system')
     } else {
       document.documentElement.classList.remove('system')
