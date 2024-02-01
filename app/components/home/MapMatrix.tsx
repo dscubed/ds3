@@ -70,6 +70,8 @@ export default function MapMatrix ({ id, className }: { id: string, className?: 
 
     var mtx: any;
 
+    const pingRadius = window.innerWidth < 640 ? 5 : 15
+
     const config = {
       pixel: {
         width: 3,
@@ -89,10 +91,15 @@ export default function MapMatrix ({ id, className }: { id: string, className?: 
       },
       backgroundColor: backgroundSecondary,
       frameRate: 30,
-      debug: true,
+      // debug: true,
     }
 
     if (window.innerWidth < 640) {
+      config.pixel.width = 2
+      config.pixel.height = 2
+    }
+    
+    if (window.innerWidth < 480) {
       config.pixel.width = 1
       config.pixel.height = 1
     }
@@ -122,7 +129,7 @@ export default function MapMatrix ({ id, className }: { id: string, className?: 
       })
 
       points.forEach(point => {
-        const radius = Math.round(mapToRange(point.count, minCount, maxCount, 5, 15))
+        const radius = Math.round(mapToRange(point.count, minCount, maxCount, 5, pingRadius))
         mtx.setPing(point.x, point.y, radius)
       })
 
