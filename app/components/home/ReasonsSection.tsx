@@ -23,7 +23,7 @@ export default function ReasonsSection () {
               alt=""
             />
             <h3 className="text-2xl mt-2">Access to Industry Insights</h3>
-            <p className="text-xl lg:text-lg text-text-secondary leading-relaxed">Gain exclusive insights into the data science industry through guest lectures, networking events, and recruitment talks.</p>
+            <p className="text-xl lg:text-lg leading-relaxed">Gain exclusive insights into the data science industry through guest lectures, networking events, and recruitment talks.</p>
           </div>
           <div className="flex flex-col gap-4 rounded-md">
             <Image
@@ -32,7 +32,7 @@ export default function ReasonsSection () {
               alt=""
             />
             <h3 className="text-2xl mt-2">Hands-On Learning</h3>
-            <p className="text-xl lg:text-lg text-text-secondary leading-relaxed">Participate in practical workshops and real-world projects to build and refine your data science skills.</p>
+            <p className="text-xl lg:text-lg leading-relaxed">Participate in practical workshops and real-world projects to build and refine your data science skills.</p>
           </div>
           <div className="flex flex-col gap-4 rounded-md">
             <Image
@@ -41,7 +41,7 @@ export default function ReasonsSection () {
               alt=""
             />
             <h3 className="text-2xl mt-2">Expand Your Network</h3>
-            <p className="text-xl lg:text-lg text-text-secondary leading-relaxed">Connect with peers, alumni, and professionals, building a strong network that can open doors to future career opportunities.</p>
+            <p className="text-xl lg:text-lg leading-relaxed">Connect with peers, alumni, and professionals, building a strong network that can open doors to future career opportunities.</p>
           </div>
           <div className="flex flex-col gap-4 rounded-md">
             <Image
@@ -50,7 +50,7 @@ export default function ReasonsSection () {
               alt=""
             />
             <h3 className="text-2xl mt-2">Foster Personal Growth</h3>
-            <p className="text-xl lg:text-lg text-text-secondary leading-relaxed">Develop not just academically and professionally, but also personally, in a vibrant community that values collaboration, innovation, and diversity.</p>
+            <p className="text-xl lg:text-lg leading-relaxed">Develop not just academically and professionally, but also personally, in a vibrant community that values collaboration, innovation, and diversity.</p>
           </div>
         </div>
       </div>

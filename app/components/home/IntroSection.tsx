@@ -14,7 +14,7 @@ export default function IntroSection () {
             <span className="block leading-tight xl:leading-snug">The University of </span>
             <span className="block leading-tight xl:leading-snug">Melbourne.</span>
           </h1>
-          <p className="text-text-secondary text-xl sm:text-lg leading-relaxed">We are committed in our mission to connect and empower data enthusiasts, providing an unparalleled platform for students who are passionate about Data Science.</p>
+          <p className="text-xl sm:text-lg leading-relaxed">We are committed in our mission to connect and empower data enthusiasts, providing an unparalleled platform for students who are passionate about Data Science.</p>
           <Link 
             target="_blank"
             href="https://umsu.unimelb.edu.au/buddy-up/clubs/clubs-listing/join/dscubed/"
