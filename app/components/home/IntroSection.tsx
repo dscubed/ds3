@@ -8,7 +8,7 @@ export default function IntroSection () {
     <Section>
       <div className="grid grid-cols-[1fr,1fr] lg:grid-cols-1 gap-20 sm:gap-10">
         <div className="flex flex-col gap-10 my-auto max-w-xl lg:max-w-xl">
-          <h1 className="text-5xl sm:text-4xl">
+          <h1 className="text-5xl sm:text-4xl font-medium">
             <span className="block leading-tight xl:leading-snug">The Leading </span>
             <span className="block leading-tight xl:leading-snug">Data Science Club at </span>
             <span className="block leading-tight xl:leading-snug">The University of </span>
