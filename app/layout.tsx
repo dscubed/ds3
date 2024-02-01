@@ -6,22 +6,22 @@ const baseURL = 'https://' + process.env.DOMAIN_URL || 'localhost:3000'
 
 export const metadata = {
   metadataBase: new URL(baseURL), // Only need to set once here
-  title: "D3S | Data Science Student Society | The University of Melbourne",
-  description: "D3S is the premier data science club at The University of Melbourne. Connect with our vibrant community, explore student-led workshops, and unlock career opportunities through networking events. Become a member today - it's free!",
+  title: "DS Cubed | Data Science Student Society | The University of Melbourne",
+  description: "DS Cubed is the premier data science club at The University of Melbourne. Connect with our vibrant community, explore student-led workshops, and unlock career opportunities through networking events. Become a member today - it's free!",
   openGraph: {
-    title: "D3S | Data Science Student Society | The University of Melbourne",
-    description: "D3S is the premier data science club at The University of Melbourne. Connect with our vibrant community, explore student-led workshops, and unlock career opportunities through networking events. Become a member today - it's free!",
+    title: "DS Cubed | Data Science Student Society | The University of Melbourne",
+    description: "DS Cubed is the premier data science club at The University of Melbourne. Connect with our vibrant community, explore student-led workshops, and unlock career opportunities through networking events. Become a member today - it's free!",
     url: '/',
-    siteName: 'D3S',
+    siteName: 'DS Cubed',
     locale: 'en_AU',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     // Max 70 chars
-    title: "D3S | Data Science Student Society | The University of Melbourne",
+    title: "DS Cubed | Data Science Student Society | The University of Melbourne",
     // Max 200 chars
-    description: 'D3S is the premier data science club at The University of Melbourne. Connect with our vibrant community, explore student-led workshops, and participate in networking events. Join us today!',
+    description: 'DS Cubed is the premier data science club at The University of Melbourne. Connect with our vibrant community, explore student-led workshops, and participate in networking events. Join us today!',
   },
 }
 

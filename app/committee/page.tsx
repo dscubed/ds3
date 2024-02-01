@@ -11,20 +11,20 @@ import RepresentativeSection from '@/app/components/committee/RepresentativeSect
 import TeamsSection from '@/app/components/committee/TeamsSection'
 
 export const metadata = {
-  title: 'Committee | D3S',
-  description: 'Meet the team behind D3S. Introducing our committee for 2024.',
+  title: 'Committee | DS Cubed',
+  description: 'Meet the team behind DS Cubed. Introducing our committee for 2024.',
   openGraph: {
-    title: 'Committee | D3S',
-    description: 'Meet the team behind D3S. Introducing our committee for 2024.',
+    title: 'Committee | DS Cubed',
+    description: 'Meet the team behind DS Cubed. Introducing our committee for 2024.',
     url: '/committee',
-    siteName: 'D3S',
+    siteName: 'DS Cubed',
     locale: 'en_AU',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Committee | D3S",
-    description: 'Meet the team behind D3S. Introducing our committee for 2024.',
+    title: "Committee | DS Cubed",
+    description: 'Meet the team behind DS Cubed. Introducing our committee for 2024.',
   },
 }
 

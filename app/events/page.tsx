@@ -9,19 +9,19 @@ import { Suspense } from 'react'
 import EventGallerySkeleton from '@/app/components/events/EventGallerySkeleton'
 
 export const metadata = {
-  title: 'Events | D3S',
+  title: 'Events | DS Cubed',
   description: 'Browse our latest events, workshop sessions, and updates.',
   openGraph: {
-    title: 'Events | D3S',
+    title: 'Events | DS Cubed',
     description: 'Browse our latest events, workshop sessions, and updates.',
     url: '/events',
-    siteName: 'D3S',
+    siteName: 'DS Cubed',
     locale: 'en_AU',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Events | D3S",
+    title: "Events | DS Cubed",
     description: 'Browse our latest events, workshop sessions, and updates.',
   },
 }
