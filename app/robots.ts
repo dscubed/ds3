@@ -28,6 +28,7 @@ export default function robots(): MetadataRoute.Robots {
           '/admin',
           '/admin/',
           '/auth/',
+          '/sponsors/logos/',
         ],
       }
     ],
