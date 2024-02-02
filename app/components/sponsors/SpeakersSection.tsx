@@ -1,14 +1,18 @@
 import InfiniteBanner from '@/app/components/sponsors/InfiniteBanner'
 
 const speakers = [
+  '/sponsors/logos/thoughtworks.svg',
+  '/sponsors/logos/microsoft.svg',
   '/sponsors/logos/citadel.svg',
   '/sponsors/logos/csiro.svg',
   '/sponsors/logos/deloitte.svg',
   '/sponsors/logos/liberty.svg',
+  '/sponsors/logos/meta.svg',
   '/sponsors/logos/macquarie.svg',
   '/sponsors/logos/maltem.png',
   '/sponsors/logos/mantel-group.svg',
   '/sponsors/logos/plotly.png',
+  '/sponsors/logos/meltwater.svg',
   '/sponsors/logos/rea-group.svg',
   '/sponsors/logos/seek.svg',
 ]
