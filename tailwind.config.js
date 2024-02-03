@@ -37,7 +37,7 @@ module.exports = {
         // For scrolling banner
         scroll: {
           '0%': {
-            transform: 'translate(0)',
+            transform: 'translateX(0)',
           },
           '100%': {
             transform: 'translateX(-100%)',
