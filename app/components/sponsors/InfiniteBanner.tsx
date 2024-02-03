@@ -22,7 +22,7 @@ export default function InfiniteBanner ({
           >
             {images.map((src, index) => (
               <Image 
-                className="max-w-40 sm:max-w-30 w-max h-12 sm:h-10 ml-32 sm:ml-10 my-auto saturate-0 contrast-125 brightness-0 object-contain dark:invert"
+                className="max-w-40 sm:max-w-30 w-max h-10 sm:h-8 ml-32 sm:ml-16 my-auto saturate-0 contrast-125 brightness-0 object-contain dark:invert"
                 src={src} 
                 width={500}
                 height={500}
