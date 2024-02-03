@@ -24,10 +24,11 @@ export default function InfiniteBanner ({
               <Image 
                 className="max-w-40 sm:max-w-30 w-max h-12 sm:h-10 ml-32 sm:ml-10 my-auto saturate-0 contrast-125 brightness-0 object-contain dark:invert"
                 src={src} 
-                width={100}
-                height={100}
+                width={500}
+                height={500}
                 alt="company logo"
                 key={index}
+                priority={true}
               />
             ))}
           </section>
