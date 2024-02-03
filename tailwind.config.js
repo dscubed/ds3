@@ -33,17 +33,6 @@ module.exports = {
         'skeleton-background': 'rgb(var(--skeleton-background) / <alpha-value>)',
         'skeleton-content': 'rgb(var(--skeleton-content) / <alpha-value>)',
       },
-      keyframes: {
-        // For scrolling banner
-        scroll: {
-          '0%': {
-            transform: 'translateX(0)',
-          },
-          '100%': {
-            transform: 'translateX(-100%)',
-          },
-        },
-      },
     },
   },
 }
