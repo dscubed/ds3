@@ -92,3 +92,14 @@ export function getTheme () {
   const isDark = classList.contains('dark')
   return isDark ? 'dark' : 'light'
 }
+
+
+// Calculate new size based on target area
+export function resizeByArea (width, height, targetArea) {
+  const area = width * height
+  const aspectRatio = width / height
+  const scale = Math.sqrt(targetArea / (area))
+  const newHeight = scale * height
+  const newWidth = aspectRatio * newHeight
+  return [newWidth, newHeight]
+}
