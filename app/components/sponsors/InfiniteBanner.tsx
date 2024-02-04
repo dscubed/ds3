@@ -85,7 +85,7 @@ export default function InfiniteBanner ({
                   priority={true}
                   onLoadingComplete={(e) => {
                     const [width, height] = resizeByArea(e.naturalWidth, e.naturalHeight, 3600)
-                    e.style.width = width + 'px'
+                    // e.style.width = width + 'px'
                     e.style.height = height + 'px'
                   }}
                 />
