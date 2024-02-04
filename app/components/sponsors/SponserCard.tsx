@@ -37,8 +37,8 @@ export default function SponsorCard ({
       <Image
         className={clsx("absolute w-80 sm:w-60 h-max max-h-16 left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] saturate-0 object-contain dark:invert pointer-events-none", filter)}
         src={image}
-        width={80*4}
-        height={40}
+        width={200}
+        height={100}
         alt={`${name} logo`}
       />
     </div>
