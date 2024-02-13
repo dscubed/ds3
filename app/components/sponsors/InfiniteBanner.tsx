@@ -16,7 +16,7 @@ export default function InfiniteBanner ({
   const delta = 1/fps
 
   const refs: (React.RefObject<HTMLElement>)[] = [useRef(null), useRef(null), useRef(null)]
-  const parentRef:  React.RefObject<HTMLElement> = useRef(null)
+  const parentRef:  React.RefObject<HTMLDivElement> = useRef(null)
   const loadedCount = useRef(0) 
   const intervalId = useRef<ReturnType<typeof setInterval> | null>(null)
 
@@ -77,7 +77,7 @@ export default function InfiniteBanner ({
                     const [_, height] = resizeByArea(e.naturalWidth, e.naturalHeight, 3600)
                     e.style.height = height + 'px'
                     loadedCount.current++
-                    clearInterval(intervalId.current)
+                    clearInterval(intervalId.current as any)
                     if (loadedCount.current === images.length * groupCount) {
                       startAnimation()
                     }
