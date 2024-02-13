@@ -1,7 +1,7 @@
 'use client'
 import { v4 as uuidv4 } from 'uuid'
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { resizeByArea } from '@/app/lib/utils'
 
 export default function InfiniteBanner ({ 
@@ -15,58 +15,48 @@ export default function InfiniteBanner ({
   const fps = 60
   const delta = 1/fps
 
-  // const refs: (React.RefObject<HTMLElement>)[] = Array.from(Array(groupCount)).map(() => useRef(null))
   const refs: (React.RefObject<HTMLElement>)[] = [useRef(null), useRef(null), useRef(null)]
-  const parentRef = useRef(null)
-  const [showLogos, setShowLogos] = useState(false)
+  const parentRef:  React.RefObject<HTMLElement> = useRef(null)
+  const loadedCount = useRef(0) 
+  const intervalId = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  useEffect(() => {
-    let timeoutId: any
-    let intervalId: any
+  const startAnimation = () => {
+    parentRef.current!.style.opacity = '1'
+    
+    intervalId.current = setInterval(() => {
+      refs.forEach((
+        ref: React.RefObject<HTMLElement>, 
+        index: number
+      ) => {
 
-    timeoutId = setTimeout(() => {
-      intervalId = setInterval(() => {
-        refs.forEach((
-          ref: React.RefObject<HTMLElement>, 
-          index: number
-        ) => {
-  
-          const element = ref.current!
-  
-          if (!element) return
-  
-          const rect = element.getBoundingClientRect()
-  
-          // Set initial offset
-          if (!element.style.left) {
-            const offset = rect.width * index
-            element.style.left = offset + 'px'
-            element.dataset.left = offset.toString()
-            return
-          }
-  
-          const left = Number(element.dataset.left)
-          const offset = left <= -rect.width
-            ? left + (groupCount) * rect.width
-            : left - delta * speed
-  
+        const element = ref.current!
+
+        if (!element) return
+
+        const rect = element.getBoundingClientRect()
+
+        // Set initial offset
+        if (!element.style.left) {
+          const offset = rect.width * index
           element.style.left = offset + 'px'
           element.dataset.left = offset.toString()
-        })
-      }, delta * 1000)
-    }, 1000)
+          return
+        }
 
-    setShowLogos(true)
+        const left = Number(element.dataset.left)
+        const offset = left <= -rect.width
+          ? left + (groupCount) * rect.width
+          : left - delta * speed
 
-    return () => {
-      clearTimeout(timeoutId)
-      clearInterval(intervalId)
-    }
-  }, [])
+        element.style.left = offset + 'px'
+        element.dataset.left = offset.toString()
+      })
+    }, delta * 1000)
+  }
 
   return (
-    <div className={`h-max w-screen transition-opacity duration-500 ${showLogos ? 'opacity-1' : 'opacity-0'}`}>
-      <div ref={parentRef} className="relative h-20">
+    <div className="h-max w-screen">
+      <div ref={parentRef} className="relative h-20 transition-opacity duration-500 opacity-0">
         {Array.from(Array(groupCount)).map((_, index) => {
           return (  
             <section 
@@ -84,9 +74,13 @@ export default function InfiniteBanner ({
                   key={index}
                   priority={true}
                   onLoadingComplete={(e) => {
-                    const [width, height] = resizeByArea(e.naturalWidth, e.naturalHeight, 3600)
-                    // e.style.width = width + 'px'
+                    const [_, height] = resizeByArea(e.naturalWidth, e.naturalHeight, 3600)
                     e.style.height = height + 'px'
+                    loadedCount.current++
+                    clearInterval(intervalId.current)
+                    if (loadedCount.current === images.length * groupCount) {
+                      startAnimation()
+                    }
                   }}
                 />
               ))}
