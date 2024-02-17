@@ -5,7 +5,7 @@ export default async function EventGallery ({ range = [0, 3] }: { range: [number
   const events = await fetchEvents(range)
 
   return (
-    <div className="grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 sm:mx-auto gap-4">
+    <div className="grid grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 grid-rows-[max-content] sm:mx-auto gap-4">
       {events.map((item, index) => (
         <EventCard
           title={item.title}
