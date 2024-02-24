@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react"
 import { inter } from '@/app/fonts'
 import '@/app/styles/globals.css'
 import clsx from 'clsx'
@@ -34,6 +35,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body className="flex flex-col w-screen min-h-screen bg-background-secondary text-foreground">
         {children}
+        <Analytics />
       </body>
     </html>
   )
