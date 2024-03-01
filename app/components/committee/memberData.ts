@@ -15,6 +15,7 @@ export const executives: { name: string, role: string, image?: string, filter?: 
     name: 'Harshit Badam',
     role: 'Secretary',
     image: '/people/2024/harshit-badam.jpg',
+    filter: 'contrast-[1.1] saturate-[0.7] brightness-150',
   },
   {
     name: 'Georgina Qiu',
