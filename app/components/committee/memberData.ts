@@ -12,9 +12,9 @@ export const executives: { name: string, role: string, image?: string, filter?: 
     image: '/people/2024/hanshi-tang.jpg',
   },
   {
-    name: 'Justin Lee',
+    name: 'Harshit Badam',
     role: 'Secretary',
-    image: '/people/2024/justin-lee.jpg',
+    image: '/people/2024/harshit-badam.jpg',
   },
   {
     name: 'Georgina Qiu',
