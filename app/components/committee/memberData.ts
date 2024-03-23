@@ -50,6 +50,11 @@ export const directors: { name: string, role: string, image?: string, filter?: s
     role: 'Design Director',
     image: '/people/2024/rebecca-feng.jpg',
   },
+  {
+    name: 'Danielle Tran',
+    role: 'Marketing Director',
+    image: '/people/2024/danielle-tran.png',
+  },
 ]
 
 export const representatives: { name: string, role: string, image?: string, filter?: string }[] = [
