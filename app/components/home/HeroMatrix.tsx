@@ -14,7 +14,7 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
 
   useEffect(() => {
     const foreground = convertColor('--foreground')
-    const background = convertColor('--background')
+    const background = "#FF00FF"  
     const backgroundSecondary = convertColor('--background-secondary')
 
     const config: any = {
@@ -27,7 +27,7 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
       grid: {
         size: {
           x: 64,
-          y: 36
+          y: 34
         },
         drawShape: 'circle',
       },
@@ -55,7 +55,7 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
     mtx.render((mtx: any) => {
       mtx.grid.reset()
       mtx.renderWave()
-      mtx.write('ds3', 'invert')
+      mtx.write('ds cubed', 'invert')
       mtx.renderTrails()
       mtx.renderTransition(backgroundSecondary)
       mtx.grid.render()

@@ -28,13 +28,18 @@ function getTextDisplayData (str) {
   return { data, lineWidth, lineHeight }
 }
 
+const colors = {
+  1: '#00FF00',
+  2: '#0000FF',
+}
+
 function init (mtx) {
   const printText = (fontData, x, y, mode) => {
     fontData.forEach((char, index) => {
       char.font.forEach((line, pixelY) => {
         line.forEach((pixel, pixelX) => {
-          if (pixel === 1) {
-            mtx.setPixel(pixelX + x, pixelY + y, 1, '', mode)
+          if (pixel) {
+            mtx.setPixel(pixelX + x, pixelY + y, 1, colors[pixel], mode)
           }
         })
       })

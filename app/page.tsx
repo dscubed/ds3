@@ -28,7 +28,7 @@ export default function Index() {
         <hr className="border-0 border-b border-border" />
         <ReasonsSection />
         <hr className="border-0 border-b border-border" />
-        {/* <MapSection /> */}
+        <MapSection />
         {/* <hr className="border-0 border-b border-border" /> */}
         {/* <FollowSection /> */}
         <EventSection />
