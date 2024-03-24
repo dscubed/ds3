@@ -37,23 +37,7 @@ export default async function EventsPage({ searchParams }: { searchParams: { pag
     <>
       <Navbar />
 
-      <main>
-        <Section>
-          <div>
-            <h1 className="text-5xl sm:text-4xl text-center mx-auto mb-5 leading-tight">What&apos;s happening</h1>
-            <p className="text-xl text-text-secondary text-center mx-auto !leading-relaxed">Browse our latest events, workshop sessions, and updates.</p>
-          </div>
-        </Section>
-
-        <Section>
-          <Suspense fallback={<EventGallerySkeleton />} key={page}>
-            <EventGallery range={range} />
-          </Suspense>
-          <Paginator page={page} limit={limit} count={count!} />
-        </Section>
-      </main>
-
-      <Footer />
+ 
     </>
   )
 }
