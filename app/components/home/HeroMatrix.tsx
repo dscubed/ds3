@@ -8,13 +8,14 @@ import transitionAddon from '@/app/components/matrix/addons/transition'
 import waveAddon from '@/app/components/matrix/addons/wave'
 import { convertColor, getTheme } from '@/app/lib/utils'
 
+
 export default function HeroMatrix ({ id, className }: { id: string, className?: string }) {
   const matrixRef = useRef(null) 
   const [prevTheme, setPrevTheme] = useState('dark')
 
   useEffect(() => {
     const foreground = convertColor('--foreground')
-    const background = "#FF00FF"  
+    const background = convertColor('--background')
     const backgroundSecondary = convertColor('--background-secondary')
 
     const config: any = {
@@ -55,11 +56,17 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
     mtx.render((mtx: any) => {
       mtx.grid.reset()
       mtx.renderWave()
-      mtx.write('ds cubed', 'invert')
+      if(prevTheme === 'light'){
+        mtx.write('ds3e', 'invert')
+      }else{
+        mtx.write('@', 'invert')
+      }
       mtx.renderTrails()
       mtx.renderTransition(backgroundSecondary)
       mtx.grid.render()
     })
+
+   
 
     // Reload component on theme change
     function switchTheme () {

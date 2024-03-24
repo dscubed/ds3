@@ -29,8 +29,11 @@ function getTextDisplayData (str) {
 }
 
 const colors = {
-  1: '#00FF00',
-  2: '#0000FF',
+  1: '#FFFFFF',
+  2: '#0472fd',
+  3: '#fe0000',
+  4: '#222222',
+  5: ''
 }
 
 function init (mtx) {
@@ -40,6 +43,7 @@ function init (mtx) {
         line.forEach((pixel, pixelX) => {
           if (pixel) {
             mtx.setPixel(pixelX + x, pixelY + y, 1, colors[pixel], mode)
+            //colors[pixel] instead of '' to activate different colours
           }
         })
       })
