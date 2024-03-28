@@ -31,7 +31,7 @@ export default function Index() {
         <MapSection />
         {/* <hr className="border-0 border-b border-border" /> */}
         {/* <FollowSection /> */}
-        <EventSection />
+        {/* <EventSection /> */}
         <hr className="border-0 border-b border-border" />
         <GallerySection />
         <hr className="border-0 border-b border-border" />

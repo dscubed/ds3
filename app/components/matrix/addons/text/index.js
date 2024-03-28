@@ -33,7 +33,17 @@ const colors = {
   2: '#0472fd',
   3: '#fe0000',
   4: '#222222',
-  5: ''
+  5: '#ff89bc', //light pink
+  6: '#6b6060', //grey
+  7: '#0b0c0b',  //black
+  8: '#4068db',  //blue
+  9: '#4dd15c', //green
+  10: '#f48f04', //orange
+  11: '#f60504', //red
+  12: '#7437ad', //dark purple (rainbow)
+  13: '#ab51ff', //purple (cat)
+  14: '#ffe97f', //yellow (cat)
+  15: '#ffd800', //yellow (rain)
 }
 
 function init (mtx) {

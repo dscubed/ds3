@@ -57,7 +57,7 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
       mtx.grid.reset()
       mtx.renderWave()
       if(prevTheme === 'light'){
-        mtx.write('ds3e', 'invert')
+        mtx.write('|', 'invert')
       }else{
         mtx.write('@', 'invert')
       }
