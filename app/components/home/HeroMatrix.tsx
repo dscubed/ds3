@@ -52,30 +52,36 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
     ])
 
     mtx.init()
-
+ 
     mtx.render((mtx: any) => {
       mtx.grid.reset()
       mtx.renderWave()
+
+      if(prevTheme === 'light'){
+        mtx.write('@',)
+      }else{
+        mtx.write('t','normal')
+      }
+
 
       if(prevTheme === 'light'){
         mtx.write('ds3', 'invert')
       }else{
         mtx.write('|', 'invert')
       }
+   
       mtx.renderTrails()
       mtx.renderTransition(backgroundSecondary)
       mtx.grid.render()
+
+      
     })
 
-    setTimeout(() => {
-      mtx.render((mtx: any) => {
-        if(prevTheme === 'light'){
-          mtx.write('@',)
-        }else{
-          mtx.write('t',)
-        }
-      })
-    }, );
+
+  
+
+
+
     
     // Reload component on theme change
     function switchTheme () {
