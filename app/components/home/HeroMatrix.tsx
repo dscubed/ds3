@@ -76,7 +76,7 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
         }
       })
     }, );
-
+    
     // Reload component on theme change
     function switchTheme () {
       const theme = getTheme()
