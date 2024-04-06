@@ -5,11 +5,11 @@ import { StaticImageData } from 'next/image'
 const data: { src: StaticImageData, description: string }[] = [
   {
     src: event1Image,
-    description: 'women in data'
+    description: ''
   },
   {
     src: event2Image,
-    description: 'i dont know what these events are'
+    description: ''
   },
 ]
 
