@@ -22,7 +22,7 @@
 
   .colors-dark {
     --theme: 21 146 255;
-    --background: 34 34 34;
+    --background: 0 52 102;  /*34 34 34*/
     --background-secondary: 24 24 24;
     --foreground: 221 221 221;
     --btn-background: 34 34 34;

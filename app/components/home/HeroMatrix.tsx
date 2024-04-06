@@ -8,6 +8,7 @@ import transitionAddon from '@/app/components/matrix/addons/transition'
 import waveAddon from '@/app/components/matrix/addons/wave'
 import { convertColor, getTheme } from '@/app/lib/utils'
 
+
 export default function HeroMatrix ({ id, className }: { id: string, className?: string }) {
   const matrixRef = useRef(null) 
   const [prevTheme, setPrevTheme] = useState('dark')
@@ -27,7 +28,7 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
       grid: {
         size: {
           x: 64,
-          y: 36
+          y: 34
         },
         drawShape: 'circle',
       },
@@ -51,16 +52,37 @@ export default function HeroMatrix ({ id, className }: { id: string, className?:
     ])
 
     mtx.init()
-
+ 
     mtx.render((mtx: any) => {
       mtx.grid.reset()
       mtx.renderWave()
-      mtx.write('ds3', 'invert')
+
+      if(prevTheme === 'light'){
+        mtx.write('@',)
+      }else{
+        mtx.write('t','normal')
+      }
+
+
+      if(prevTheme === 'light'){
+        mtx.write('ds3', 'invert')
+      }else{
+        mtx.write('|', 'invert')
+      }
+   
       mtx.renderTrails()
       mtx.renderTransition(backgroundSecondary)
       mtx.grid.render()
+
+      
     })
 
+
+  
+
+
+
+    
     // Reload component on theme change
     function switchTheme () {
       const theme = getTheme()

@@ -131,12 +131,13 @@ export default class Grid {
       return
     }
 
+
     /** 
      * When the mode is set to invert and the pixel is on,
      * setting the state again will turn the pixel off.
      */
     if (pixel.mode === 'invert') {
-      pixel.set(0, null, pixel.mode) // Must continue setting mode to 'invert'
+      pixel.set(1,'#0b0c0b', pixel.mode) // Must continue setting mode to 'invert'  replace color code to null (original) and number to 0
     } else {
       pixel.set(state, color, mode) 
     }
