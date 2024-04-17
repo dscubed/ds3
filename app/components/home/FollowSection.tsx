@@ -8,8 +8,8 @@ export default function FollowSection () {
       <div className="grid grid-cols-[1fr,auto] lg:grid-cols-1 gap-10 max-w-screen-lg lg:max-w-screen-sm mx-auto p-4">
         <div className="flex flex-col gap-10 my-auto">
           <div className="flex flex-col gap-8 max-w-xl">
-            <h2 className="text-4xl">Follow DS Cubed On Social</h2>
-            <p className="text-xl text-text-secondary leading-relaxed">Interested in what we do? DS Cubed is the club for data lovers, students passionate about tech, and those who want to learn more about data science. Follow to stay up to date on our latest events.</p>
+            <h2 className="text-4xl">Follow DSCubed On Social</h2>
+            <p className="text-xl text-text-secondary leading-relaxed">Interested in what we do? DSCubed is the club for data lovers, students passionate about tech, and those who want to learn more about data science. Follow to stay up to date on our latest events.</p>
           </div>
           <div className="grid grid-cols-5 gap-8 w-max">
             <Link href="https://instagram.com/dscubed.unimelb" target="_blank">

@@ -6,20 +6,20 @@ import SpeakersSection from '@/app/components/sponsors/SpeakersSection'
 import GoldTierSection from '@/app/components/sponsors/GoldTierSection'
 
 export const metadata = {
-  title: 'Sponsors | DS Cubed',
-  description: 'View past sponsors of DS Cubed',
+  title: 'Sponsors | DSCubed',
+  description: 'View past sponsors of DSCubed',
   openGraph: {
-    title: 'Sponsors | DS Cubed',
-    description: 'View past sponsors of DS Cubed',
+    title: 'Sponsors | DSCubed',
+    description: 'View past sponsors of DSCubed',
     url: '/sponsors',
-    siteName: 'DS Cubed',
+    siteName: 'DSCubed',
     locale: 'en_AU',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Sponsors | DS Cubed",
-    description: 'View past sponsors of DS Cubed',
+    title: "Sponsors | DSCubed",
+    description: 'View past sponsors of DSCubed',
   },
 }
 
