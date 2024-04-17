@@ -28,7 +28,7 @@ export default function Navbar ({ className = '', ...rest }: { className?: strin
             {/* Logo */}
             <div className="flex">
               <Link href="/">
-                <Logo className="w-28 h-12" />
+                <Logo className="w-max h-12" />
               </Link>
             </div>
 
