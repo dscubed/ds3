@@ -23,7 +23,7 @@ export default function Footer () {
             <Link href="https://medium.com/dscubed-unimelb" target="_blank">
               <Icon.Medium className="w-5 h-5"/>
             </Link>
-            <Link href="https://www.linkedin.com/company/data-science-student-society/" target="_blank">
+            <Link href="https://www.linkedin.com/company/dscubed/" target="_blank">
               <Icon.Linkedin className="w-5 h-5"/>
             </Link>
           </div>
