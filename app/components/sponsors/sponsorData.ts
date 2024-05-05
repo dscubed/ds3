@@ -56,7 +56,7 @@ export const gold = [
   {
     name: 'RedBull',
     category: 'Beverage',
-    image: '/sponsors/logos/redbull_logo.png',
+    image: '/sponsors/logos/redbull.svg',
     link: 'https://www.redbull.com/'
   },
 ]
