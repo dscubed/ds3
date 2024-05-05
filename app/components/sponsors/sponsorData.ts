@@ -54,7 +54,7 @@ export const gold = [
     link: 'https://www.whyhive.com/'
   },
   {
-    name: 'RedBull',
+    name: 'Red Bull',
     category: 'Beverage',
     image: '/sponsors/logos/redbull.svg',
     link: 'https://www.redbull.com/'
