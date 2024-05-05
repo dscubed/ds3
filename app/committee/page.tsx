@@ -49,7 +49,7 @@ export default function CommitteePage() {
 
         <div className="px-2 mx-auto max-w-screen-xl">
           <Image
-            className="w-full max-w-screen-2xl aspect-video mx-auto rounded-2xl object-cover contrast-[1.1] brightness-[0.9] saturate-[1.2]"
+            className="w-full max-w-screen-2xl aspect-video mx-auto rounded-2xl object-cover brightness-[1.1] saturate-[1.2]"
             src={committeePhoto}
             alt="Committee group photo"
           ></Image>
