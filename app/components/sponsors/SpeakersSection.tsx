@@ -23,7 +23,7 @@ export default function SpeakersSection () {
       <div className="flex flex-col gap-10 max-w-screen-xl mx-auto mb-10 px-5">
         <h3 className="text-2xl text-center">Past Speakers From</h3>
       </div>
-      <InfiniteBanner images={speakers} speed={100} />
+      <InfiniteBanner images={speakers} speed={30} />
     </div>
   )
 }
