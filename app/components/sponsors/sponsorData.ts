@@ -1,5 +1,17 @@
 export const gold = [
   {
+    name: 'Aurora Energy Research',
+    category: 'Analytics',
+    image: '/sponsors/logos/aurora.png',
+    link: 'https://auroraer.com/',
+  },
+  {
+    name: 'Red Bull',
+    category: 'Beverage',
+    image: '/sponsors/logos/redbull.svg',
+    link: 'https://www.redbull.com/',
+  },
+  {
     name: 'Melbourne Centre for Data Science',
     category: 'Education',
     image: '/sponsors/logos/mcds.png',
@@ -52,11 +64,5 @@ export const gold = [
     category: 'Software',
     image: '/sponsors/logos/whyhive.png',
     link: 'https://www.whyhive.com/'
-  },
-  {
-    name: 'Red Bull',
-    category: 'Beverage',
-    image: '/sponsors/logos/redbull.svg',
-    link: 'https://www.redbull.com/'
   },
 ]
