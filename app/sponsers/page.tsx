@@ -32,7 +32,7 @@ export default function SponsersPage() {
         <Section>
           <div className="">
             <h1 className="text-5xl sm:text-4xl text-center mx-auto mb-5 !leading-tight">Sponsorships</h1>
-            <p className="text-xl text-text-secondary text-center mx-auto !leading-relaxed">Organisations that have sponsored us in the past.</p>
+            {/* <p className="text-xl text-text-secondary text-center mx-auto !leading-relaxed">Organisations that have sponsored us in the past.</p> */}
           </div>
         </Section>
 
