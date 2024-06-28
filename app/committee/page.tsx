@@ -4,7 +4,7 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import Footer from '@/app/components/Footer'
 import Link from 'next/link'
 import Section from '@/app/components/Section'
-import committeePhoto from '@/public/people/committee.jpg'
+import committeePhoto from '@/public/people/committee.png'
 import ExecutiveSection from '@/app/components/committee/ExecutiveSection'
 import DirectorSection from '@/app/components/committee/DirectorSection'
 import RepresentativeSection from '@/app/components/committee/RepresentativeSection'
@@ -49,7 +49,7 @@ export default function CommitteePage() {
 
         <div className="px-2 mx-auto max-w-screen-xl">
           <Image
-            className="w-full max-w-screen-2xl aspect-video mx-auto rounded-2xl object-cover brightness-[1.1] saturate-[1.2]"
+            className="w-full max-w-screen-2xl min-h-80 aspect-video mx-auto rounded-2xl object-cover brightness-[1.1] saturate-[1.2]"
             src={committeePhoto}
             alt="Committee group photo"
           ></Image>
