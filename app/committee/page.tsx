@@ -52,6 +52,7 @@ export default function CommitteePage() {
             className="w-full max-w-screen-2xl min-h-80 aspect-video mx-auto rounded-2xl object-cover brightness-[1.1] saturate-[1.2]"
             src={committeePhoto}
             alt="Committee group photo"
+            width={1280}
           ></Image>
         </div>
 
