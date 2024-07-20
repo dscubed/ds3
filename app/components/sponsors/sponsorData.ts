@@ -1,4 +1,13 @@
-export const gold = [
+export const platinum = [
+  {
+    name: 'Melbourne Centre for Data Science',
+    category: 'Education',
+    image: '/sponsors/logos/mcds.png',
+    link: 'https://science.unimelb.edu.au/mcds',
+  },
+]
+
+export const silver = [
   {
     name: 'Aurora Energy Research',
     category: 'Analytics',
@@ -6,17 +15,23 @@ export const gold = [
     link: 'https://auroraer.com/',
   },
   {
+    name: 'Ernst & Young',
+    category: 'Professional services',
+    image: '/sponsors/logos/ey.svg',
+    link: 'https://www.ey.com/'
+  },
+]
+
+export const partners = [
+  {
     name: 'Red Bull',
     category: 'Beverage',
     image: '/sponsors/logos/redbull.svg',
     link: 'https://www.redbull.com/',
   },
-  {
-    name: 'Melbourne Centre for Data Science',
-    category: 'Education',
-    image: '/sponsors/logos/mcds.png',
-    link: 'https://science.unimelb.edu.au/mcds',
-  },
+]
+
+export const past = [
   {
     name: 'Citadel',
     category: 'Financial services',
@@ -29,12 +44,7 @@ export const gold = [
     image: '/sponsors/logos/macquarie.svg',
     link: 'https://www.macquarie.com/'
   },
-  {
-    name: 'Ernst & Young',
-    category: 'Professional services',
-    image: '/sponsors/logos/ey.svg',
-    link: 'https://www.ey.com/'
-  },
+ 
   {
     name: 'IBM',
     category: 'Information technology',

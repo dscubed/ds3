@@ -18,6 +18,8 @@
     --error: 255 13 45;
     --skeleton-background: 244 244 244;
     --skeleton-content: 221 221 221;
+    --platinum: 239 238 236;
+    --silver: 232 232 232;
   }
 
   .colors-dark {
@@ -35,6 +37,8 @@
     --error: 223 9 37;
     --skeleton-background: 34 34 34;
     --skeleton-content: 51 51 51;
+    --platinum: 59 58 56;
+    --silver: 52 52 52;
   }
 
   .colors-dark img {

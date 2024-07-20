@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function SponsorCard ({
+  className,
   name,
   category,
   color,
@@ -11,6 +12,7 @@ export default function SponsorCard ({
   link,
   filter = '',
 }: {
+  className?: string,
   name: string,
   category: string,
   color: string,
@@ -19,7 +21,7 @@ export default function SponsorCard ({
   filter: string
 }) {
   return (
-    <div className='relative max-w-full w-full aspect-video min-h-80 rounded-2xl overflow-hidden' style={{backgroundColor: color}}>
+    <div className={clsx('relative max-w-[633px] w-full aspect-video min-h-80 rounded-2xl overflow-hidden', className)} style={{backgroundColor: color}}>
       <div className="absolute w-full grid grid-cols-[1fr,auto] gap-2 p-4">
         <div className="flex flex-col gap-1 my-auto">
           <h4 className="text-xl leading-tight text-text-primary">{name}</h4>

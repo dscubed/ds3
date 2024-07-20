@@ -32,6 +32,8 @@ module.exports = {
         'error': 'rgb(var(--error) / <alpha-value>)',
         'skeleton-background': 'rgb(var(--skeleton-background) / <alpha-value>)',
         'skeleton-content': 'rgb(var(--skeleton-content) / <alpha-value>)',
+        'platinum': 'rgb(var(--platinum) / <alpha-value>)',
+        'silver': 'rgb(var(--silver) / <alpha-value>)',
       },
     },
   },

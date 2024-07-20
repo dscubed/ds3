@@ -3,7 +3,10 @@ import Navbar from '@/app/components/Navbar'
 import Section from '@/app/components/Section'
 import PromoteSection from '@/app/components/sponsors/PromoteSection'
 import SpeakersSection from '@/app/components/sponsors/SpeakersSection'
-import GoldTierSection from '@/app/components/sponsors/GoldTierSection'
+import SilverSponsorSection from '../components/sponsors/SilverSponsorSection'
+import PartnerSection from '../components/sponsors/PartnerSection'
+import PlatinumSponsorSection from '../components/sponsors/PlatinumSponsorSection'
+import PastSponsorSection from '../components/sponsors/PastSponsorSection'
 
 export const metadata = {
   title: 'Sponsors | DSCubed',
@@ -36,7 +39,10 @@ export default function SponsersPage() {
           </div>
         </Section>
 
-        <GoldTierSection />
+        <PlatinumSponsorSection />
+        <SilverSponsorSection />
+        <PartnerSection />
+        <PastSponsorSection />
         <SpeakersSection />
         <PromoteSection />
       </main>
