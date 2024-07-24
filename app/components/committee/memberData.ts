@@ -46,9 +46,9 @@ export const directors: { name: string, role: string, image?: string, filter?: s
     image: '/people/2024/michael-ren.jpg',
   },
   {
-    name: 'Rebecca Feng',
+    name: 'Ryan Li',
     role: 'Design Director',
-    image: '/people/2024/rebecca-feng.jpg',
+    image: '/people/2024/ryan-li.jpg',
   },
   {
     name: 'Danielle Tran',
