@@ -42,7 +42,7 @@ export default function SponsersPage() {
         <PlatinumSponsorSection />
         <SilverSponsorSection />
         <PartnerSection />
-        <PastSponsorSection />
+        {/* <PastSponsorSection /> */}
         <SpeakersSection />
         <PromoteSection />
       </main>
