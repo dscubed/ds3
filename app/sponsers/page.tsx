@@ -7,6 +7,7 @@ import SilverSponsorSection from '../components/sponsors/SilverSponsorSection'
 import PartnerSection from '../components/sponsors/PartnerSection'
 import PlatinumSponsorSection from '../components/sponsors/PlatinumSponsorSection'
 import PastSponsorSection from '../components/sponsors/PastSponsorSection'
+import GoldSponsorSection from '../components/sponsors/GoldSponsorSection'
 
 export const metadata = {
   title: 'Sponsors | DSCubed',
@@ -40,6 +41,7 @@ export default function SponsersPage() {
         </Section>
 
         <PlatinumSponsorSection />
+        <GoldSponsorSection />
         <SilverSponsorSection />
         <PartnerSection />
         {/* <PastSponsorSection /> */}

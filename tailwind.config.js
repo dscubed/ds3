@@ -33,6 +33,7 @@ module.exports = {
         'skeleton-background': 'rgb(var(--skeleton-background) / <alpha-value>)',
         'skeleton-content': 'rgb(var(--skeleton-content) / <alpha-value>)',
         'platinum': 'rgb(var(--platinum) / <alpha-value>)',
+        'gold': 'rgb(var(--gold) / <alpha-value>)',
         'silver': 'rgb(var(--silver) / <alpha-value>)',
       },
     },
