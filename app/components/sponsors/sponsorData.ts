@@ -7,6 +7,15 @@ export const platinum = [
   },
 ]
 
+export const gold = [
+  {
+    name: 'Jane Street',
+    category: 'Financial services',
+    image: '/sponsors/logos/jane-street.png',
+    link: 'https://www.janestreet.com/'
+  },
+]
+
 export const silver = [
   {
     name: 'Aurora Energy Research',
@@ -56,12 +65,6 @@ export const past = [
     category: 'Financial services',
     image: '/sponsors/logos/nasdaq.svg',
     link: 'https://www.nasdaq.com/'
-  },
-  {
-    name: 'Jane Street',
-    category: 'Financial services',
-    image: '/sponsors/logos/jane-street.svg',
-    link: 'https://www.janestreet.com/'
   },
   {
     name: 'Nomura',
