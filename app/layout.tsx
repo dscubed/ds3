@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { inter } from '@/app/fonts'
@@ -31,11 +32,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en" className={clsx('dark', inter.className)}>
       <head>
-        {/* DO NOT REMOVE */}
-        <link rel="author" href="humans.txt" />
+        {/* <link rel="author" href="humans.txt" /> */}
       </head>
       <body className="flex flex-col w-screen min-h-screen bg-background-secondary text-foreground">
         {children}
+        <GoogleAnalytics gaId="G-TKV7XZHY72" />
         <Analytics />
         <SpeedInsights />
       </body>
