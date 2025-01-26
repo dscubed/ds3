@@ -1,10 +1,16 @@
 export const platinum = [
   {
-    name: 'Melbourne Centre for Data Science',
-    category: 'Education',
-    image: '/sponsors/logos/mcds.png',
-    link: 'https://science.unimelb.edu.au/mcds',
+    name: 'IMC',
+    category: 'Financial services',
+    image: '/sponsors/logos/imc.svg',
+    link: 'https://www.imc.com/ap',
   },
+  // {
+  //   name: 'Melbourne Centre for Data Science',
+  //   category: 'Education',
+  //   image: '/sponsors/logos/mcds.png',
+  //   link: 'https://science.unimelb.edu.au/mcds',
+  // },
 ]
 
 export const gold = [
